@@ -1,7 +1,7 @@
 # Blaone
 ## Getting stated
 
-### Initialize a demo project locally
+### Initializing project locally
 
 1. Fork the project
 2. `npm install`
