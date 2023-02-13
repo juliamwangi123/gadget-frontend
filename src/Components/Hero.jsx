@@ -1,13 +1,14 @@
 import React from 'react'
-import Preview from './Preview';
+import Preview from './subcomponents/Preview';
+
 
 const Hero = () => {
   return (
     <div className="w-full">
       <div className="max-w-7xl m-auto">
         <div className="">
-          <div className="sm:w-1/3 flex justify-center sm:justify-start capitalize text-2xl sm:pt-16">
-            <h className="text-[#000000]  font-serif">
+          <div className="sm:w-2/3 flex justify-center sm:justify-start capitalize text-2xl sm:pt-16">
+            <h className="text-2xl text-neutral-900  font-medium capitalize tracking-wider">
               Why Should I Buy From Gadgethub ?
             </h>
           </div>
@@ -52,9 +53,18 @@ const Hero = () => {
           </div>
         </div>
       </div>
-      <div className="bg-[#F3F4F6] sm:h-[11rem]"></div>
-          <div className="max-w-7xl m-auto">
-              <Preview />
+      <div className="bg-[#F3F4F6]">
+        <div className="max-w-7xl m-auto">
+          <h1 className="text-2xl text-neutral-900  font-medium capitalize tracking-wider sm:pt-10 ">
+            The stats don’t Lie
+          </h1>
+          <p className="font-light sm:pt-5 sm:pb-12">
+            Phone theft is real and Gadgethub helps keep you safe
+          </p>
+        </div>
+      </div>
+      <div className="max-w-7xl m-auto">
+        <Preview />
       </div>
     </div>
   );
