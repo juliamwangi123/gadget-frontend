@@ -9,11 +9,11 @@ const Banner = () => {
           <h1 className="uppercase font-bold sm:text-5xl leading-[1.2] tracking-wide pt-8">
             Best Price <br /> Easy-to-Use Platform
           </h1>
-          <p className="capitalize text-sm w-2/5 my-4 ">
+          <p className="capitalize text-sm sm:w-2/4 sm:pr-12 my-4 font-light sm:leading-5 tracking-wide">
             Shop hundreds of revolutionizing used gadgets from different
             manufacturers as leading brand for up to 70 % saving guaranteed
           </p>
-          <div className="flex flex-col gap-4 sm:flex-row">
+          <div className="flex flex-col gap-4 sm:flex-row sm:pt-6">
             <button
               className="text-xl  hover:bg-black hover:border-black bg-[#0043C6] text-blue-100 px-32 border-2 border-[#0043C6]  py-3 rounded-lg tracking-wide font-bold"
               type="submit"
