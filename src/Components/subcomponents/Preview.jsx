@@ -16,7 +16,7 @@ const Preview = () => {
         </h1>
       </div>
       <div className="sm:pt-14 m-auto flex flex-col gap-6 sm:gap-8 sm:flex-row ">
-        <div className="flex flex-col justify-center border-t-2 border-white-200 sm:w-1/3 shadow-xl rounded-2xl px-8">
+        <div className="flex flex-col justify-center border-t-2 border-white-200 sm:w-1/3 shadow-xl rounded-2xl px-8 hover:scale-105  duration-300">
           <div className="flex flex-row pt-8 sm:px-8">
             <img className="pt-8" src={samsonic} alt="" />
             <img className="w-12 h-12" src={love} alt="" />
@@ -49,7 +49,7 @@ const Preview = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-col justify-center border-t-2 border-white-200  sm:w-1/3 shadow-xl rounded-2xl px-8">
+        <div className="flex flex-col justify-center border-t-2 border-white-200  sm:w-1/3 shadow-xl rounded-2xl px-8 hover:scale-105  duration-300">
           <div className="flex flex-row pt-8 px-8">
             <img className="pt-8" src={samsonic} alt="" />
             <img className="w-12 h-12" src={love} alt="" />
@@ -83,7 +83,7 @@ const Preview = () => {
           </div>
         </div>
 
-        <div className="flex flex-col justify-center border-t-2 border-white-200  sm:w-1/3 shadow-xl rounded-2xl px-8">
+        <div className="flex flex-col justify-center border-t-2 border-white-200  sm:w-1/3 shadow-xl rounded-2xl px-8 hover:scale-105  duration-300">
           <div className="flex flex-row pt-8 px-8">
             <img className="pt-8" src={samsonic} alt="" />
             <img className="w-12 h-12" src={love} alt="" />
@@ -121,7 +121,7 @@ const Preview = () => {
       {/* second cards view */}
 
       <div className="sm:pt-20 m-auto flex flex-col gap-6 sm:gap-8 sm:flex-row ">
-        <div className="flex flex-col justify-center border-t-2 border-white-200 sm:w-1/3 shadow-xl rounded-2xl px-8">
+        <div className="flex flex-col justify-center border-t-2 border-white-200 sm:w-1/3 shadow-xl rounded-2xl px-8 hover:scale-105  duration-300">
           <div className="flex flex-row pt-8 px-8">
             <img className="pt-8" src={samsonic} alt="" />
             <img className="w-12 h-12" src={love} alt="" />
@@ -154,7 +154,7 @@ const Preview = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-col justify-center border-t-2 border-white-200  sm:w-1/3 shadow-xl rounded-2xl px-8">
+        <div className="flex flex-col justify-center border-t-2 border-white-200  sm:w-1/3 shadow-xl rounded-2xl px-8 hover:scale-105  duration-300">
           <div className="flex flex-row pt-8 px-8">
             <img className="pt-8" src={samsonic} alt="" />
             <img className="w-12 h-12" src={love} alt="" />
@@ -188,7 +188,7 @@ const Preview = () => {
           </div>
         </div>
 
-        <div className="flex flex-col justify-center border-t-2 border-white-200  sm:w-1/3 shadow-xl rounded-2xl px-8">
+        <div className="flex flex-col justify-center border-t-2 border-white-200  sm:w-1/3 shadow-xl rounded-2xl px-8 hover:scale-105  duration-300">
           <div className="flex flex-row pt-8 px-8">
             <img className="pt-8" src={samsonic} alt="" />
             <img className="w-12 h-12" src={love} alt="" />

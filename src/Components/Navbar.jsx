@@ -1,14 +1,22 @@
-import React from 'react'
+import React,{useState} from 'react'
 import logo from "../assets/logo.png";
+import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
+
 import { RiSearchLine } from "react-icons/ri";
 import { BsPersonFill } from "react-icons/bs";
 import DropDown from './subcomponents/DropDown';
 
 const Navbar = () => {
+  const [OpenMobile, SetMobile] = useState(true)
+  
+  const toggle = ()=> {
+    SetMobile((prev)=> !prev)
+  }
+
   return (
     <div className="w-full bg-[#F2F6FC]">
       <div className="max-w-[1480px] sm:m-auto sm:pt-6">
-        <div className="flex gap-10 w-full">
+        <div className="md:flex gap-10 w-full hidden">
           <div className="flex items-center gap-8 w-3/5">
             <img
               className="w-[5.5rem] h-[4.2rem]"
@@ -86,6 +94,36 @@ const Navbar = () => {
                 >
                   cart
                 </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="flex justify-end">
+          <div>
+            <div>
+              <div className="block md:hidden" onClick={toggle}>
+                {!OpenMobile ? (
+                  <AiOutlineClose size={25} className="text-red-500 mr-4" />
+                ) : (
+                  <AiOutlineMenu size={25} className="text-gray-500 mr-4" />
+                )}
+              </div>
+              <div
+                className={
+                  !OpenMobile
+                    ? "fixed md:left-[-100%] top-0 left-0 w-[60%] h-screen bg-opacity-90 bg-white shadow-md ease-in-out duration-500"
+                    : "fixed left-[-100%]"
+                }
+              >
+                <ul>
+                  <li>Home</li>
+                  <li>Home</li>
+                  <li>Home</li>
+                  <li>Home</li>
+                  <li>Home</li>
+                  <li>Home</li>
+                </ul>
               </div>
             </div>
           </div>
