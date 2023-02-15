@@ -8,9 +8,9 @@ const Hero = () => {
       <div className="max-w-7xl m-auto">
         <div className="">
           <div className="sm:w-2/3 flex justify-center sm:justify-start capitalize text-2xl sm:pt-16">
-            <h className="text-2xl text-neutral-900  font-medium capitalize tracking-wider">
+            <h2 className="text-2xl text-neutral-900  font-medium capitalize tracking-wider">
               Why Should I Buy From Gadgethub ?
-            </h>
+            </h2>
           </div>
           <div className="flex flex-col sm:px-12  sm:flex-row sm:justify-between sm:pt-16">
             <div className="sm:w-1/5">
