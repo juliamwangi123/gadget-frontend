@@ -12,9 +12,9 @@ import {
 const Footer = () => {
   return (
     <div className="w-full border-t-2 border-gray-400 md:my-8">
-      <div className="max-w-[1480px] mx-auto grid md:grid-cols-3 lg:grid-cols-4 gap-6 md:my-28">
-        <div className="font-serif text-base font-medium text-gray-700 lowercase">
-          <img className="w-[4rem] h-[3rem]" src={logo} alt="" srcset="" />
+      <div className="max-w-[1480px] mx-8 grid md:grid-cols-3 lg:grid-cols-4 gap-4 md:my-28">
+        <div className="font-serif text-base font-medium text-gray-700 lowercase ">
+          <img className="w-[4rem] h-[3rem]" src={logo} alt=""  />
           <ul className="leading-7">
             <ul>info@gadgethub.com</ul>
             <ul>10, zone 9 STE. R. DOVER, Delaware, USA.</ul>
@@ -23,7 +23,7 @@ const Footer = () => {
             <ul>+4474758964494</ul>
           </ul>
         </div>
-        <div className="px-4 ">
+        <div className="md:px-28">
           <h1 className="uppercase text-xl tracking-wider font-medium text-gray-900">
             about us
           </h1>
@@ -86,14 +86,14 @@ const Footer = () => {
           <div className=" md:pt-8">
             <h1 className="uppercase text-xl text-gray-600 tracking-wide">join us now</h1>
           </div>
-          <div className=" flex gap-4 md:pt-4">
-            <FaFacebook size={30} className="text-blue-500" />
-            <FaTwitter size={30} className="text-cyan-500" />
-            <FaInstagramSquare size={30} className="text-pink-500" />
-            <FaLinkedin size={30} className="text-blue-700" />
+          <div className=" flex gap-6 md:pt-4">
+            <FaFacebook size={33} className="text-blue-500" />
+            <FaTwitter size={33} className="text-cyan-500" />
+            <FaInstagramSquare size={33} className="text-pink-500" />
+            <FaLinkedin size={33} className="text-blue-700" />
           </div>
           <div className="flex justify-end">
-            <img src={Chat} alt="" srcset="" />
+            <img src={Chat} alt=""  />
           </div>
         </div>
       </div>
