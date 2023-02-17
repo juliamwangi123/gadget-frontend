@@ -2,7 +2,6 @@ import React,{useState} from "react";
 import Banimg from "../assets/tv.png";
 import Headset from "../assets/headset.png";
 import Laptop from "../assets/laptop.png";
-import Iphone from "../assets/unsplash.png";
 
 import { FaRegSquare } from "react-icons/fa";
 
@@ -10,7 +9,6 @@ import { FaRegSquare } from "react-icons/fa";
 
 const slides = [
   {
-    
     url: Banimg,
   },
   {
@@ -20,14 +18,14 @@ const slides = [
     url: Laptop,
   },
   {
-    url: Iphone,
+    url: "https://www.pockettactics.com/wp-content/sites/pockettactics/2022/09/iphone-update-550x309.jpg",
   },
 ];
 
 
 const Banner = () => {
 
-  const [CurrentSlide, SetCurrentSlide] = useState(0)
+  const [CurrentSlide, SetCurrentSlide] = useState()
 
   const SwitchSlide = (index) => {
     SetCurrentSlide(index)
@@ -46,7 +44,7 @@ const Banner = () => {
           </p>
           <div className="flex flex-col gap-4 sm:flex-row sm:pt-6">
             <button
-              className="text-xl  hover:bg-black hover:border-black bg-[#0043C6] text-blue-100 px-32 border-2 border-[#0043C6]  py-3 rounded-lg tracking-wide font-bold"
+              className="text-xl hover:bg-black hover:border-black bg-[#0043C6] text-blue-100 px-32 border-2 border-[#0043C6]  py-3 rounded-lg tracking-wide font-bold"
               type="submit"
             >
               SELL
