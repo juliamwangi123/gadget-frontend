@@ -1,29 +1,24 @@
-import React,{useState} from 'react'
+import React, { useState } from "react";
 import logo from "../assets/logo.png";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 
 import { RiSearchLine } from "react-icons/ri";
 import { BsPersonFill } from "react-icons/bs";
-import DropDown from './subcomponents/DropDown';
+import DropDown from "./subcomponents/DropDown";
 
 const Navbar = () => {
-  const [OpenMobile, SetMobile] = useState(true)
-  
-  const toggle = ()=> {
-    SetMobile((prev)=> !prev)
-  }
+  const [OpenMobile, SetMobile] = useState(true);
+
+  const toggle = () => {
+    SetMobile((prev) => !prev);
+  };
 
   return (
     <div className="w-full bg-[#F2F6FC]">
       <div className="max-w-[1480px] sm:m-auto sm:pt-6">
         <div className="md:flex gap-10 w-full hidden">
           <div className="flex items-center gap-8 w-3/5">
-            <img
-              className="w-[5.5rem] h-[4.2rem]"
-              src={logo}
-              alt=""
-              
-            />
+            <img className="w-[5.5rem] h-[4.2rem]" src={logo} alt="" />
             <div className="w-full">
               <div className="relative flex items-center text-gray-500">
                 <RiSearchLine className="w-5 h-5 absolute ml-3 pointer-events-none" />
@@ -112,7 +107,7 @@ const Navbar = () => {
               <div
                 className={
                   !OpenMobile
-                    ? "fixed md:left-[-100%] top-0 left-0 pt-12 flex justify-center w-[60%] h-screen bg-opacity-95 bg-blue-100 shadow-md ease-in-out duration-500"
+                    ? "fixed md:left-[-100%] top-0 left-0 pt-12 flex justify-center w-[60%] h-screen bg-opacity-100 bg-black shadow-md ease-in-out duration-500"
                     : "fixed left-[-100%]"
                 }
               >
@@ -144,13 +139,12 @@ const Navbar = () => {
                   </li>
                 </ul>
               </div>
-              
             </div>
           </div>
         </div>
       </div>
     </div>
   );
-}
+};
 
 export default Navbar;

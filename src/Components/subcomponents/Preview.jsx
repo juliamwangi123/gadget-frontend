@@ -74,7 +74,7 @@ const Preview = () => {
 
             <div className="pt-5 pb-12">
               <button
-                className="text-xl hover:bg-black hover:border-black bg-[#0043C6] text-blue-100 px-24 border-2 border-[#0043C6]  py-3 rounded-lg capitalize tracking-wide font-bold"
+                className="md::text-xl  text-lg px-16 hover:bg-black hover:border-black bg-[#0043C6] text-blue-100 lg:px-24 border-2 border-[#0043C6]  py-3 rounded-lg capitalize tracking-wide font-bold"
                 type="submit"
               >
                 add to cart
