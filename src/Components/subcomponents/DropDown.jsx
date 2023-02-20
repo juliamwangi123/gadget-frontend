@@ -1,45 +1,29 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 const DropDown = () => {
   return (
-    <div className="">
-      <ul
-        className="py-2 text-sm text-gray-700 dark:text-gray-200"
-        aria-labelledby="dropdownDefaultButton"
-      >
-        <li>
-          <a
-            href="#"
-            className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-          >
-            Dashboard
-          </a>
-        </li>
-        <li>
-          <a
-            href="#"
-            className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-          >
-            Settings
-          </a>
-        </li>
-        <li>
-          <a
-            href="#"
-            className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-          >
-            Earnings
-          </a>
-        </li>
-        <li>
-          <a
-            href="#"
-            className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-          >
-            Sign out
-          </a>
-        </li>
-      </ul>
+    <div className="flex flex-col justify-center w-full capitalize m-8 gap-6">
+      <div className="">
+        <NavLink
+          to="/login"
+          className="capitalize  bg-[#0043C6] text-blue-100 py-2 px-8 text-base rounded-lg  hover:bg-black hover:border-black font-sans font-medium"
+          type="submit"
+        >
+          create account
+        </NavLink>
+      </div>
+
+      <div className="pb-16">
+        <NavLink
+          
+          to="/register"
+          className="py-2 px-16 text-base hover:bg-blue-100 text-[#0043C6] rounded-lg bg-white border border-[#0043C6] capitalize font-sans font-bold"
+          type="submit"
+        >
+          sign in
+        </NavLink>
+      </div>
     </div>
   );
 };
