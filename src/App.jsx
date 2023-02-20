@@ -1,25 +1,25 @@
 
 import './App.css'
 import {
-  Hero,
   Navbar,
-  Banner,
-  Footer,
-  Testimonials,
-  Ads,
-  Tailblock,
+  Home,
+  Signin,
+  Signup
 } from "./Components";
+
+import { Route,Routes } from 'react-router-dom';
+
 
 function App() {
 
   return (
     <div className="App">
-      <Navbar />
-      <Tailblock />
-      <Hero />
-      <Testimonials />
-      <Ads />
-      <Footer />
+      
+      <Routes>
+        <Route path="/home" element={<Home />} />
+        <Route path="/login" element={<Signin />} />
+        <Route path="/register" element={<Signup />} />
+      </Routes>
     </div>
   );
 }

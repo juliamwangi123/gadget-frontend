@@ -4,6 +4,7 @@ import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 
 import { RiSearchLine } from "react-icons/ri";
 import { BsPersonFill } from "react-icons/bs";
+import { FaShoppingCart } from "react-icons/fa";
 import DropDown from "./subcomponents/DropDown";
 
 const Navbar = () => {
@@ -38,15 +39,23 @@ const Navbar = () => {
               </div>
             </div>
           </div>
-          <div className="px-16 sm:pt-4">
+          <div className="px-10 sm:pt-4 ">
             <div className="flex gap-12">
+              <div className="capitalize">
+                <button
+                  className="capitalize font-sans font-medium text-base text-gray-900 "
+                  type="button"
+                >
+                  contact us
+                </button>
+              </div>
               <div className="flex ">
-                <BsPersonFill className="w-8 h-8" />
+                <BsPersonFill className="w-6 h-6" />
 
                 <button
                   id="dropdownDefaultButton"
                   data-dropdown-toggle="dropdown"
-                  className="uppercase font-medium font-serif text-stone-900 text-base px-2  text-center inline-flex items-center"
+                  className="capitalize font-sans font-medium text-base text-gray-900 px-2  text-center inline-flex items-center"
                   type="button"
                 >
                   account{" "}
@@ -66,27 +75,22 @@ const Navbar = () => {
                     ></path>
                   </svg>
                 </button>
+
                 <div
                   id="dropdown"
-                  className="z-10 hidden bg-white bg-opacity-50 divide-y divide-gray-100 rounded-lg shadow-2xl w-[15rem] "
+                  className="z-10 hidden bg-slate-100 bg-opacity-50 border-2 border-white rounded-lg shadow-2xl w-[15rem]"
                 >
                   <DropDown />
                 </div>
               </div>
-              <div className="">
-                <button
-                  className="uppercase font-serif font-medium text-base text-stone-900 "
-                  type="button"
-                >
-                  contact us
-                </button>
-              </div>
 
               <div>
                 <button
-                  className="uppercase font-medium font-serif text-base text-stone-900 "
+                  className="capitalize font-sans font-medium text-base inline-flex gap-1 text-gray-900 tracking-wide "
                   type="button"
                 >
+                  <FaShoppingCart size={20} />
+                  <span > </span>
                   cart
                 </button>
               </div>
