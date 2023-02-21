@@ -165,11 +165,12 @@ const Preview = () => {
               <h1 className="capitalize font-medium font-sans text-xl">
                 sort by :
               </h1>
-              <select className="border-none text-gray-500 capitalize font-sans text-xl font-extralight tracking-wider">
+              <select className="border-none text-gray-500 capitalize font-sans text-xl divide-y font-extralight tracking-wider focus:border-white cursor-pointer">
                 <option selected>Popularity</option>
-                <option>2021</option>
-                <option>2020</option>
-                <option>2019</option>
+                <option>Newest arrivals</option>
+                <option>low to high</option>
+                <option>high to low</option>
+                <option>product rating</option>
               </select>
             </div>
           </div>
