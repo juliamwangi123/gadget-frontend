@@ -21,7 +21,7 @@ const PreviewCard = ({ product }) => {
         <div className="flex justify-between pr-3 ml-2">
           <img src={image} className="object-fit" alt="" />
           <RiHeartFill
-            onClick={() => Saved()}
+        
             className={`${
               isSaved
                 ? "text-[#EB3223] cursor-pointer"
