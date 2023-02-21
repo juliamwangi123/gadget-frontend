@@ -16,26 +16,34 @@ const PreviewCard = ({ product }) => {
 
    
   return (
-    <div className="bg-[#FFFFFF] max-w-[20rem] rounded-xl shadow-md">
+    <div className="bg-[#FFFFFF] max-w-[20rem] rounded-xl shadow-md transition Hover:duration-300 ease-in-out cursor-pointer hover:shadow-2xl">
       <div className="flex flex-col pt-4 ml-6 pb-6">
         <div className="flex justify-between pr-3 ml-2">
           <img src={image} className="object-fit" alt="" />
-          <RiHeartFill onClick={()=> Saved()} className={`${isSaved ? "text-[#EB3223] cursor-pointer":"text-gray-300 cursor-pointer"}`} size={35} />
+          <RiHeartFill
+            onClick={() => Saved()}
+            className={`${
+              isSaved
+                ? "text-[#EB3223] cursor-pointer"
+                : "text-gray-300 cursor-pointer"
+            }`}
+            size={35}
+          />
         </div>
         <div className=" pt-4">
           <h1 className="font-sans font-bold text-gray-900">
             {TruncatedTitle}
           </h1>
-          <h1 className="font-sans font-bold text-gray-900">₦ 80,000</h1>
+          <h1 className="font-sans font-bold text-[#FF6700]">₦ {price}</h1>
         </div>
         <div className="flex justify-between my-2 pr-8">
           <div className="flex items-center">
-            <MdOutlineStarPurple500 size={20} className="text-[#FF0100]" />
-            <MdOutlineStarPurple500 size={20} className="text-[#FF0100]" />
-            <MdOutlineStarPurple500 size={20} className="text-[#FF0100]" />
-            <MdOutlineStarOutline size={20} className="text-[#FF0100]" />
-            <MdOutlineStarOutline size={20} className="text-[#FF0100]" />
-            <MdOutlineStarOutline size={20} className="text-[#FF0100]" />
+            <MdOutlineStarPurple500 size={20} className="text-[#F6BA2A]" />
+            <MdOutlineStarPurple500 size={20} className="text-[#F6BA2A]" />
+            <MdOutlineStarPurple500 size={20} className="text-[#F6BA2A]" />
+            <MdOutlineStarOutline size={20} className="text-[#F6BA2A]" />
+            <MdOutlineStarOutline size={20} className="text-[#F6BA2A]" />
+            <MdOutlineStarOutline size={20} className="text-[#F6BA2A]" />
           </div>
           <span className="font-sans font-semibold text-gray-900">(24)</span>
 
@@ -46,7 +54,7 @@ const PreviewCard = ({ product }) => {
         <div className="flex gap-4 items-center">
           <MdLocationOn size={25} className="text-gray-400 " />
           <p className="text-gray-500 capitalize font-sans text-lg font-extralight tracking-wider">
-           { location},Nigeria
+            {location},Nigeria
           </p>
         </div>
         <div className="pt-4 mx-10">
