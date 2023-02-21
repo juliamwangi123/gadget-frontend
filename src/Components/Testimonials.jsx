@@ -53,28 +53,39 @@ const Testimonials = () => {
 
   return (
     <div className="w-full max-w-7xl mx-auto flex flex-col items-center relative">
-      <div className="sm:my-28 sm:pt-10 md:pb-10 w-full">
+      <div className="sm:my-16 md:pb-16 w-full">
         <div className="flex flex-col items-center">
-          <div className="md:pb-28 pb-8">
+          <div className="md:pb-10">
             <h2 className="text-2xl text-neutral-900  font-medium capitalize tracking-wider">
               What people who have bought here said
             </h2>
           </div>
 
-          <div className="border-2 rounded-lg border-gray-500 mx-4 my-4 md:w-2/3">
+          <div className=" shadow-sm border border-gray-200 w-full flex justify-center flex-col rounded-xl bg-[#F2F9FF] mx-4 my-4 md:w-2/3">
             <div className="mx-20 md:px-24">
               <p className="md:text-center font-light pt-4 md:pt-14">
                 {monials[CurrenTestimonial].testimony}
               </p>
             </div>
-            <div className="text-center md:pt-6 pt-4 pb-2 md:pb-14">
-              <h1 className="font-medium text-xl  text-gray-900">
-                {monials[CurrenTestimonial].date} by {monials[CurrenTestimonial].name}
+            <div className="flex flex-col mx-[11rem] pt-2">
+              <div className="flex items-center gap-6">
+                <img
+                  className="w-16 h-16 rounded-full"
+                  src="https://images.unsplash.com/photo-1676739000153-404e60208001?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyNzd8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+                  alt=""
+                />
+                <h1 className="text-[#0043C6] text-xl font-sans font-semibold">
+                  {monials[CurrenTestimonial].name}
+                </h1>
+              </div>
+
+              <h1 className="font-medium text-lg italic py-2 text-gray-900">
+                {monials[CurrenTestimonial].date}
               </h1>
             </div>
           </div>
         </div>
-        <div className="absolute top-[55%] translate-x-5 ">
+        <div className="absolute top-[45%] translate-x-5 ">
           <FaChevronLeft
             onClick={SwipeLeft}
             size={60}
@@ -84,7 +95,7 @@ const Testimonials = () => {
 
         <div
           onClick={SwipeRight}
-          className="absolute top-[55%] translate-x-5 right-12 "
+          className="absolute top-[45%] translate-x-5 right-12 "
         >
           <FaChevronRight
             onClick={SwipeRight}

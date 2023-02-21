@@ -11,9 +11,9 @@ import {
 
 const Footer = () => {
   return (
-    <div className="w-full border-t-2 flex justify-center md:mt-32 border-gray-400 md:my-8">
+    <div className="w-full border-t-2 flex justify-center md:mt-24 border-gray-400">
       <div>
-        <div className="max-w-[1480px] mx-auto grid md:grid-cols-3 lg:grid-cols-4 gap-10  md:my-10 md:pt-12">
+        <div className="max-w-[1480px] mx-auto grid md:grid-cols-3 lg:grid-cols-4 gap-10  md:my-10 md:pt-6">
           <div className="font-serif text-base font-medium text-gray-700 lowercase ">
             <img className="w-[4rem] h-[3rem]" src={logo} alt="" />
             <ul className="leading-7">
@@ -100,7 +100,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="flex justify-center sm:pb-20 font-serif text-lg text-gray-600 tracking-wide">
+        <div className="flex justify-center font-serif text-lg pb-4 text-gray-600 tracking-wide">
           <p>Copyright Gadgethub Technologies Inc. 2022</p>
         </div>
       </div>

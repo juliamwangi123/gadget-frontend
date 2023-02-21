@@ -9,6 +9,8 @@ import Home from "./Home";
 import Signin from "./Auth/Signin"
 import Signup from "./Auth/Signup";
 
+import Preview from "./Preview";
+import PreviewCard from "./PreviewCard";
 
 
 
@@ -17,4 +19,18 @@ import Signup from "./Auth/Signup";
 
 
 
-export { Hero, Navbar, Banner, Footer, Testimonials, Ads, Tailblock,Home,Signin,Signup };
+
+export {
+  Hero,
+  Navbar,
+  Banner,
+  Footer,
+  Testimonials,
+  Ads,
+  Tailblock,
+  Home,
+  Signin,
+  Signup,
+  Preview,
+  PreviewCard,
+};

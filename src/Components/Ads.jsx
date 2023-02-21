@@ -4,7 +4,7 @@ import Group from "../assets/group.png";
 
 const Ads = () => {
   return (
-    <div className="w-full max-w-[1480px] mx-auto select-none bg-[#F3F4F6] md:mt-10  relative rounded-2xl">
+    <div className="w-full max-w-[1480px] mx-auto select-none bg-[#F3F4F6] relative rounded-2xl">
       <div className="flex justify-end">
         <div className="md:w-1/3 text-gray-900 font-medium capitalize text-2xl font-sans my-24 lg:mr-48 sm:mr-44">
           <h1 className="leading-9 tracking-wide">

@@ -44,11 +44,11 @@ const Tailblock = () => {
             manufacturers as leading brand <br /> for up to 70 % saving
             guaranteed
           </p>
-          <div className="flex flex-col sm:flex-row md:my-4">
-            <button className="inline-flex text-xl uppercase hover:bg-black hover:border-black bg-[#0043C6] text-blue-100 py-3 px-24 border-2 border-[#0043C6] rounded-lg tracking-wide font-bold">
+          <div className="flex flex-col sm:flex-row md:gap-4 md:my-4">
+            <button className="text-xl capitalize hover:bg-black hover:border-black bg-[#0043C6] text-blue-100 px-20 rounded-lg tracking-wide font-medium">
               sell
             </button>
-            <button className=" ml-4 inline-flex text-xl hover:bg-blue-100 border-2 border-[#0043C6]  text-[#0043C6] py-3 px-24 rounded-lg tracking-wide font-bold uppercase">
+            <button className=" ml-4 inline-flex text-xl hover:bg-blue-100 border-2 border-[#0043C6]  text-[#0043C6] py-2 px-20 rounded-lg tracking-wide font-medium capitalize">
               buy
             </button>
           </div>
