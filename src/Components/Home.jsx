@@ -5,7 +5,8 @@ import {
   Testimonials,
   Ads,
   Tailblock,
-  Navbar
+  Navbar,
+  Preview
 } from "./";
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
       <Navbar />
       <Tailblock />
       <Hero />
+      <Preview />
       <Testimonials />
       <Ads />
       <Footer />

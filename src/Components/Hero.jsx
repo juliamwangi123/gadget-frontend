@@ -1,5 +1,8 @@
 import React from 'react'
-import Preview from './subcomponents/Preview';
+import Safe from "../assets/safe.png"
+import Secure from "../assets/secure.png";
+import Price from "../assets/price.png"
+
 
 
 const Hero = () => {
@@ -14,7 +17,10 @@ const Hero = () => {
           </div>
           <div className="flex flex-col sm:px-12  sm:flex-row sm:justify-between sm:pt-16">
             <div className="sm:w-1/5">
-              <h2 className="text-2xl text-neutral-900  font-medium">
+              <div className="px-10 pb-4">
+                <img className="w-16" src={Safe} alt="" />
+              </div>
+              <h2 className="text-2xl text-neutral-900  font-medium tracking-wider">
                 Safe Pickup.
               </h2>
               <p className="font-light sm:pt-3">
@@ -23,8 +29,11 @@ const Hero = () => {
               </p>
             </div>
             <div className="sm:w-1/5 ">
-              <div>
-                <h2 className="text-2xl text-neutral-900  font-medium">
+              <div className="">
+                <div className="px-16 pb-4">
+                  <img className="w-16" src={Secure} alt="" />
+                </div>
+                <h2 className="text-2xl text-neutral-900  font-medium tracking-wider">
                   Secure Payment.
                 </h2>
               </div>
@@ -34,7 +43,11 @@ const Hero = () => {
               </p>
             </div>
             <div className="sm:w-1/5">
-              <h2 className="text-2xl text-neutral-900  font-medium">
+              <div className="px-14 pb-4">
+                <img className="w-16" src={Price} alt="" />
+              </div>
+
+              <h2 className="text-2xl text-neutral-900  font-medium tracking-wider">
                 Affordable Price.
               </h2>
               <p className="font-light sm:pt-3">
@@ -43,28 +56,15 @@ const Hero = () => {
               </p>
             </div>
           </div>
-          <div className="flex flex-col justify-center items-center sm:flex sm:pt-16 sm:pb-16">
+          <div className="flex flex-col justify-center items-center sm:flex sm:pt-10 sm:pb-16">
             <button
-              className="text-xl  hover:bg-black hover:border-black bg-[#0043C6] text-blue-100 px-20 border-2 border-[#0043C6]  py-3 rounded-lg tracking-wide font-bold"
+              className="text-xl capitalize hover:bg-black hover:border-black bg-[#0043C6] text-blue-100 px-14 py-3 rounded-lg tracking-wide font-medium"
               type="submit"
             >
-              Make a Purchase
+              buy now
             </button>
           </div>
         </div>
-      </div>
-      <div className="bg-[#F3F4F6]">
-        <div className="max-w-7xl m-auto">
-          <h1 className="text-2xl text-neutral-900  font-medium capitalize tracking-wider sm:pt-10 ">
-            The stats don’t Lie
-          </h1>
-          <p className="font-light sm:pt-5 sm:pb-12">
-            Phone theft is real and Gadgethub helps keep you safe
-          </p>
-        </div>
-      </div>
-      <div className="max-w-7xl m-auto">
-        <Preview />
       </div>
     </div>
   );

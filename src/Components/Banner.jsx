@@ -47,13 +47,13 @@ const Banner = () => {
               className="text-xl hover:bg-black hover:border-black bg-[#0043C6] text-blue-100 px-32 border-2 border-[#0043C6]  py-3 rounded-lg tracking-wide font-bold"
               type="submit"
             >
-              SELL
+              sell
             </button>
             <button
               className="text-xl hover:bg-blue-100 border-2 border-[#0043C6]  text-[#0043C6] sm:ml-8 px-32  py-3 rounded-lg tracking-wide font-bold"
               type="submit"
             >
-              BUY
+              buy
             </button>
           </div>
         </div>
