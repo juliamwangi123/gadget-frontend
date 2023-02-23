@@ -8,10 +8,13 @@ import {
   Navbar,
   Preview
 } from "./";
+const bgcolors = {
+  primary: "#F2F6FC",
+  secondary: "#FFFFFFF"
+};
 const Home = () => {
   return (
     <div>
-      <Navbar />
       <Tailblock />
       <Hero />
       <Preview />

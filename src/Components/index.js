@@ -1,5 +1,4 @@
 import Hero from "./Hero";
-import Banner from "./Banner";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import Testimonials from "./Testimonials";
@@ -11,6 +10,7 @@ import Signup from "./Auth/Signup";
 
 import Preview from "./Preview";
 import PreviewCard from "./PreviewCard";
+import SellGadget from "./SellGadget";
 
 
 
@@ -23,7 +23,7 @@ import PreviewCard from "./PreviewCard";
 export {
   Hero,
   Navbar,
-  Banner,
+ 
   Footer,
   Testimonials,
   Ads,
@@ -33,4 +33,5 @@ export {
   Signup,
   Preview,
   PreviewCard,
+  SellGadget,
 };

@@ -2,6 +2,7 @@ import React,{useState} from "react";
 import Banimg from "../assets/tv.png";
 import Headset from "../assets/headset.png";
 import Laptop from "../assets/laptop.png";
+import { NavLink } from "react-router-dom";
 
 import { FaRegSquare } from "react-icons/fa";
 
@@ -43,12 +44,13 @@ const Banner = () => {
             manufacturers as leading brand for up to 70 % saving guaranteed
           </p>
           <div className="flex flex-col gap-4 sm:flex-row sm:pt-6">
-            <button
+            <NavLink
+              to="/sell-gadget"
               className="text-xl hover:bg-black hover:border-black bg-[#0043C6] text-blue-100 px-32 border-2 border-[#0043C6]  py-3 rounded-lg tracking-wide font-bold"
               type="submit"
             >
               sell
-            </button>
+            </NavLink>
             <button
               className="text-xl hover:bg-blue-100 border-2 border-[#0043C6]  text-[#0043C6] sm:ml-8 px-32  py-3 rounded-lg tracking-wide font-bold"
               type="submit"

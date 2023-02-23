@@ -2,7 +2,7 @@ import React from 'react'
 import Safe from "../assets/safe.png"
 import Secure from "../assets/secure.png";
 import Price from "../assets/price.png"
-
+import { Link } from 'react-router-dom';
 
 
 const Hero = () => {

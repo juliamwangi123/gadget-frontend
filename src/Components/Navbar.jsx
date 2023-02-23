@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import logo from "../assets/logo.png";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
-
+import { Link } from "react-router-dom";
 import { RiSearchLine } from "react-icons/ri";
 import { BsPersonFill } from "react-icons/bs";
 import { FaShoppingCart } from "react-icons/fa";
 import DropDown from "./subcomponents/DropDown";
 
-const Navbar = () => {
+const Navbar = ()=> {
+  
+ 
   const [OpenMobile, SetMobile] = useState(true);
 
   const toggle = () => {
@@ -15,11 +17,13 @@ const Navbar = () => {
   };
 
   return (
-    <div className="w-full bg-[#F2F6FC]">
+    <div className="w-full">
       <div className="max-w-[1480px] sm:m-auto sm:pt-6">
         <div className="md:flex gap-10 w-full hidden">
           <div className="flex items-center gap-8 w-3/5">
-            <img className="w-[5.5rem] h-[4.2rem]" src={logo} alt="" />
+            <Link to="/" className="cursor-pointer">
+              <img className="w-[5.5rem] h-[4.2rem]" src={logo} alt="" />
+            </Link>
             <div className="w-full">
               <div className="relative flex items-center text-gray-500">
                 <RiSearchLine className="w-5 h-5 absolute ml-3 pointer-events-none" />
@@ -90,7 +94,7 @@ const Navbar = () => {
                   type="button"
                 >
                   <FaShoppingCart size={20} />
-                  <span > </span>
+                  <span> </span>
                   cart
                 </button>
               </div>

@@ -174,7 +174,7 @@ const Preview = () => {
               </select>
             </div>
           </div>
-          <div className="pt-5 grid lg:grid-cols-3 gap-4 grid-cols-1 md:grid-cols-3 sm:grid-cols-2">
+          <div className="pt-5 gap-5 flex flex-col sm:flex-row flex-wrap">
             {Products.map((product) => (
               <PreviewCard key={product.id} product={product} />
             ))}
@@ -184,13 +184,20 @@ const Preview = () => {
               <button className=" hover:bg-blue-100 border border-[#0043C6] text-xl text-blue-700 font-light py-2 px-10 rounded-lg tracking-wide font-sans capitalize">
                 previous
               </button>
-              <span className="text-xl">1</span>
+              <span className="text-xl flex items-center justify-center border cursor-pointer hover:border-[#0043C6] w-9 h-9">
+                <p>1</p>
+              </span>
               <span className="text-white text-xl flex items-center justify-center  bg-[#0043C6] w-9 h-9">
                 <p>2</p>
               </span>
-              <span className="text-xl">3</span>
+              <span className="text-xl flex items-center justify-center border cursor-pointer hover:border-[#0043C6] w-9 h-9">
+                <p>3</p>
+              </span>
               <span className="text-xl">...</span>
-              <span className="text-xl font-sans">20</span>
+              <span className="text-xl flex items-center justify-center border cursor-pointer hover:border-[#0043C6] w-9 h-9">
+                <p>20</p>
+              </span>
+
               <button className=" hover:bg-blue-100 border border-[#0043C6] text-xl  text-blue-700 font-light py-2 px-10 rounded-lg tracking-wide font-sans capitalize">
                 next
               </button>
