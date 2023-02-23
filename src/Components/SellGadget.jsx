@@ -16,7 +16,7 @@ const SellGadget = () => {
             <h1 className="text-3xl capitalize">sell your gadget</h1>
           </div>
 
-          <div className="flex md:flex-row smx:px-10 md:gap-6 justify-center flex-col mt-6 sm:mt-14 w-full">
+          <div className="flex md:flex-row smx:px-10 md:gap-24 sm:px-4 justify-center flex-col mt-6 sm:mt-14 w-full">
             <div className="flex flex-col w-full">
               <div class="mt-6 md:mt-10 mb-4">
                 <div class="flex md:justify-center px-4 sm:px-24 ">
