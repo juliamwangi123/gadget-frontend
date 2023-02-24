@@ -11,6 +11,8 @@ import Signup from "./Auth/Signup";
 import Preview from "./Preview";
 import PreviewCard from "./PreviewCard";
 import SellGadget from "./SellGadget";
+import FeedbackForm from "./FeedbackForm";
+import SellDetails from "./SellDetails";
 
 
 
@@ -34,4 +36,6 @@ export {
   Preview,
   PreviewCard,
   SellGadget,
+  SellDetails,
+  FeedbackForm
 };

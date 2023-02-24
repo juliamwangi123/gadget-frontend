@@ -96,8 +96,8 @@ const SellDetails = () => {
                 save as draft
               </button>
               <Link
-                to="/product-details"
-                className="text-[20px] capitalize hover:bg-emerald-400 hover:text-emerald-50 bg-[#00A725] py-2.5 px-6 text-green-50  rounded-lg tracking-wide font-medium"
+                to="/customers-feedback"
+                className="text-[20px] capitalize hover:bg-emerald-400 hover:text-emerald-50 bg-[#00A725] py-2.5 px-8 text-green-50  rounded-lg tracking-wide font-medium"
                 type="submit"
               >
                 publish

@@ -5,11 +5,12 @@ import {
   Home,
   Signin,
   Signup,
-  SellGadget
+  SellGadget,
+  SellDetails,
+  FeedbackForm
 } from "./Components";
 
 import { Route,Routes } from 'react-router-dom';
-import SellDetails from './Components/SellDetails';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route path="/register" element={<Signup />} />
         <Route path="/sell-gadget" element={<SellGadget />} />
         <Route path="/product-details" element={<SellDetails />} />
+        <Route path="/customers-feedback" element={<FeedbackForm />} />
       </Routes>
     </div>
   );
