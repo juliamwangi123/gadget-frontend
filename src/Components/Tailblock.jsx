@@ -47,12 +47,18 @@ const Tailblock = () => {
             guaranteed
           </p>
           <div className="flex flex-col sm:flex-row md:gap-4 md:my-4">
-            <Link to="sell-gadget" className="text-xl inline-flex items-center capitalize hover:bg-black hover:border-black bg-[#0043C6] text-blue-100 px-20 rounded-lg tracking-wide font-medium">
+            <Link
+              to="sell-gadget"
+              className="text-xl inline-flex items-center capitalize hover:bg-black hover:border-black bg-[#0043C6] text-blue-100 px-20 rounded-lg tracking-wide font-medium"
+            >
               sell
             </Link>
-            <button className=" ml-4 inline-flex text-xl hover:bg-blue-100 border-2 border-[#0043C6]  text-[#0043C6] py-2 px-20 rounded-lg tracking-wide font-medium capitalize">
+            <Link
+              to="/products-page"
+              className=" ml-4 inline-flex text-xl hover:bg-blue-100 border-2 border-[#0043C6]  text-[#0043C6] py-2 px-20 rounded-lg tracking-wide font-medium capitalize"
+            >
               buy
-            </button>
+            </Link>
           </div>
         </div>
         <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 relative">
