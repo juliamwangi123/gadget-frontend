@@ -13,7 +13,7 @@ import PreviewCard from "./PreviewCard";
 import SellGadget from "./SellGadget";
 import FeedbackForm from "./FeedbackForm";
 import SellDetails from "./SellDetails";
-
+import BuyProduct from "./BuyProduct";
 
 
 
@@ -25,7 +25,6 @@ import SellDetails from "./SellDetails";
 export {
   Hero,
   Navbar,
- 
   Footer,
   Testimonials,
   Ads,
@@ -37,5 +36,6 @@ export {
   PreviewCard,
   SellGadget,
   SellDetails,
-  FeedbackForm
+  FeedbackForm,
+  BuyProduct
 };

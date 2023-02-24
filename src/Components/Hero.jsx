@@ -57,12 +57,13 @@ const Hero = () => {
             </div>
           </div>
           <div className="flex flex-col justify-center items-center sm:flex sm:pt-10 sm:pb-16">
-            <button
+            <Link
+              to="/products-page"
               className="text-xl capitalize hover:bg-black hover:border-black bg-[#0043C6] text-blue-100 px-14 py-3 rounded-lg tracking-wide font-medium"
               type="submit"
             >
               buy now
-            </button>
+            </Link>
           </div>
         </div>
       </div>
