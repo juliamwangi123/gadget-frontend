@@ -3,6 +3,7 @@ import Navbar from './Navbar'
 import { BsImageFill } from "react-icons/bs";
 import { FaYoutubeSquare } from "react-icons/fa";
 import Footer from './Footer';
+import { Link } from 'react-router-dom';
 
 
 const SellGadget = () => {
@@ -233,12 +234,12 @@ const SellGadget = () => {
                   >
                     save as draft
                   </button>
-                  <button
+                  <Link to="/product-details"
                     className="text-[20px] capitalize hover:bg-emerald-400 hover:text-emerald-50 bg-[#00A725] py-2.5 px-6 text-green-50  rounded-lg tracking-wide font-medium"
                     type="submit"
                   >
                     procced
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>
