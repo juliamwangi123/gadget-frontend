@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import Banimg from "../assets/tv.png";
 import Headset from "../assets/headset.png";
 import Laptop from "../assets/laptop.png";
@@ -8,29 +8,42 @@ import { FaRegSquare } from "react-icons/fa";
 import Navbar from './Navbar';
 
 
-
 const slides = [
-  {
-    url: Banimg,
-  },
-  {
-    url: Headset,
-  },
-  {
-    url: Laptop,
-  },
-  {
-    url: Iphone,
-  },
+   Banimg,
+  Headset,
+   Laptop,
+  
+   Iphone,
+  
 ];
 
+let count = 0;
 
 const Tailblock = () => {
-  const [CurrentSlide, SetCurrentSlide] = useState(0);
+  const [CurrentSlide, setCurrentIndex] = useState(0);
 
+  // useEffect(() => {
+  //   startSlider();
+  // }, []);
+
+  // const startSlider = () => {
+  //   setInterval(() => {
+  //     handleOnPrevClick();
+  //   }, 3000);
+  // };
   const SwitchSlide = (index) => {
-    SetCurrentSlide(index);
+    setCurrentIndex(index);
   };
+  // const handleOnNextClick = () => {
+  //   count = (count + 1) % slides.length;
+  //   setCurrentIndex(count);
+  // };
+  // const handleOnPrevClick = () => {
+  //   const productsLength = slides.length;
+  //   count = (CurrentSlide + productsLength - 1) % productsLength;
+  //   setCurrentIndex(count);
+  // };
+
   
   return (
     <section className="bg-[#F2F6FC]">
@@ -66,7 +79,7 @@ const Tailblock = () => {
             <img
               className="object-cover object-center rounded md:max-h-[30rem] max-h-[20rem]"
               alt="hero"
-              src={`${slides[CurrentSlide].url}`}
+              src={`${slides[CurrentSlide]}`}
             />
           </div>
           <div className="absolute flex gap-4 bottom-8 translate-x-5 lg:left-[40%] left-[30%] md:left-[30%]">
