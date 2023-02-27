@@ -10,7 +10,7 @@ const SellDetails = () => {
         <Navbar />
       </div>
       <div className="max-w-7xl mx-auto">
-        <div className="flex px-4 md:justify-between sm:justify-center flex-col sm:flex-row flex-wrap">
+        <div className="flex px-4 flex-col md:justify-between sm:flex-row flex-wrap">
           <div className="">
             <header className="text-[24px] capitalize font-sans font-medium leading-[34px] my-4 sm:my-8">
               gadget cover{" "}
@@ -30,74 +30,81 @@ const SellDetails = () => {
                 Samsung Galaxy A53{" "}
               </h1>
             </div>
-            <button
+            <Link
+              to="/sell-gadget"
               className="text-[#FF554F] text-[16px] tracking-wider font-medium"
               type="submit"
             >
               Edit Item
-            </button>
+            </Link>
           </div>
           <div className="flex flex-col mt-4 md:my-10">
-            <div className="">
-              <h1 className="capitalize font-medium text-[22px]">price</h1>
-              <p className="text-[15px] font-medium text-[#7B7B7B] sm:mt-2">
-                $ 100
-              </p>
-            </div>
-            <div className="sm:mt-5 ">
-              <h1 className="capitalize font-medium text-[22px]">condition</h1>
-              <p className="text-[15px] font-medium text-[#7B7B7B] capitalize sm:mt-2">
-                Everything is working perfectly
-              </p>
-            </div>
-            <div className="sm:mt-5 ">
-              <h1 className="capitalize font-medium text-[22px]">location</h1>
-              <p className="text-[15px] font-medium text-[#7B7B7B] capitalize sm:mt-2">
-                lagos nigeria
-              </p>
-            </div>
-            <div className="sm:mt-5 ">
-              <h1 className="capitalize font-medium text-[22px]">
-                Terms and Conditions
-              </h1>
-              <p className="text-[14px] font-medium text-[#7B7B7B] capitalize sm:mt-2 max-w-[433px] leading-[20px]">
-                there will be 5% charges on every sale made on this platform and
-                the seller will be paid 3-5 days after the buyer has confirmed
-                the receipt of the item without complain.
-              </p>
-            </div>
-            <div className="mt-4 sm:mt-10">
-              <input
-                type="checkbox"
-                name=""
-                id=""
-                className="h-[24px] w-[24px] border-gray-400"
-              />
-              <label
-                htmlFor=""
-                className="px-4 text-[15px] font-medium text-[#7B7B7B] sm:mt-2 max-w-[433px] leading-[21px]"
-              >
-                I read and consented to the{" "}
-                <span className="text-[#FF3333]">terms and conditions</span>
-              </label>
+            <div className="md:ml-40">
+              <div className="">
+                <h1 className="capitalize font-medium text-[22px]">price</h1>
+                <p className="text-[15px] font-medium text-[#7B7B7B] sm:mt-2">
+                  $ 100
+                </p>
+              </div>
+              <div className="sm:mt-5 ">
+                <h1 className="capitalize font-medium text-[22px]">
+                  condition
+                </h1>
+                <p className="text-[15px] font-medium text-[#7B7B7B] capitalize sm:mt-2">
+                  Everything is working perfectly
+                </p>
+              </div>
+              <div className="sm:mt-5 ">
+                <h1 className="capitalize font-medium text-[22px]">location</h1>
+                <p className="text-[15px] font-medium text-[#7B7B7B] capitalize sm:mt-2">
+                  lagos nigeria
+                </p>
+              </div>
+              <div className="sm:mt-5 ">
+                <h1 className="capitalize font-medium text-[22px]">
+                  Terms and Conditions
+                </h1>
+                <p className="text-[14px] font-medium text-[#7B7B7B] capitalize sm:mt-2 max-w-[433px] leading-[20px]">
+                  there will be 5% charges on every sale made on this platform
+                  and the seller will be paid 3-5 days after the buyer has
+                  confirmed the receipt of the item without complain.
+                </p>
+              </div>
+              <div className="mt-4 sm:mt-10">
+                <input
+                  type="checkbox"
+                  name=""
+                  id=""
+                  className="h-[24px] w-[24px] border-gray-400"
+                />
+                <label
+                  htmlFor=""
+                  className="px-4 text-[15px] font-medium text-[#7B7B7B] sm:mt-2 max-w-[433px] leading-[21px]"
+                >
+                  I read and consented to the{" "}
+                  <span className="text-[#FF3333]">terms and conditions</span>
+                </label>
+              </div>
             </div>
 
             <div className="mt-5 md:mt-10 mb-6 md:mb-0 flex flex-wrap items-center gap-8">
-              <button
+              <Link
+                to="/"
                 className="text-[20px] font-sans py-2.5 px-8 capitalize text-gray-500 font-medium rounded-md hover:bg-white hover:border hover:border-red-500 hover:text-red-500"
                 type="submit"
               >
                 cancel
-              </button>
-              <button
-                className="text-[20px] capitalize hover:bg-black hover:border-black bg-[#0043C6] py-2.5 px-6 text-blue-100  rounded-lg tracking-wide font-medium"
+              </Link>
+              <Link
+                to="/"
+                className="text-[20px] capitalize hover:bg-black hover:border-black bg-[#0043C6] py-2.5 px-8 text-blue-100  rounded-lg tracking-wide font-medium"
                 type="submit"
               >
                 save as draft
-              </button>
+              </Link>
               <Link
                 to="/customers-feedback"
-                className="text-[20px] capitalize hover:bg-emerald-400 hover:text-emerald-50 bg-[#00A725] py-2.5 px-8 text-green-50  rounded-lg tracking-wide font-medium"
+                className="text-[20px] capitalize hover:bg-emerald-400 hover:text-emerald-50 bg-[#00A725] py-2.5 md:px-16 px-8 tracking-wider text-green-50  rounded-lg  font-medium"
                 type="submit"
               >
                 publish

@@ -80,13 +80,19 @@ const SellGadget = () => {
                 >
                   payment method
                 </label>
-                <input
-                  className="max-w-[553px] py-4 rounded-lg placeholder:capitalize px-8"
-                  placeholder="payment method"
+                <select
+                  className="max-w-[553px] py-4 rounded-lg px-8 text-gray-400"
                   type="text"
                   name=""
                   id=""
-                />
+                >
+                  <option selected>Payment Method</option>
+                  <option>Paypal</option>
+                  <option>Stripe</option>
+                  <option>Bank Transfer</option>
+                  <option>Credit Card</option>
+                  <option>Post Pay</option>
+                </select>
               </div>
               <div className="flex gap-4 flex-col px-8 md:px-0 mt-4 md:mt-8">
                 <label
@@ -196,13 +202,18 @@ const SellGadget = () => {
                     currency
                   </label>
 
-                  <input
-                    className="max-w-[553px] py-4 rounded-lg px-8"
-                    placeholder="Payment currency"
+                  <select
+                    className="max-w-[553px] py-4 rounded-lg px-8 text-gray-400"
                     type="text"
                     name=""
                     id=""
-                  />
+                  >
+                    <option selected>Money Currency</option>
+                    <option>Naira</option>
+                    <option>USD</option>
+                    <option>Ghana Cedi</option>
+                    <option>Kenyan Shillings</option>
+                  </select>
                 </div>
                 <div className="flex gap-4 flex-col px-8 md:px-0 mt-4 ">
                   <label
@@ -212,30 +223,34 @@ const SellGadget = () => {
                     item visibility
                   </label>
 
-                  <input
-                    className="max-w-[553px] py-4 rounded-lg px-8"
-                    placeholder="Everyone"
+                  <select
+                    className="max-w-[553px] py-4 rounded-lg px-8 text-gray-400"
                     type="text"
                     name=""
                     id=""
-                  />
+                  >
+                    <option selected>Everyone</option>
+                    <option>Only Me</option>
+                    <option>Select a group</option>
+                  </select>
                 </div>
 
-                <div className="mt-5 md:mt-10 mb-6 md:mb-0 flex flex-wrap items-center gap-4 mx-6 md:mx-10">
-                  <button
-                    className="text-[20px] bg-red-500 font-sans py-2.5 px-8 capitalize text-red-100 rounded-md hover:bg-white hover:border hover:border-red-500 hover:text-red-500"
+                <div className="w-full md:mt-10 mt-4 flex-wrap flex items-center gap-8">
+                  <Link to="/"
+                    className="text-[20px] font-sans mr-2 text-gray-500 capitalize cursor-pointer rounded-md hover:text-red-500"
                     type="submit"
                   >
                     cancel
-                  </button>
-                  <button
-                    className="text-[20px] capitalize hover:bg-black hover:border-black bg-[#0043C6] py-2.5 px-6 text-blue-100  rounded-lg tracking-wide font-medium"
+                  </Link>
+                  <Link to="/"
+                    className="text-[20px] capitalize hover:bg-black hover:border-black bg-[#0043C6] py-2.5 px-8 text-blue-100  rounded-lg tracking-wide font-medium"
                     type="submit"
                   >
                     save as draft
-                  </button>
-                  <Link to="/product-details"
-                    className="text-[20px] capitalize hover:bg-emerald-400 hover:text-emerald-50 bg-[#00A725] py-2.5 px-6 text-green-50  rounded-lg tracking-wide font-medium"
+                  </Link>
+                  <Link
+                    to="/product-details"
+                    className="text-[20px] md:ml-6 capitalize hover:bg-emerald-400 hover:text-emerald-50 bg-[#00A725] py-2.5 px-14 text-green-50  rounded-lg tracking-wide font-medium"
                     type="submit"
                   >
                     procced

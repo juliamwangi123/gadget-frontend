@@ -157,7 +157,7 @@ const Preview = () => {
         </div>
 
         <div className="w-full">
-          <div className="bg-[#FFFFFF] w-full flex justify-between items-center py-2 rounded-sm shadow-sm">
+          <div className="bg-[#FFFFFF] max-w-[980px] w-full flex justify-between items-center py-2 rounded-sm shadow-sm">
             <header className="capitalize font-medium font-sans text-2xl px-10">
               shop online in nigeria
             </header>
