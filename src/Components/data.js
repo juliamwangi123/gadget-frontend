@@ -7,8 +7,15 @@ import Probook from "../assets/data/probook.png";
 import Ps5 from "../assets/data/ps5.png";
 import Samsung from "../assets/data/samsung.png";
 import TV from "../assets/data/TV.png";
+import side from "../assets/Pinfo/side.png";
+import back from "../assets/Pinfo/back.png";
+import front from "../assets/Pinfo/front.png";
+import allside from "../assets/Pinfo/allside.png";
+import flip from "../assets/Pinfo/flip.png";
 
-const Products = [
+
+
+export const Products = [
     {
         id: 1,
         title: "Samsung Galaxy A53,6.5” Super AMOLED Screen, 6GB/128GB",
@@ -97,5 +104,25 @@ const Products = [
 ]
  
 
-
-export default Products
+export const Info = [
+  {
+    id: 1,
+    image: front,
+  },
+  {
+    id: 2,
+    image: back,
+  },
+  {
+    id: 3,
+    image: side,
+  },
+  {
+    id: 4,
+    image: flip,
+  },
+  {
+    id: 5,
+    image: allside,
+  },
+];

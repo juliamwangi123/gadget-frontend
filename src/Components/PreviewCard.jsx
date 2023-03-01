@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { Link } from 'react-router-dom';
 import { RiHeartFill } from "react-icons/ri"
 import {
   MdOutlineStarPurple500,
@@ -14,7 +14,10 @@ const PreviewCard = ({ product }) => {
 
    
   return (
-    <div className="bg-[#FFFFFF] max-w-[300px] h-[400px] rounded-xl shadow-md transition Hover:duration-300 ease-in-out cursor-pointer hover:shadow-2xl">
+    <Link
+      to={`/product-details/${product.id}`}
+      className="bg-[#FFFFFF] max-w-[300px] h-[400px] rounded-xl shadow-md transition Hover:duration-300 ease-in-out cursor-pointer hover:shadow-2xl"
+    >
       <div className="flex flex-col pt-4 ml-6 pb-6">
         <div className="">
           <div className="flex justify-end mr-4">
@@ -58,16 +61,9 @@ const PreviewCard = ({ product }) => {
             {location},Nigeria
           </p>
         </div>
-        {/* <div className="pt-4 mx-10">
-          <button
-            className="text-base capitalize hover:bg-black hover:border-black bg-[#0043C6] text-blue-100 px-8 py-2.5 rounded-md tracking-wide font-medium"
-            type="submit"
-          >
-            add to cart
-          </button>
-        </div> */}
+       
       </div>
-    </div>
+    </Link>
   );
 }
 
