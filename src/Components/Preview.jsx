@@ -1,7 +1,4 @@
-import samsonic from "../assets/samsonic.png"
-import love from "../assets/love.png";
-import rating from "../assets/rating.png";
-import location from "../assets/location.png";
+
 import { RiSearchLine } from "react-icons/ri";
 
 import PreviewCard from "./PreviewCard";

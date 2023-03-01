@@ -1,21 +1,13 @@
-import React,{useState,useEffect} from 'react'
+import React, { useState, useEffect } from "react";
 import Banimg from "../assets/tv.png";
 import Headset from "../assets/headset.png";
 import Laptop from "../assets/laptop.png";
 import Iphone from "../assets/unsplash.png";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import { FaRegSquare } from "react-icons/fa";
-import Navbar from './Navbar';
+import Navbar from "./Navbar";
 
-
-const slides = [
-   Banimg,
-  Headset,
-   Laptop,
-  
-   Iphone,
-  
-];
+const slides = [Banimg, Headset, Laptop, Iphone];
 
 let count = 0;
 
@@ -44,7 +36,6 @@ const Tailblock = () => {
   //   setCurrentIndex(count);
   // };
 
-  
   return (
     <section className="bg-[#F2F6FC]">
       <Navbar />
@@ -98,6 +89,6 @@ const Tailblock = () => {
       </div>
     </section>
   );
-}
+};
 
-export default Tailblock
+export default Tailblock;
