@@ -2,7 +2,7 @@
 import { RiSearchLine } from "react-icons/ri";
 
 import PreviewCard from "./PreviewCard";
- import Products from "./data";
+ import {Products} from "./data";
 
 
 

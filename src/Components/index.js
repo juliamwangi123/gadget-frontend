@@ -7,7 +7,7 @@ import Tailblock from "./Tailblock";
 import Home from "./Home";
 import Signin from "./Auth/Signin"
 import Signup from "./Auth/Signup";
-
+import ProductDetails from "./ProductDetails";
 import Preview from "./Preview";
 import PreviewCard from "./PreviewCard";
 import SellGadget from "./SellGadget";
@@ -37,5 +37,6 @@ export {
   SellGadget,
   SellDetails,
   FeedbackForm,
-  BuyProduct
+  BuyProduct,
+  ProductDetails,
 };

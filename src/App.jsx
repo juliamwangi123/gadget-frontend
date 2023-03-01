@@ -8,7 +8,8 @@ import {
   SellGadget,
   SellDetails,
   FeedbackForm,
-  BuyProduct
+  BuyProduct,
+  ProductDetails
 } from "./Components";
 
 import { Route,Routes } from 'react-router-dom';
@@ -26,6 +27,7 @@ function App() {
         <Route path="/product-details" element={<SellDetails />} />
         <Route path="/customers-feedback" element={<FeedbackForm />} />
         <Route path="/products-page" element={<BuyProduct />} />
+        <Route path="/product-details/:id" element={<ProductDetails />} />
       </Routes>
     </div>
   );
