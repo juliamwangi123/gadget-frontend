@@ -26,8 +26,8 @@ function App() {
     <div className="">
       <Routes>
         <Route exact path="/" element={<Home />} />
-        <Route path="/login" element={<Signin />} />
-        <Route path="/register" element={<Signup />} />
+        <Route path="/account/login" element={<Signin />} />
+        <Route path="/account/register" element={<Signup />} />
         <Route path="/sell-gadget" element={<SellGadget />} />
         <Route path="/product-details" element={<SellDetails />} />
         <Route path="/customers-feedback" element={<FeedbackForm />} />
