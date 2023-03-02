@@ -17,8 +17,8 @@ import BuyProduct from "./BuyProduct";
 import CartDetails from "./CartDetails";
 import CheckoutDetails from "./CheckoutDetails";
 import PaymentDetails from "./PaymentDetails";
-
-
+import SubmitPayment from "./SubmitPayment";
+import Transaction from "./Transaction";
 
 
 
@@ -43,4 +43,6 @@ export {
   CartDetails,
   CheckoutDetails,
   PaymentDetails,
+  SubmitPayment,
+  Transaction
 };
