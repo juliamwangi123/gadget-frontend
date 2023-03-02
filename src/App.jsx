@@ -12,7 +12,8 @@ import {
   ProductDetails,
   CartDetails,
   CheckoutDetails,
-  PaymentDetails
+  PaymentDetails,
+  SubmitPayment
 } from "./Components";
 
 import { Route,Routes } from 'react-router-dom';
@@ -34,6 +35,7 @@ function App() {
         <Route path="/cart-details" element={<CartDetails />} />
         <Route path="/checkout-details" element={<CheckoutDetails />} />
         <Route path="/payment-details" element={<PaymentDetails />} />
+        <Route path="/submit-payment" element={<SubmitPayment />} />
       </Routes>
     </div>
   );
