@@ -12,6 +12,14 @@ import back from "../assets/Pinfo/back.png";
 import front from "../assets/Pinfo/front.png";
 import allside from "../assets/Pinfo/allside.png";
 import flip from "../assets/Pinfo/flip.png";
+import view1 from "../assets/recentview/view1.png";
+import view2 from "../assets/recentview/view2.png";
+import view3 from "../assets/recentview/view3.png";
+import view4 from "../assets/recentview/view4.png";
+import view5 from "../assets/recentview/view5.png";
+
+
+
 
 
 
@@ -103,6 +111,40 @@ export const Products = [
      }
 ]
  
+
+export const RecentViews = [
+  {
+    id: 1,
+    image: view1,
+    title: "Samsung Galaxy A53,6.5” Super AMOLED Screen, 6GB/128GB...",
+    price: "₦ 65,000",
+  },
+  {
+    id: 2,
+    image: view2,
+    title: "Samsung Galaxy A53,6.5” Super AMOLED Screen, 6GB/128GB...",
+    price: "₦ 80,000",
+  },
+  {
+    id: 3,
+    image: view3,
+    title: "Samsung Galaxy A03, 4GB/64GB Memory, android...",
+    price: "₦ 70,000",
+  },
+  {
+    id: 4,
+    image: view4,
+    title: "Samsung Galaxy tab a7, 10.4” TFT 6GB/128GB Memory...",
+    price: "₦ 55,000",
+  },
+  {
+    id: 5,
+    image: view5,
+    title: "Samsung Galaxy A53,6.5” Super AMOLED Screen, 6GB/128GB...",
+    price: "₦ 75,000",
+  },
+];
+
 
 export const Info = [
   {
