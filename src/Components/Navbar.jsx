@@ -89,14 +89,14 @@ const Navbar = ()=> {
               </div>
 
               <div>
-                <button
+                <Link to="/cart-details"
                   className="capitalize font-sans font-medium text-base inline-flex gap-1 text-gray-900 tracking-wide "
                   type="button"
                 >
                   <FaShoppingCart size={20} />
                   <span> </span>
                   cart
-                </button>
+                </Link>
               </div>
             </div>
           </div>

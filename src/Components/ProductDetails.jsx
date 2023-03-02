@@ -15,7 +15,9 @@ import Footer from "./Footer";
 
 
 const ProductDetails = () => {
-    const [data, SetData] = useState([])
+  const [data, SetData] = useState([])
+  const [cart, SetCart] = useState([]);
+  
     console.log("this is the product details",data.title);
     const { id } = useParams()
     const Newid = parseInt(id)
@@ -27,6 +29,8 @@ const ProductDetails = () => {
     const data = Products.filter((product) => product.id === Newid);
         SetData(data)
     }
+ 
+  
   return (
     <div className="w-full">
       <div className="max-w-[1480px] mx-auto">
@@ -111,7 +115,7 @@ const ProductDetails = () => {
                           </div>
                           <div className="w-full pt-4 sm:mt-6 pb-2">
                             <Link
-                              to=""
+                              to="/cart-details"
                               className="text-xl inline-flex items-center capitalize hover:bg-black hover:border-black bg-[#0043C6] text-white py-3 px-16 rounded-lg tracking-wide font-medium"
                             >
                               add to cart

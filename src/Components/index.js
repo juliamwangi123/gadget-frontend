@@ -14,7 +14,7 @@ import SellGadget from "./SellGadget";
 import FeedbackForm from "./FeedbackForm";
 import SellDetails from "./SellDetails";
 import BuyProduct from "./BuyProduct";
-
+import CartDetails from "./CartDetails";
 
 
 
@@ -39,4 +39,5 @@ export {
   FeedbackForm,
   BuyProduct,
   ProductDetails,
+  CartDetails,
 };
