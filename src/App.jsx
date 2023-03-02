@@ -10,7 +10,9 @@ import {
   FeedbackForm,
   BuyProduct,
   ProductDetails,
-  CartDetails
+  CartDetails,
+  CheckoutDetails,
+  PaymentDetails
 } from "./Components";
 
 import { Route,Routes } from 'react-router-dom';
@@ -30,6 +32,8 @@ function App() {
         <Route path="/products-page" element={<BuyProduct />} />
         <Route path="/product-details/:id" element={<ProductDetails />} />
         <Route path="/cart-details" element={<CartDetails />} />
+        <Route path="/checkout-details" element={<CheckoutDetails />} />
+        <Route path="/payment-details" element={<PaymentDetails />} />
       </Routes>
     </div>
   );

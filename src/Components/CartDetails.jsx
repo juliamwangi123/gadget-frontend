@@ -1,7 +1,7 @@
 import React from 'react'
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-
+import { Link } from 'react-router-dom';
 import flip from '../assets/Pinfo/flip.png'
 import { AiFillMinusSquare, AiFillPlusSquare } from "react-icons/ai";
 import {
@@ -108,12 +108,12 @@ const CartDetails = () => {
               <p className="text-[16px] font-bold tracking-wide">₦ 75,000</p>
             </div>
             <div className="mt-4 sm:mt-10">
-              <button
+              <Link to="/checkout-details"
                 className="bg-[#0043C6] py-2 uppercase text-white text-[20px] px-24 font-bold rounded-md"
                 type="submit"
               >
                 checkout
-              </button>
+              </Link>
             </div>
           </div>
         </div>

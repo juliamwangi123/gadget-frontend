@@ -15,7 +15,8 @@ import FeedbackForm from "./FeedbackForm";
 import SellDetails from "./SellDetails";
 import BuyProduct from "./BuyProduct";
 import CartDetails from "./CartDetails";
-
+import CheckoutDetails from "./CheckoutDetails";
+import PaymentDetails from "./PaymentDetails";
 
 
 
@@ -40,4 +41,6 @@ export {
   BuyProduct,
   ProductDetails,
   CartDetails,
+  CheckoutDetails,
+  PaymentDetails,
 };
