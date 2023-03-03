@@ -124,10 +124,10 @@ const CheckoutDetails = () => {
                 <p className="text-[14.5427px] font-bold">₦ 75,000</p>
               </div>
             </div>
-            <div className="mt-4 sm:mt-8 flex justify-center">
+            <div className="mt-4 sm:mt-8 max-w-[446px] w-full flex justify-center pb-4 sm:pb-0">
               <Link
                 to="/payment-details"
-                className="py-2.5 px-8 text-[15px] sm:w-full uppercase text-white font-bold rounded-md sm:text-[20px] bg-[#0043C6] hover:bg-black"
+                className="py-3 inline-flex justify-center px-8 text-[15px] sm:grow uppercase text-white font-bold rounded-md sm:text-[20px] bg-[#0043C6] hover:bg-black"
                 type="submit"
               >
                 confirm order
