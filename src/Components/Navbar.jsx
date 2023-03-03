@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import logo from "../assets/logo.png";
-import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
+import { AiOutlineMenu, AiOutlineClose, AiOutlineDown } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { RiSearchLine } from "react-icons/ri";
 import { BsPersonFill } from "react-icons/bs";
 import { FaShoppingCart } from "react-icons/fa";
-import DropDown from "./subcomponents/DropDown";
-
+import { Menu } from "@headlessui/react";
 const Navbar = ()=> {
   
  
@@ -53,43 +52,44 @@ const Navbar = ()=> {
                   contact us
                 </button>
               </div>
-              <div className="flex ">
-                <BsPersonFill className="w-6 h-6" />
-
-                <button
-                  id="dropdownDefaultButton"
-                  data-dropdown-toggle="dropdown"
-                  className="capitalize font-sans font-medium text-base text-gray-900 px-2  text-center inline-flex items-center"
-                  type="button"
-                >
-                  account{" "}
-                  <svg
-                    className="w-4 h-4 ml-2"
-                    aria-hidden="true"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
+              <div className="">
+                <Menu as="div" className="relative">
+                  <Menu.Button className="flex gap-2 items-center">
+                    <BsPersonFill size={25} />
+                    <span className="capitalize text-base text-gray-900 font-medium">
+                      account
+                    </span>
+                    <AiOutlineDown />
+                  </Menu.Button>
+                  <Menu.Items
+                    as="div"
+                    className="flex flex-col absolute z-10 -translate-x-[30%] translate-y-3 p-6 bg-[#F9FCFF] border-2 border-white  bg-opacity-50 rounded-md shadow-2xl w-[250px] items-center"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M19 9l-7 7-7-7"
-                    ></path>
-                  </svg>
-                </button>
-
-                <div
-                  id="dropdown"
-                  className="z-10 hidden bg-slate-100 bg-opacity-50 border-2 border-white rounded-lg shadow-2xl w-[15rem]"
-                >
-                  <DropDown />
-                </div>
+                    <Menu.Item>
+                      <Link className="inline-flex items-center gap-6 text-[#0043C6]">
+                        <BsPersonFill size={30} />
+                        <span className="text-[18.0682px] capitalize font-bold text-[#0043C6] tracking-wide">
+                          my account
+                        </span>
+                      </Link>
+                    </Menu.Item>
+                    <Menu.Item as="div" className="mt-10">
+                      <Link to="/account/register" className="py-3 bg-[#0043C6] px-8 text-[15px] capitalize hover:bg-black text-white font-medium tracking-wide rounded-lg cursor-pointer">
+                        create account
+                      </Link>
+                    </Menu.Item>
+                    <Menu.Item as="div" className="mt-12 mb-4">
+                      <Link to="/account/login" className="py-3 hover:bg-emerald-50 border border-[#0043C6] bg-white px-16 text-[15px] capitalize text-[#0043C6] font-medium tracking-wider rounded-md">
+                      sign in
+                      </Link>
+                    </Menu.Item>
+                  </Menu.Items>
+                </Menu>
               </div>
 
               <div>
-                <Link to="/cart-details"
+                <Link
+                  to="/cart-details"
                   className="capitalize font-sans font-medium text-base inline-flex gap-1 text-gray-900 tracking-wide "
                   type="button"
                 >

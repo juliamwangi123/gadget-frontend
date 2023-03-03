@@ -14,7 +14,8 @@ import {
   CheckoutDetails,
   PaymentDetails,
   SubmitPayment,
-  Transaction
+  Transaction,
+  Test
 } from "./Components";
 
 import { Route,Routes } from 'react-router-dom';
@@ -38,6 +39,7 @@ function App() {
         <Route path="/payment-details" element={<PaymentDetails />} />
         <Route path="/submit-payment" element={<SubmitPayment />} />
         <Route path="/payment-success" element={<Transaction />} />
+        <Route path="/dropdown" element={<Test />} />
       </Routes>
     </div>
   );
