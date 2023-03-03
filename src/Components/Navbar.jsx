@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import { RiSearchLine } from "react-icons/ri";
 import { BsPersonFill } from "react-icons/bs";
 import { FaShoppingCart } from "react-icons/fa";
-import DropDown from "./subcomponents/DropDown";
 import { Menu } from "@headlessui/react";
 const Navbar = ()=> {
   
