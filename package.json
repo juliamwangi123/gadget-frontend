@@ -9,7 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@headlessui/react": "^1.7.11",
+    "@headlessui/react": "^1.7.12",
+    "@heroicons/react": "^2.0.16",
     "@splidejs/splide": "^4.1.4",
     "@tailwindcss/line-clamp": "^0.4.2",
     "flowbite": "^1.6.3",
