@@ -16,9 +16,17 @@ import Footer from "./Footer";
 
 const ProductDetails = () => {
   const [data, SetData] = useState([])
-  const [cart, SetCart] = useState([]);
-  
-    console.log("this is the product details",data.title);
+  const [hovering, setHovering] = useState(false);
+
+   const handleMouseEnter = () => {
+     setHovering(true);
+   };
+
+   const handleMouseLeave = () => {
+     setHovering(false);
+   };
+
+
     const { id } = useParams()
     const Newid = parseInt(id)
     useEffect(() => {
@@ -202,7 +210,41 @@ const ProductDetails = () => {
             <h1 className="text-[20px] font-medium tracking-wide my-2 capitalize">
               safety tips
             </h1>
-            <Link className="text-red-400">see details here</Link>
+            <div className=" relative w-full">
+              <span
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+                className="text-red-400 cursor-pointer"
+              >
+                see details here
+              </span>
+              <div className={`absolute ${hovering ?"":"hidden"}  bg-[#F2F9FF] shadow-2xl max-w-[405px] -translate-x-[10%] w-[500px] pb-8 border-2 border-white rounded-sm p-6`}>
+                <ul className="text-[15px] list-outside font-light px-4 tracking-wide flex flex-col gap-1">
+                  <li className="list-disc ">
+                    Don't pay to the seller outside the platform
+                  </li>
+                  <li className="list-disc">
+                    Meet the seller at a safe public place
+                  </li>
+                  <li className="list-disc">
+                    Inspect the item and ensure it's exactly what you want
+                  </li>
+                  <li className="list-disc">
+                    On delivery, check that the item delivered is what was
+                    ordered
+                  </li>
+                  <li className="list-disc">Payment validates order</li>
+                  <li className="list-disc">
+                    Kindly read captions of item descriptions, size, price
+                    location before making payment
+                  </li>
+                  <li className="list-disc">
+                    Items must be collected/pickup up after 1-3 days from order
+                    delivery.
+                  </li>
+                </ul>
+              </div>
+            </div>
             <h1 className="text-[20px] font-medium tracking-wide my-2 capitalize">
               Return Policy
             </h1>

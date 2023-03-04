@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { Link } from "react-router-dom";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
@@ -7,8 +7,26 @@ import {FiCreditCard} from "react-icons/fi"
 import {AiFillLock} from "react-icons/ai"
 import {HiOutlineCreditCard} from "react-icons/hi"
 import { RiSecurePaymentFill, RiArrowRightSLine } from "react-icons/ri";
+import flip from "../assets/Pinfo/flip.png";
+import {
+  MdOutlineStarPurple500,
+  MdOutlineStarOutline,
+  MdLocationOn,
+  MdDeleteOutline,
+} from "react-icons/md";
 
 const SubmitPayment = () => {
+  const [hovering, setHovering] = useState(false);
+
+  const handleMouseEnter = () => {
+    setHovering(true);
+  };
+
+  const handleMouseLeave = () => {
+    setHovering(false);
+  };
+
+
   return (
     <section className="w-full">
       {/* nav section */}
@@ -27,9 +45,87 @@ const SubmitPayment = () => {
             <h1 className="sm:text-[20px] font-medium uppercase tracking-wide">
               order summary
             </h1>
-            <button className="sm:text-[20px] uppercase text-[#FF0000] inline-flex items-center">
-              SEE DETAILS <RiArrowRightSLine />{" "}
-            </button>
+            <div className="relative">
+              <button
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+                className="sm:text-[20px] uppercase text-[#FF0000] inline-flex items-center"
+              >
+                SEE DETAILS <RiArrowRightSLine />{" "}
+              </button>
+
+              <div
+                className={`max-w-[838px] w-[838px] ${
+                  hovering ? "" : "hidden"
+                } bg-[#F2F9FF] rounded-xl shadow-md border-2 border-gray-100 absolute -translate-x-[50%]`}
+              >
+                <div className="flex px-4 gap-10 flex-col sm:flex-row md:gap-24 sm:px-12 my-10">
+                  <img
+                    src={flip}
+                    alt=""
+                    className="max-w-[200px] w-full object-contain"
+                  />
+                  <div className="">
+                    <h1 className="max-w-[352px] text-[16px] leading-[23px] font-light tracking-wide">
+                      Samsung Galaxy A04s, 4GB/64GB Memory - Green
+                    </h1>
+                    <p className="sm:mt-2 font-light max-w-[347px]">
+                      Brand:
+                      <span className="text-[14px]">
+                        Samsung | Similar products from Samsung
+                      </span>
+                    </p>
+                    <div className="flex gap-4 items-center mt-2">
+                      <div className="flex mb-2">
+                        <MdOutlineStarPurple500
+                          size={20}
+                          className="text-[#FF0000]"
+                        />
+                        <MdOutlineStarPurple500
+                          size={20}
+                          className="text-[#FF0000]"
+                        />
+                        <MdOutlineStarPurple500
+                          size={20}
+                          className="text-[#FF0000]"
+                        />
+                        <MdOutlineStarOutline
+                          size={20}
+                          className="text-[#FF0000]"
+                        />
+                        <MdOutlineStarOutline
+                          size={20}
+                          className="text-[#FF0000]"
+                        />
+                        <MdOutlineStarOutline
+                          size={20}
+                          className="text-[#FF0000]"
+                        />
+                      </div>
+                      <span>(24)</span>
+                    </div>
+                    <div className="">
+                      <p className="font-bold pb-3">₦ 75,000</p>
+                      <div className="flex justify-between">
+                        <div className="flex items-center gap-4">
+                          <MdLocationOn size={25} className="text-gray-400 " />
+                          <p className="text-gray-500 capitalize font-sans text-[15px] leading-[20px] font-extralight tracking-wider">
+                            kaduna ,Nigeria
+                          </p>
+                        </div>
+                        <p className="font-light">Used</p>
+                      </div>
+                      <p className="text-[20px] capitalize font-bold tracking-wider py-2">
+                        daniel Dada
+                      </p>
+                      <p className="text-[20px] font-light tracking-wide">
+                        Zone 9-Police Station Kaduna
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <div className="max-w-[852px] bg-[#F2F9FF] rounded-md shadow-sm border border-stone-100 mx-auto flex justify-between px-4 py-3 mt-4 sm:mt-7">
             <h1 className="sm:text-[20px] font-medium">TOTAL TO PAY</h1>
