@@ -19,6 +19,7 @@ import CheckoutDetails from "./CheckoutDetails";
 import PaymentDetails from "./PaymentDetails";
 import SubmitPayment from "./SubmitPayment";
 import Transaction from "./Transaction";
+import SlideShow from "./SlideShow";
 
 
 
@@ -44,4 +45,5 @@ export {
   PaymentDetails,
   SubmitPayment,
   Transaction,
+  SlideShow
 };

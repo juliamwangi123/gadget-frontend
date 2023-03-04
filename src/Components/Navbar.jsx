@@ -17,7 +17,7 @@ const Navbar = ()=> {
 
   return (
     <div className="w-full">
-      <div className="max-w-[1480px] sm:m-auto sm:pt-6">
+      <div className="max-w-[1480px] mx-auto sm:pt-6">
         <div className="md:flex gap-10 w-full hidden">
           <div className="flex items-center gap-8 w-3/5">
             <Link to="/" className="cursor-pointer">

@@ -60,7 +60,7 @@ const Signin = () => {
           <p className=" text-[#00000094] text-center mb-8">
             {" "}
             Don't have an account?{" "}
-            <span className=" text-[#FF0000CC]">Sign Up</span>
+            <NavLink to="/account/register" className=" text-[#FF0000CC]">Sign Up</NavLink>
           </p>
         </form>
       </div>

@@ -79,7 +79,7 @@ const Signup = () => {
                 <p className=" text-[#00000094]">
                   {" "}
                   Already have an account?{" "}
-                  <span className=" text-[#FF0000CC]">Login</span>
+                  <NavLink to="/account/login" className=" text-[#FF0000CC]">Login</NavLink>
                 </p>
               </form>
             </div>
