@@ -6,36 +6,12 @@ import Iphone from "../assets/unsplash.png";
 import { Link } from "react-router-dom";
 import { FaRegSquare } from "react-icons/fa";
 import Navbar from "./Navbar";
+import SlideShow from "./SlideShow";
 
-const slides = [Banimg, Headset, Laptop, Iphone];
 
-let count = 0;
 
 const Tailblock = () => {
-  const [CurrentSlide, setCurrentIndex] = useState(0);
-
-  // useEffect(() => {
-  //   startSlider();
-  // }, []);
-
-  // const startSlider = () => {
-  //   setInterval(() => {
-  //     handleOnPrevClick();
-  //   }, 3000);
-  // };
-  const SwitchSlide = (index) => {
-    setCurrentIndex(index);
-  };
-  // const handleOnNextClick = () => {
-  //   count = (count + 1) % slides.length;
-  //   setCurrentIndex(count);
-  // };
-  // const handleOnPrevClick = () => {
-  //   const productsLength = slides.length;
-  //   count = (CurrentSlide + productsLength - 1) % productsLength;
-  //   setCurrentIndex(count);
-  // };
-
+  
   return (
     <section className="bg-[#F2F6FC]">
       <Navbar />
@@ -65,26 +41,9 @@ const Tailblock = () => {
             </Link>
           </div>
         </div>
-        <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 relative">
-          <div className="flex justify-center">
-            <img
-              className="object-cover object-center rounded md:max-h-[30rem] max-h-[20rem]"
-              alt="hero"
-              src={`${slides[CurrentSlide]}`}
-            />
-          </div>
-          <div className="absolute flex gap-4 bottom-8 translate-x-5 lg:left-[40%] left-[30%] md:left-[30%]">
-            {slides.map((slide, slideIndex) => (
-              <FaRegSquare
-                className={
-                  slideIndex == CurrentSlide
-                    ? "text-blue-800 bg-blue-800"
-                    : "text-gray-300 bg-gray-300"
-                }
-                onClick={() => SwitchSlide(slideIndex)}
-              />
-            ))}
-          </div>
+        <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 ">
+          <SlideShow />
+         
         </div>
       </div>
     </section>
