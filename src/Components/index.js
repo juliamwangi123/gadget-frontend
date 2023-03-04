@@ -19,7 +19,6 @@ import CheckoutDetails from "./CheckoutDetails";
 import PaymentDetails from "./PaymentDetails";
 import SubmitPayment from "./SubmitPayment";
 import Transaction from "./Transaction";
-import Test from "./Test";
 
 
 
@@ -45,5 +44,4 @@ export {
   PaymentDetails,
   SubmitPayment,
   Transaction,
-  Test
 };
