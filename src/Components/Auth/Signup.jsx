@@ -73,13 +73,13 @@ const Signup = () => {
                       <MdVisibility
                         onClick={toggleVisibility}
                         size={25}
-                        className="absolute right-0 mr-5 text-[#A3A3A3]"
+                        className="absolute right-0 mr-5 text-[#A3A3A3] cursor-pointer"
                       />
                     ) : (
                       <MdVisibilityOff
                         onClick={toggleVisibility}
                         size={25}
-                        className="absolute right-0 mr-5 text-[#A3A3A3]"
+                        className="absolute right-0 mr-5 text-[#A3A3A3] cursor-pointer"
                       />
                     )}
 
@@ -101,13 +101,13 @@ const Signup = () => {
                       <MdVisibility
                         onClick={toggleVisibility}
                         size={25}
-                        className="absolute right-0 mr-5 text-[#A3A3A3]"
+                        className="absolute right-0 mr-5 text-[#A3A3A3] cursor-pointer"
                       />
                     ) : (
                       <MdVisibilityOff
                         onClick={toggleVisibility}
                         size={25}
-                        className="absolute right-0 mr-5 text-[#A3A3A3]"
+                        className="absolute right-0 mr-5 text-[#A3A3A3] cursor-pointer"
                       />
                     )}
                     <input
