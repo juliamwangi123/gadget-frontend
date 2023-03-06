@@ -1,9 +1,13 @@
-import React from "react";
+import React,{useState} from "react";
 import { NavLink } from "react-router-dom";
-import {MdVisibilityOff} from "react-icons/md"
+import { MdVisibilityOff, MdVisibility } from "react-icons/md";
 import logo from "../subcomponents/assets/logo.png";
 
 const Signup = () => {
+  const [visible, setVisible] = useState(false);
+   const toggleVisibility = () => {
+     setVisible(prev => !prev); 
+   };
   return (
     <div className="w-full mx-auto max-w-7xl">
       <nav className=" flex py-2">
@@ -65,13 +69,23 @@ const Signup = () => {
                     </label>
                   </div>
                   <div className=" relative flex items-center">
-                    <MdVisibilityOff
-                      size={25}
-                      className="absolute right-0 mr-5 text-[#A3A3A3]"
-                    />
+                    {visible ? (
+                      <MdVisibility
+                        onClick={toggleVisibility}
+                        size={25}
+                        className="absolute right-0 mr-5 text-[#A3A3A3]"
+                      />
+                    ) : (
+                      <MdVisibilityOff
+                        onClick={toggleVisibility}
+                        size={25}
+                        className="absolute right-0 mr-5 text-[#A3A3A3]"
+                      />
+                    )}
+
                     <input
                       className="peer rounded-[10px] bg-transparent border border-[#ADADAD] py-3 placeholder:text-[#A3A3A3] placeholder:text-[14px]  w-full max-w-[553px] placeholder:font-medium px-4 sm:px-6 focus:border-none"
-                      type="text"
+                      type={`${visible ? "text" : "password"}`}
                       name="name"
                       placeholder=" "
                     />
@@ -83,13 +97,22 @@ const Signup = () => {
                     </label>
                   </div>
                   <div className=" relative flex items-center">
-                    <MdVisibilityOff
-                      size={25}
-                      className="absolute right-0 mr-5 text-[#A3A3A3]"
-                    />
+                    {visible ? (
+                      <MdVisibility
+                        onClick={toggleVisibility}
+                        size={25}
+                        className="absolute right-0 mr-5 text-[#A3A3A3]"
+                      />
+                    ) : (
+                      <MdVisibilityOff
+                        onClick={toggleVisibility}
+                        size={25}
+                        className="absolute right-0 mr-5 text-[#A3A3A3]"
+                      />
+                    )}
                     <input
-                      className="peer rounded-[10px] bg-transparent border border-[#ADADAD] py-3 placeholder:text-[#A3A3A3] placeholder:text-[14px]  w-full max-w-[553px] placeholder:font-medium px-4 sm:px-6"
-                      type="text"
+                      className="peer rounded-[10px] bg-transparent border border-[#ADADAD] py-3 placeholder:text-[#A3A3A3] placeholder:text-[14px]  w-full max-w-[553px] placeholder:font-medium px-4 sm:px-6 focus:border-none"
+                      type={`${visible ? "text" : "password"}`}
                       name="name"
                       placeholder=" "
                     />
