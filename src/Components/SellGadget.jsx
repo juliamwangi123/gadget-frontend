@@ -236,13 +236,15 @@ const SellGadget = () => {
                 </div>
 
                 <div className="w-full md:mt-10 mt-4 flex-wrap flex items-center gap-8">
-                  <Link to="/"
+                  <Link
+                    to="/"
                     className="text-[20px] font-sans mr-2 text-gray-500 capitalize cursor-pointer rounded-md hover:text-red-500"
                     type="submit"
                   >
                     cancel
                   </Link>
-                  <Link to="/"
+                  <Link
+                    to="/"
                     className="text-[20px] capitalize hover:bg-black hover:border-black bg-[#0043C6] py-2.5 px-8 text-blue-100  rounded-lg tracking-wide font-medium"
                     type="submit"
                   >
@@ -253,7 +255,7 @@ const SellGadget = () => {
                     className="text-[20px] md:ml-6 capitalize hover:bg-emerald-400 hover:text-emerald-50 bg-[#00A725] py-2.5 px-14 text-green-50  rounded-lg tracking-wide font-medium"
                     type="submit"
                   >
-                    procced
+                    proceed
                   </Link>
                 </div>
               </div>
