@@ -171,7 +171,7 @@ const Preview = () => {
               </select>
             </div>
           </div>
-          <div className="pt-5 gap-5 flex flex-col sm:flex-row flex-wrap">
+          <div className="pt-5 gap-10 flex flex-col px-4 sm:px-0 sm:flex-row flex-wrap">
             {Products.map((product) => (
               <PreviewCard key={product.id} product={product} />
             ))}
