@@ -20,6 +20,10 @@ import PaymentDetails from "./PaymentDetails";
 import SubmitPayment from "./SubmitPayment";
 import Transaction from "./Transaction";
 import SlideShow from "./SlideShow";
+import DashboardHeader from "./MyAccount/DashboardHeader"
+import SideNav from "./MyAccount/SideNav";
+import Contact from "./Contact";
+import AboutUs from "./AboutUs";
 
 
 
@@ -45,5 +49,9 @@ export {
   PaymentDetails,
   SubmitPayment,
   Transaction,
-  SlideShow
+  SlideShow,
+  DashboardHeader, 
+  SideNav,
+  Contact,
+  AboutUs
 };

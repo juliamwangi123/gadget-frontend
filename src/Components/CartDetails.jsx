@@ -1,8 +1,10 @@
-import React from 'react'
+import React from "react";
+import SavedItems from "./MyAccount/SavedItems";
+import SideNav from "./MyAccount/SideNav";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-import { Link } from 'react-router-dom';
-import flip from '../assets/Pinfo/flip.png'
+import { Link } from "react-router-dom";
+import flip from "../assets/Pinfo/flip.png";
 import { AiFillMinusSquare, AiFillPlusSquare } from "react-icons/ai";
 import {
   MdOutlineStarPurple500,
@@ -10,7 +12,7 @@ import {
   MdLocationOn,
   MdDeleteOutline,
 } from "react-icons/md";
-import {RecentViews} from "./data"
+import { RecentViews } from "./data";
 const CartDetails = () => {
   return (
     <div className="w-full">
@@ -108,7 +110,8 @@ const CartDetails = () => {
               <p className="text-[16px] font-bold tracking-wide">₦ 75,000</p>
             </div>
             <div className="mt-4 sm:mt-10">
-              <Link to="/checkout-details"
+              <Link
+                to="/checkout-details"
                 className="bg-[#0043C6] py-2 uppercase text-white text-[20px] px-24 font-bold rounded-md"
                 type="submit"
               >
@@ -139,6 +142,6 @@ const CartDetails = () => {
       </div>
     </div>
   );
-}
+};
 
-export default CartDetails
+export default CartDetails;

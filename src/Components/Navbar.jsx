@@ -6,9 +6,7 @@ import { RiSearchLine } from "react-icons/ri";
 import { BsPersonFill } from "react-icons/bs";
 import { FaShoppingCart } from "react-icons/fa";
 import { Menu } from "@headlessui/react";
-const Navbar = ()=> {
-  
- 
+const Navbar = () => {
   const [OpenMobile, SetMobile] = useState(true);
 
   const toggle = () => {
@@ -45,12 +43,14 @@ const Navbar = ()=> {
           <div className="px-10 sm:pt-4 ">
             <div className="flex gap-12">
               <div className="capitalize">
-                <button
-                  className="capitalize font-sans font-medium text-base text-gray-900 "
-                  type="button"
-                >
-                  contact us
-                </button>
+                <Link to="/contact-us" className="cursor-pointer">
+                  <button
+                    className="capitalize font-sans font-medium text-base text-gray-900 "
+                    type="button"
+                  >
+                    contact us
+                  </button>
+                </Link>
               </div>
               <div className="">
                 <Menu as="div" className="relative">
@@ -74,13 +74,19 @@ const Navbar = ()=> {
                       </Link>
                     </Menu.Item>
                     <Menu.Item as="div" className="mt-10">
-                      <Link to="/account/register" className="py-3 bg-[#0043C6] px-8 text-[15px] capitalize hover:bg-black text-white font-medium tracking-wide rounded-lg cursor-pointer">
+                      <Link
+                        to="/account/register"
+                        className="py-3 bg-[#0043C6] px-8 text-[15px] capitalize hover:bg-black text-white font-medium tracking-wide rounded-lg cursor-pointer"
+                      >
                         create account
                       </Link>
                     </Menu.Item>
                     <Menu.Item as="div" className="mt-12 mb-4">
-                      <Link to="/account/login" className="py-3 hover:bg-emerald-50 border border-[#0043C6] bg-white px-16 text-[15px] capitalize text-[#0043C6] font-medium tracking-wider rounded-md">
-                      sign in
+                      <Link
+                        to="/account/login"
+                        className="py-3 hover:bg-emerald-50 border border-[#0043C6] bg-white px-16 text-[15px] capitalize text-[#0043C6] font-medium tracking-wider rounded-md"
+                      >
+                        sign in
                       </Link>
                     </Menu.Item>
                   </Menu.Items>
