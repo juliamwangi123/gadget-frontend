@@ -1,16 +1,75 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { Listproduct } from '../actions/productAction';
+import CurrencyFormat from "../constants/CurrencyFormatter";
+import {
+  submitNewProduct,
+  removeNewProductFromState,
+} from "../actions/productAction";
+import { Link,useNavigate } from 'react-router-dom';
 import Navbar from './Navbar';
 import A53 from "../assets/data/samsung53.png"
 import Footer from './Footer';
 const SellDetails = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  
+  const { productCreate,loading,success } = useSelector((state) => state.newProduct);
+
+  const { assets } = useSelector((state) => state.productImages);
+  
+  
+  const {
+    productImage,
+    productTitle,
+    productDescription,
+    productCondition,
+    productPrice,
+    productPaymentMethod,
+    productCurrency,
+    productItemVisibilty,
+    productBank,
+    productAccName,
+    productAccNumber,
+  } = productCreate || {};
+
+  const  images =
+      productImage &&
+      productImage.map((image) => {
+        image;
+      });
+    console.log(images);
+ 
+  const postNewProduct = () => {
+    dispatch(
+      submitNewProduct({
+        title: productTitle,
+        uploaded_images: assets,
+        description: productDescription,
+        paymentMethod: productPaymentMethod,
+        bank: productBank,
+        accName: productAccName,
+        accNumber: productAccNumber,
+        condition: productCondition,
+        currency: productCurrency,
+        itemVisibility: productItemVisibilty,
+        price: productPrice,
+      })
+    );
+    if (success && !loading) {
+      dispatch(removeNewProductFromState())
+      dispatch(Listproduct())
+      navigate("/products-page");
+    }
+   }
+
   return (
     <div className="w-full">
       <div className="">
         <Navbar />
       </div>
       <div className="max-w-7xl mx-auto">
-        <div className="flex px-4 flex-col md:justify-between sm:flex-row flex-wrap">
+        <div className="flex px-4 flex-col md:justify-between sm:flex-row">
           <div className="">
             <header className="text-[24px] capitalize font-sans font-medium leading-[34px] my-4 sm:my-8">
               gadget cover{" "}
@@ -18,16 +77,16 @@ const SellDetails = () => {
                 (required)
               </span>
             </header>
-            <div className="bg-[#F2F9FF] max-w-[504px] rounded-[10px] sm:my-8">
-              <div className="px-20 pt-10 pb-2">
+            <div className="bg-[#F2F9FF] max-w-[504px] rounded-[10px] sm:my-8 w-full ">
+              <div className="px-20 pt-10 pb-2 w-full ">
                 <img
-                  src={A53}
+                  src={productImage && productImage[0]}
                   alt=""
-                  className="bg-transparent max-w-[350px] max-h-[350px]"
+                  className="bg-transparent max-w-[350px] max-h-[350px] w-full h-full"
                 />
               </div>
               <h1 className="text-[#0043C6] text-[21px] leading-[28px] font-medium tracking-wider px-4 pb-5">
-                Samsung Galaxy A53{" "}
+                {productTitle && productTitle}
               </h1>
             </div>
             <Link
@@ -43,7 +102,15 @@ const SellDetails = () => {
               <div className="">
                 <h1 className="capitalize font-medium text-[22px]">price</h1>
                 <p className="text-[15px] font-medium text-[#7B7B7B] sm:mt-2">
-                  $ 100
+                  <CurrencyFormat value={productPrice && productPrice} />
+                </p>
+              </div>
+              <div className="sm:mt-5 ">
+                <h1 className="capitalize font-medium text-[22px]">
+                  specifications
+                </h1>
+                <p className="text-[15px] font-medium text-[#7B7B7B] capitalize sm:mt-2">
+                  {productDescription && productDescription}
                 </p>
               </div>
               <div className="sm:mt-5 ">
@@ -51,7 +118,7 @@ const SellDetails = () => {
                   condition
                 </h1>
                 <p className="text-[15px] font-medium text-[#7B7B7B] capitalize sm:mt-2">
-                  Everything is working perfectly
+                  {productCondition && productCondition}
                 </p>
               </div>
               <div className="sm:mt-5 ">
@@ -102,13 +169,13 @@ const SellDetails = () => {
               >
                 save as draft
               </Link>
-              <Link
-                to="/customers-feedback"
+              <button
+                onClick={postNewProduct}
                 className="text-[20px] capitalize hover:bg-emerald-400 hover:text-emerald-50 bg-[#00A725] py-2.5 md:px-16 px-8 tracking-wider text-green-50  rounded-lg  font-medium"
                 type="submit"
               >
                 publish
-              </Link>
+              </button>
             </div>
           </div>
         </div>

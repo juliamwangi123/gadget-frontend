@@ -1,21 +1,48 @@
-import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
-import { MdVisibilityOff, MdVisibility } from "react-icons/md";
-import { Link } from "react-router-dom";
-import { FaShoppingCart } from "react-icons/fa";
-import { SavedProducts } from "../data";
-import SavedItemsPreview from "../MyAccount/SavedItemsPreview";
 
-import logo from "../subcomponents/assets/logo.png";
+import React,{useState,useEffect} from 'react'
+import { useNavigate } from "react-router-dom";
+import { NavLink } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { MdVisibilityOff, MdVisibility } from "react-icons/md";
+import { loginUser } from '../../actions/userActions';
+import logo from "../subcomponents/assets/logo.png"
+import Spinner from '../Spinner';
+
 
 const Signin = () => {
   const [visible, setVisible] = useState(false);
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const dispatch = useDispatch()
+  const userData = useSelector(state => state.userLogin)
+
+  const {userLogin,loading,error} = userData
+  
+  const navigateTo = useNavigate()
+  const token = localStorage.getItem("access");
+
+ 
+  useEffect(() => {
+    if (token) {
+      navigateTo("/");
+    }
+ },[navigateTo,token])
+ 
+  
+  const loginUserHandler = (e) => {
+    e.preventDefault();
+    dispatch(loginUser(email, password))
+  }
+
   const toggleVisibility = () => {
     setVisible((prev) => !prev);
   };
 
   return (
     <div className="w-full mx-auto max-w-7xl">
+     
       <nav className=" flex py-2">
         <NavLink to="/" className="">
           <img className="w-[5.5rem] h-[4.2rem]" src={logo} alt="" />
@@ -41,11 +68,25 @@ const Signin = () => {
           <div className="flex justify-center my-4 sm:my-8">
             <p className="text-[20px] uppercase font-light">-or-</p>
           </div>
-          <form className="flex flex-col gap-6 sm:gap-8 md:gap-10">
+          <form
+            onSubmit={loginUserHandler}
+            className="flex flex-col gap-6 sm:gap-8 md:gap-10"
+          >
+            <div className={loading ? "":"hidden"}>{loading && <Spinner />}</div>
+            <div className={error ? "":"hidden"} >
+              {error && (
+                <div className="bg-red-200 w-full max-w-[553px] py-2 text-base text-red-600 text-center sm:tracking-wide sm:text-lg md:text-xl md:py-3 font-light font-sans rounded-md">
+                  <h1>{error}</h1>
+                </div>
+              )}
+            </div>
             <div className="relative">
               <input
                 className="peer rounded-[10px] bg-transparent border border-[#ADADAD] py-3  placeholder:text-[14px]  w-full max-w-[553px] placeholder:font-medium px-4 sm:px-6 placeholder:text-[#F2F9FF] focus:border-none "
                 type="text"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 name="name"
                 placeholder="Email Address"
               />
@@ -74,7 +115,10 @@ const Signin = () => {
               <input
                 className="peer rounded-[10px] bg-transparent border border-[#ADADAD] py-3 placeholder:text-[#A3A3A3] placeholder:text-[14px]  w-full max-w-[553px] placeholder:font-medium px-4 sm:px-6 focus:border-none  placeholder-transparent"
                 type={`${visible ? "text" : "password"}`}
+                required
                 name="name"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 placeholder=" "
               />
               <label

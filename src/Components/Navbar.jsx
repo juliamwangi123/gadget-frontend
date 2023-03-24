@@ -1,13 +1,38 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import logo from "../assets/logo.png";
+import { useDispatch, useSelector } from "react-redux";
+import { logoutUser } from "../actions/userActions";
 import { AiOutlineMenu, AiOutlineClose, AiOutlineDown } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { RiSearchLine } from "react-icons/ri";
 import { BsPersonFill } from "react-icons/bs";
 import { FaShoppingCart } from "react-icons/fa";
 import { Menu } from "@headlessui/react";
-const Navbar = () => {
+
+import { toast } from "react-toastify";
+import Slide from "react-reveal/Slide";
+
+
+const Navbar = ({ cartCount }) => {
+
   const [OpenMobile, SetMobile] = useState(true);
+
+
+  const dispatch = useDispatch()
+
+
+  const userData = useSelector(state => state.userLogin)
+
+  const { userLogin } = userData;
+
+
+  const logout = () => {
+    dispatch(logoutUser())
+    toast.success("Logged out successfully", {
+      position: toast.POSITION.TOP_CENTER
+    });
+  }
+  
 
   const toggle = () => {
     SetMobile((prev) => !prev);
@@ -15,6 +40,7 @@ const Navbar = () => {
 
   return (
     <div className="w-full">
+      
       <div className="max-w-[1480px] mx-auto sm:pt-6">
         <div className="md:flex gap-10 w-full hidden">
           <div className="flex items-center gap-8 w-3/5">
@@ -66,29 +92,46 @@ const Navbar = () => {
                     className="flex flex-col absolute z-10 -translate-x-[30%] translate-y-3 p-6 bg-[#F9FCFF] border-2 border-white  bg-opacity-50 rounded-md shadow-2xl w-[250px] items-center"
                   >
                     <Menu.Item>
-                      <Link className="inline-flex items-center gap-6 text-[#0043C6]">
+                      <Link className="inline-flex items-center gap-6 text-[#0043C6]" to={`/my-account`}>
+                        
                         <BsPersonFill size={30} />
                         <span className="text-[18.0682px] capitalize font-bold text-[#0043C6] tracking-wide">
                           my account
                         </span>
                       </Link>
                     </Menu.Item>
-                    <Menu.Item as="div" className="mt-10">
-                      <Link
-                        to="/account/register"
-                        className="py-3 bg-[#0043C6] px-8 text-[15px] capitalize hover:bg-black text-white font-medium tracking-wide rounded-lg cursor-pointer"
-                      >
-                        create account
-                      </Link>
-                    </Menu.Item>
-                    <Menu.Item as="div" className="mt-12 mb-4">
-                      <Link
-                        to="/account/login"
-                        className="py-3 hover:bg-emerald-50 border border-[#0043C6] bg-white px-16 text-[15px] capitalize text-[#0043C6] font-medium tracking-wider rounded-md"
-                      >
-                        sign in
-                      </Link>
-                    </Menu.Item>
+
+
+                    {userLogin ? (
+                      <Menu.Item as="div" className="mt-12 mb-4">
+                        <Link
+                          onClick={logout}
+                          className="py-3 hover:bg-emerald-50 border border-[#0043C6] bg-white px-16 text-[15px] capitalize text-[#0043C6] font-medium tracking-wider rounded-md"
+                        >
+                          Logout
+                        </Link>
+                      </Menu.Item>
+                    ) : (
+                      <div>
+                        <Menu.Item as="div" className="mt-10">
+                          <Link
+                            to="/account/register"
+                            className="py-3 bg-[#0043C6] px-8 text-[15px] capitalize hover:bg-black text-white font-medium tracking-wide rounded-lg cursor-pointer"
+                          >
+                            create account
+                          </Link>
+                        </Menu.Item>
+                        <Menu.Item as="div" className="mt-12 mb-4">
+                          <Link
+                            to="/account/login"
+                            className="py-3 hover:bg-emerald-50 border border-[#0043C6] bg-white px-16 text-[15px] capitalize text-[#0043C6] font-medium tracking-wider rounded-md"
+                          >
+                            sign in
+                          </Link>
+                        </Menu.Item>
+                      </div>
+                    )}
+
                   </Menu.Items>
                 </Menu>
               </div>
@@ -96,11 +139,17 @@ const Navbar = () => {
               <div>
                 <Link
                   to="/cart-details"
-                  className="capitalize font-sans font-medium text-base inline-flex gap-1 text-gray-900 tracking-wide "
+                  className="capitalize font-sans font-medium text-base inline-flex gap-1 text-gray-900 tracking-wide relative"
                   type="button"
                 >
                   <FaShoppingCart size={20} />
-                  <span> </span>
+                  {cartCount > 0 ? (
+                    <span className="absolute translate-x-2 -translate-y-1 w-4 h-4 rounded-full text-white inline-flex items-center justify-center text-[11px] bg-orange-600">
+                      {cartCount}{" "}
+                    </span>
+                  ) : (
+                    ""
+                  )}
                   cart
                 </Link>
               </div>

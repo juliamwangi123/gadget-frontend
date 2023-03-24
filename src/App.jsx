@@ -1,4 +1,4 @@
-import "./App.css";
+
 import {
   Navbar,
   Home,
@@ -14,9 +14,19 @@ import {
   PaymentDetails,
   SubmitPayment,
   Transaction,
+
+  Spinner,
+  Error,
+  OrderSummary,
   Contact,
   AboutUs
 } from "./Components";
+
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+  
+
 
 import AccountLayout from "./Components/MyAccount/AccountLayout";
 import ListedItems from "./Components/MyAccount/ListedItems";
@@ -25,12 +35,14 @@ import SecuritySettings from "./Components/MyAccount/SecuritySettings";
 import TransactionHistory from "./Components/MyAccount/TransactionHistory";
 
 
+
 import { Route, Routes } from "react-router-dom";
 import SavedItems from "./Components/MyAccount/SavedItems";
 
 function App() {
   return (
     <div className="">
+      <ToastContainer />
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route path="/account/login" element={<Signin />} />
@@ -40,11 +52,15 @@ function App() {
         <Route path="/customers-feedback" element={<FeedbackForm />} />
         <Route path="/products-page" element={<BuyProduct />} />
         <Route path="/product-details/:id" element={<ProductDetails />} />
-        <Route path="/cart-details" element={<CartDetails />} />
+        <Route path="/cart-details/:id?" element={<CartDetails />} />
         <Route path="/checkout-details" element={<CheckoutDetails />} />
         <Route path="/payment-details" element={<PaymentDetails />} />
-        <Route path="/submit-payment" element={<SubmitPayment />} />
-        <Route path="/payment-success" element={<Transaction />} />
+
+        <Route path="/payment-success/:id" element={<Transaction />} />
+        <Route path="/submit-payment/:id?" element={<SubmitPayment />} />
+        <Route path="/order-summary/:id?" element={<OrderSummary />} />
+
+     
         <Route path="/contact-us" element={<Contact />} />
         <Route path="/about-us" element={<AboutUs />} />
 
@@ -56,6 +72,7 @@ function App() {
           <Route path="transaction-history" element={<TransactionHistory />} />
           <Route path="saved-items" element={<SavedItems />} />
         </Route>
+
       </Routes>
     </div>
   );

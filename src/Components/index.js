@@ -20,7 +20,11 @@ import PaymentDetails from "./PaymentDetails";
 import SubmitPayment from "./SubmitPayment";
 import Transaction from "./Transaction";
 import SlideShow from "./SlideShow";
-import DashboardHeader from "./MyAccount/DashboardHeader"
+
+import Spinner from "./Spinner";
+import Error from "./Error";
+import OrderSummary from "./OrderSummary";
+import DashboardHeader from "./MyAccount/DashboardHeader";
 import SideNav from "./MyAccount/SideNav";
 import Contact from "./Contact";
 import AboutUs from "./AboutUs";
@@ -49,9 +53,14 @@ export {
   PaymentDetails,
   SubmitPayment,
   Transaction,
-  SlideShow,
-  DashboardHeader, 
+
+  Spinner,
+  Error,
+  OrderSummary,
+
   SideNav,
   Contact,
-  AboutUs
+  AboutUs,
+  DashboardHeader
+
 };

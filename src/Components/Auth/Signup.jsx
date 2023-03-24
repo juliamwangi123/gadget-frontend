@@ -1,9 +1,75 @@
-import React,{useState} from "react";
+import React, { useState, useEffect} from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Navigate } from "react-router-dom";
+import { toast } from "react-toastify";
+
+import { registerUser } from "../../actions/userActions";
 import { NavLink } from "react-router-dom";
 import { MdVisibilityOff, MdVisibility } from "react-icons/md";
+import {
+  AiFillInfoCircle,
+ 
+} from "react-icons/ai";
+import { BsCheckCircleFill } from "react-icons/bs";
 import logo from "../subcomponents/assets/logo.png";
+import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import Spinner from "../Spinner";
 
 const Signup = () => {
+  
+ 
+
+  
+
+  const dispatch = useDispatch()
+
+  const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
+  
+  const userData = useSelector(state => state.userRegister);
+  const user = useSelector((state) => state.userLogin);
+  const {userLogin}= user
+
+  const { userRegisterInfo, loading, error, success } = userData;
+  
+  console.log(success);
+
+  const navigate = useNavigate();
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+
+  const [password, setPwd] = useState("");
+  const [validPwd, setValidPwd] = useState(false);
+  const [pwdFocus, setPwdFocus] = useState(false);
+
+  const [matchPwd, setMatchPwd] = useState("");
+  const [validMatch, setValidMatch] = useState(false);
+  const [matchFocus, setMatchFocus] = useState(false);
+
+  
+   useEffect(() => {
+     setValidPwd(PWD_REGEX.test(password));
+     setValidMatch(password === matchPwd);
+   }, [password, matchPwd]);
+   
+  const userRegisterHandler = (e) => {
+    e.preventDefault();
+   
+    dispatch(registerUser(name, email, password));
+    if (success) {
+      navigate("/account/login");
+      toast.success(`Wellcome ${name}, Log in Now to Continue`, {
+      position: toast.POSITION.TOP_CENTER,
+    });
+      
+    }
+    
+
+  }
+
+
+
   const [visible, setVisible] = useState(false);
    const toggleVisibility = () => {
      setVisible(prev => !prev); 
@@ -38,11 +104,23 @@ const Signup = () => {
               <h2 className=" text-center text-[20px] font-light my-4 sm:my-8">
                 -OR-
               </h2>
-              <form className="">
+              <div>{loading && <Spinner />}</div>
+              <div className="pb-2 sm:pb-4">
+                {error && (
+                  <div className="bg-red-200 w-full max-w-[553px] py-2 text-base text-red-600 text-center sm:tracking-wide sm:text-lg md:text-xl md:py-3 font-light font-sans rounded-lg">
+                    <h1>{error}</h1>
+                  </div>
+                )}
+              </div>
+              <form onSubmit={userRegisterHandler} className="">
                 <div className="flex flex-col gap-4 sm:gap-8  md:gap-10">
                   <div className="relative">
                     <input
                       className="peer focus:border-none rounded-[10px] bg-transparent border border-[#ADADAD] py-3 placeholder:text-[#A3A3A3] placeholder:text-[14px]  w-full max-w-[553px] placeholder:font-medium px-4 sm:px-6"
+                      autoComplete="off"
+                      required
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
                       type="text"
                       name="name"
                       placeholder=" "
@@ -56,11 +134,17 @@ const Signup = () => {
                   </div>
                   <div className="relative">
                     <input
-                      className="peer focus:border-none rounded-[10px] bg-transparent border border-[#ADADAD] py-3 placeholder:text-[#A3A3A3] placeholder:text-[14px]  w-full max-w-[553px] placeholder:font-medium px-4 sm:px-6"
-                      type="text"
+                      className="peer focus:border-none rounded-[10px] bg-transparent border border-[#ADADAD] py-3 placeholder:text-[#A3A3A3] placeholder:text-[14px]  w-full max-w-[553px] placeholder:font-medium px-4 sm:px-6  invalid:text-pink-600
+                        focus:invalid:border-pink-500 focus:invalid:ring-pink-500"
+                      type="email"
+                      required
+                      autoComplete="off"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
                       name="name"
                       placeholder=" "
                     />
+
                     <label
                       className="absolute text-[#A3A3A3] left-0 scale-100 duration-300 capitalize translate-x-4 px-3 tracking-wide -top-3 bg-[#F2F9FF] peer-placeholder-shown:top-3.5 peer-focus:-top-3 pointer-events-none peer-focus:text-blue-500 "
                       htmlFor=""
@@ -68,60 +152,131 @@ const Signup = () => {
                       email address
                     </label>
                   </div>
-                  <div className=" relative flex items-center">
-                    {visible ? (
-                      <MdVisibility
-                        onClick={toggleVisibility}
-                        size={25}
-                        className="absolute right-0 mr-5 text-[#A3A3A3] cursor-pointer"
-                      />
-                    ) : (
-                      <MdVisibilityOff
-                        onClick={toggleVisibility}
-                        size={25}
-                        className="absolute right-0 mr-5 text-[#A3A3A3] cursor-pointer"
-                      />
-                    )}
+                  <div className="flex flex-col gap-2">
+                    <div className=" relative flex items-center">
+                      {visible ? (
+                        <MdVisibility
+                          onClick={toggleVisibility}
+                          size={25}
+                          className="absolute right-0 mr-5 text-[#A3A3A3] cursor-pointer"
+                        />
+                      ) : (
+                        <MdVisibilityOff
+                          onClick={toggleVisibility}
+                          size={25}
+                          className="absolute right-0 mr-5 text-[#A3A3A3] cursor-pointer"
+                        />
+                      )}
 
-                    <input
-                      className="peer rounded-[10px] bg-transparent border border-[#ADADAD] py-3 placeholder:text-[#A3A3A3] placeholder:text-[14px]  w-full max-w-[553px] placeholder:font-medium px-4 sm:px-6 focus:border-none"
-                      type={`${visible ? "text" : "password"}`}
-                      name="name"
-                      placeholder=" "
-                    />
-                    <label
-                      className="absolute px-2 translate-x-4 capitalize text-[#A3A3A3] -top-3  tracking-wide bg-[#F2F9FF] scale-100 duration-300 peer-placeholder-shown:top-3 pointer-events-none peer-focus:-top-3 peer-focus:text-blue-500"
-                      htmlFor=""
+                      <input
+                        className={`peer rounded-[10px] bg-transparent border py-3 placeholder:text-[#A3A3A3] placeholder:text-[14px]  w-full max-w-[553px] placeholder:font-medium px-4 sm:px-6 focus:border-none`}
+                        type={`${visible ? "text" : "password"}`}
+                        required
+                        autoComplete="off"
+                        name="name"
+                        onFocus={() => setPwdFocus(true)}
+                        onBlur={() => setPwdFocus(false)}
+                        onChange={(e) => setPwd(e.target.value)}
+                        value={password}
+                        placeholder=" "
+                      />
+
+                      <label
+                        className="absolute inline-flex gap-1 items-center px-2 translate-x-4 capitalize text-[#A3A3A3] -top-3  tracking-wide bg-[#F2F9FF] scale-100 duration-300 peer-placeholder-shown:top-3 pointer-events-none peer-focus:-top-3 peer-focus:text-blue-500"
+                        htmlFor=""
+                      >
+                        password
+                        <BsCheckCircleFill
+                          className={`${
+                            validPwd ? "flex" : "hidden"
+                          } text-green-600`}
+                        />
+                        {/* <AiFillCloseCircle
+                          className={`${
+                           validPwd || !password  ?  "hidden" : ""
+                          } text-green-600`}
+                        /> */}
+                      </label>
+                    </div>
+
+                    <div
+                      className={`${
+                        pwdFocus && !validPwd ? "flex" : "hidden"
+                      } w-full max-w-[553px] rounded-[10px] bg-sky-300 p-2`}
                     >
-                      password
-                    </label>
+                      <p className="text-blue-900 tracking-wide">
+                        <span className="inline-flex items-center gap-1">
+                          <AiFillInfoCircle />8 to 24 characters.
+                        </span>
+                        <br />
+                        Must include uppercase and lowercase letters, a number
+                        and a special character.
+                        <br />
+                        Allowed special characters:{" "}
+                        <span className="text-fuchsia-600 text-base font-medium">
+                          <span>!</span>
+                          <span>@</span>
+                          <span>#</span>
+                          <span>%</span>
+                        </span>
+                      </p>
+                    </div>
                   </div>
-                  <div className=" relative flex items-center">
-                    {visible ? (
-                      <MdVisibility
-                        onClick={toggleVisibility}
-                        size={25}
-                        className="absolute right-0 mr-5 text-[#A3A3A3] cursor-pointer"
+
+                  <div className="flex flex-col gap-2">
+                    <div className=" relative flex items-center">
+                      {visible ? (
+                        <MdVisibility
+                          onClick={toggleVisibility}
+                          size={25}
+                          className="absolute right-0 mr-5 text-[#A3A3A3] cursor-pointer"
+                        />
+                      ) : (
+                        <MdVisibilityOff
+                          onClick={toggleVisibility}
+                          size={25}
+                          className="absolute rotate-360 right-0 mr-5 text-[#A3A3A3] cursor-pointer"
+                        />
+                      )}
+
+                      <input
+                        className={`peer rounded-[10px] bg-transparent border border-[#ADADAD] py-3 placeholder:text-[#A3A3A3] placeholder:text-[14px]  w-full max-w-[553px] placeholder:font-medium px-4 sm:px-6 focus:border-none`}
+                        type={`${visible ? "text" : "password"}`}
+                        required
+                        name="name"
+                        autoComplete="off"
+                        onChange={(e) => setMatchPwd(e.target.value)}
+                        value={matchPwd}
+                        onFocus={() => setMatchFocus(true)}
+                        onBlur={() => setMatchFocus(false)}
+                        placeholder=" "
                       />
-                    ) : (
-                      <MdVisibilityOff
-                        onClick={toggleVisibility}
-                        size={25}
-                        className="absolute right-0 mr-5 text-[#A3A3A3] cursor-pointer"
-                      />
-                    )}
-                    <input
-                      className="peer rounded-[10px] bg-transparent border border-[#ADADAD] py-3 placeholder:text-[#A3A3A3] placeholder:text-[14px]  w-full max-w-[553px] placeholder:font-medium px-4 sm:px-6 focus:border-none"
-                      type={`${visible ? "text" : "password"}`}
-                      name="name"
-                      placeholder=" "
-                    />
-                    <label
-                      className="absolute px-2 translate-x-4 capitalize tracking-wide text-[#A3A3A3] -top-3 bg-[#F2F9FF] scale-100 duration-300 peer-placeholder-shown:top-3 peer-focus:-top-3 pointer-events-none peer-focus:text-blue-500"
-                      htmlFor=""
+
+                      <label
+                        className="absolute inline-flex items-center gap-1 px-2 translate-x-4 capitalize tracking-wide text-[#A3A3A3] -top-3 bg-[#F2F9FF] scale-100 duration-300 peer-placeholder-shown:top-3 peer-focus:-top-3 pointer-events-none peer-focus:text-blue-500"
+                        htmlFor=""
+                      >
+                        confirm password
+                        <BsCheckCircleFill
+                          className={`${
+                            password === matchPwd && validPwd
+                              ? "flex"
+                              : "hidden"
+                          } text-green-600`}
+                        />
+                      </label>
+                    </div>
+                    <div
+                      className={`${
+                        matchFocus && !validMatch ? "flex" : "hidden"
+                      } w-full max-w-[553px] rounded-[10px] bg-sky-300 p-2`}
                     >
-                      confirm password
-                    </label>
+                      <p className="inline-flex items-center gap-1 text-blue-900 ">
+                        {" "}
+                        <AiFillInfoCircle />
+                        Must match the first password input field.
+                      </p>
+                    </div>
                   </div>
                 </div>
                 <div className="flex gap-4 items-center mt-4 sm:mt-8 md:mt-10">
@@ -133,7 +288,7 @@ const Signup = () => {
                     className="w-6 h-6 bg-transparent"
                   />
                   <label
-                    for="consent"
+                    htmlFor="consent"
                     className=" text-[#00000094] font-medium"
                   >
                     {" "}
@@ -146,7 +301,8 @@ const Signup = () => {
 
                 <div className="w-full max-w-[551px] flex flex-col mt-4 sm:mt-6 md:mt-8">
                   <button
-                    className="bg-[#0043C6] rounded-[10px] text-[20px] capitalize text-white py-3 font-bold tracking-wide  grow hover:bg-black"
+                    disabled={!validPwd || !validMatch ? true : false}
+                    className="bg-[#0043C6] disabled:bg-blue-200  transition-all duration-200 ease-in-out disabled:cursor-not-allowed rounded-[10px] text-[20px] capitalize text-white py-3 font-bold tracking-wide  grow hover:bg-black"
                     type="submit"
                   >
                     create account

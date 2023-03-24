@@ -1,4 +1,6 @@
-import React,{useState} from 'react'
+import React, { useState } from 'react'
+import { useDispatch, useSelector } from "react-redux";
+import CurrencyFormat from '../constants/CurrencyFormatter';
 import { Link } from "react-router-dom";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
@@ -16,6 +18,19 @@ import {
 } from "react-icons/md";
 
 const SubmitPayment = () => {
+
+   const cartData = useSelector((state) => state.cart);
+
+   const { shippingDetails, cartItems, paymentMethod } = cartData;
+   const totalPrice = cartItems.reduce(
+     (acc, item) => acc + Number.parseFloat(item.price),
+     0
+   );
+
+
+
+
+
   const [hovering, setHovering] = useState(false);
 
   const handleMouseEnter = () => {
@@ -75,7 +90,7 @@ const SubmitPayment = () => {
                         Samsung | Similar products from Samsung
                       </span>
                     </p>
-                    <div className="flex gap-4 items-center mt-2">
+                    {/* <div className="flex gap-4 items-center mt-2">
                       <div className="flex mb-2">
                         <MdOutlineStarPurple500
                           size={20}
@@ -103,9 +118,11 @@ const SubmitPayment = () => {
                         />
                       </div>
                       <span>(24)</span>
-                    </div>
+                    </div> */}
                     <div className="">
-                      <p className="font-bold pb-3">₦ 75,000</p>
+                      <p className="font-bold pb-3">
+                        <CurrencyFormat value={totalPrice} />
+                      </p>
                       <div className="flex justify-between">
                         <div className="flex items-center gap-4">
                           <MdLocationOn size={25} className="text-gray-400 " />
@@ -129,7 +146,9 @@ const SubmitPayment = () => {
           </div>
           <div className="max-w-[852px] bg-[#F2F9FF] rounded-md shadow-sm border border-stone-100 mx-auto flex justify-between px-4 py-3 mt-4 sm:mt-7">
             <h1 className="sm:text-[20px] font-medium">TOTAL TO PAY</h1>
-            <h1 className="sm:text-[20px] font-bold sm:mr-10">₦ 75,000</h1>
+            <h1 className="sm:text-[20px] font-bold sm:mr-10">
+              <CurrencyFormat value={totalPrice} />
+            </h1>
           </div>
           <div className="px-4 mx-auto max-w-[852px] mt-4 sm:mt-6 pb-2 flex justify-center">
             <h1 className="sm:text-[20px] text-[15px] font-medium uppercase">
