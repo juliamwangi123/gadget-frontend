@@ -1,0 +1,14 @@
+.toast-message {
+   
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    
+}
+
+.error-message{
+    font-weight: 600;
+    font-size: 18px;
+    height: 7rem;
+    margin-top: 0.5rem;
+    color: #be6a83;
+    background-color: #f7eced !important;
+}

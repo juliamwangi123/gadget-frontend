@@ -1,10 +1,32 @@
-import React from 'react'
+import React,{useEffect} from 'react'
+import { useDispatch, useSelector } from "react-redux";
+import { getPaymentFeedback } from '../actions/orderActions';
+import { ORDER_FEEDBACK } from '../constants/orderConstants';
 import {HiCheckCircle} from "react-icons/hi"
 import { RiSecurePaymentFill, RiArrowRightSLine } from "react-icons/ri";
-import { Link } from 'react-router-dom';
+import { Link,useParams } from 'react-router-dom';
+
 import Navbar from './Navbar';
 
 const Transaction = () => {
+  const dispatch = useDispatch();
+  const { id } = useParams();
+  
+
+ 
+
+  const feedback = localStorage.getItem("paymentFeedback")
+    ? JSON.parse(localStorage.getItem("paymentFeedback"))
+    : {};
+  
+  const paidOrder = localStorage.getItem("paidOrder")
+    ? JSON.parse(localStorage.getItem("paidOrder"))
+    : [];
+  const { orders } = paidOrder || {};
+  const { time, transId } = feedback || {};
+
+ 
+  
   return (
     <section className="w-full">
       {/* nav section */}
@@ -27,24 +49,28 @@ const Transaction = () => {
                   Payment Successful
                 </h1>
                 <h1 className="sm:text-[20px] font-light tracking-wider text-center">
-                  Transaction Number 1447789660086
+                  Transaction Number <span>{transId}</span>
                 </h1>
               </div>
-              <div className="flex sm:gap-24 md:gap-32 flex-wrap gap-1 mt-4 sm:mt-12 sm:ml-4">
+              <div className="flex md:gap-28  sm:gap-16 flex-wrap gap-1 mt-4 sm:mt-12 sm:ml-4">
                 <h1 className="sm:text-[20px] font-medium tracking-wide">
                   Package :
                 </h1>
-                <p className="max-w-[355px] text-[14px] font-light tracking-wide leading-[20px]">
-                  Samsung Galaxy A53, 6.5" Super AMOLED Screen, 6GB/128GB
-                  Memory, 64MP Quad Camera, 5000 mAh Battery, Android 12 - White
-                </p>
+                <div className="w-2/3 flex flex-col sm:gap-4 gap-2">
+                  {orders &&
+                    orders.map((order) => (
+                      <p className="max-w-[505px] w-full text-[14px] font-light tracking-wide leading-[20px] line-clamp-2">
+                        {order.name}
+                      </p>
+                    ))}
+                </div>
               </div>
-              <div className=" flex sm:gap-24 md:gap-20 flex-wrap gap-1 items-center mt-4 sm:mt-10 sm:ml-4">
+              <div className=" flex sm:gap-16 md:gap-24 flex-wrap gap-1 items-center mt-4 sm:mt-10 sm:ml-4">
                 <h1 className="sm:text-[20px] font-medium tracking-wide">
-                  Shipped Date :
+                  Date Paid :
                 </h1>
                 <p className="text-[14px] font-light tracking-wider leading-[20px]">
-                  Monday 13 February 2023
+                  {time?.substring(0, 10)}
                 </p>
               </div>
               <div className="flex sm:gap-10 gap-4 flex-wrap justify-center sm:justify-start mt-4 sm:mt-14 mb-4 sm:mb-16 sm:ml-4">

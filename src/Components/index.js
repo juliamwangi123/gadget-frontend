@@ -20,8 +20,9 @@ import PaymentDetails from "./PaymentDetails";
 import SubmitPayment from "./SubmitPayment";
 import Transaction from "./Transaction";
 import SlideShow from "./SlideShow";
-
-
+import Spinner from "./Spinner";
+import Error from "./Error";
+import OrderSummary from "./OrderSummary";
 
 export {
   Hero,
@@ -45,5 +46,8 @@ export {
   PaymentDetails,
   SubmitPayment,
   Transaction,
-  SlideShow
+  SlideShow,
+  Spinner,
+  Error,
+  OrderSummary
 };
