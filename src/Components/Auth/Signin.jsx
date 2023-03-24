@@ -1,14 +1,19 @@
-import React,{useState} from 'react'
-import { NavLink } from 'react-router-dom';
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 import { MdVisibilityOff, MdVisibility } from "react-icons/md";
+import { Link } from "react-router-dom";
+import { FaShoppingCart } from "react-icons/fa";
+import { SavedProducts } from "../data";
+import SavedItemsPreview from "../MyAccount/SavedItemsPreview";
 
-import logo from "../subcomponents/assets/logo.png"
+import logo from "../subcomponents/assets/logo.png";
 
 const Signin = () => {
   const [visible, setVisible] = useState(false);
   const toggleVisibility = () => {
     setVisible((prev) => !prev);
   };
+
   return (
     <div className="w-full mx-auto max-w-7xl">
       <nav className=" flex py-2">
@@ -121,6 +126,157 @@ const Signin = () => {
       </section>
     </div>
   );
-}
+};
 
-export default Signin
+export default Signin;
+
+// <section>
+//   <aside className="sidebar fixed hidden md:block md:shadow transform -translate-x-full md:translate-x-0 transition-transform duration-150 ease-in bg-[#F2F9FF] rounded-[30px] m-3 shadow-[-4px -4px 4px rgba(0, 0, 0, 0.25)]  ">
+//     <div class="flex h-screen flex-col  bg-primary-60 text-[#0043C6] static">
+//       <NavLink to="/" className="">
+//         <img
+//           className="w-[5.5rem] h-[4.2rem] mx-auto"
+//           src={logo}
+//           alt="GadgetHub Logo"
+//         />
+//       </NavLink>
+//       <nav
+//         aria-label="Main Nav"
+//         className="main-nav mt-5 flex flex-col w-full "
+//       >
+//         <a
+//           href="/user/home"
+//           className="flex items-center mb-7 px-4 py-2.5 bg-[#FD0E0E1A] "
+//         >
+//           <img
+//             src="https://res.cloudinary.com/eiroro/image/upload/v1678309243/Vector_nyutvk.svg"
+//             alt="Dashboard vector"
+//           />
+//           <span className="ml-3 text-sm font-medium text-[#FD0E0E]">
+//             {" "}
+//             Dashboard{" "}
+//           </span>
+//         </a>
+
+//         <a
+//           href="/user/self-affirmation"
+//           class="flex items-center px-4 py-2"
+//         >
+//           <img src=" https://res.cloudinary.com/eiroro/image/upload/v1678309244/Group_dvmlij.svg" />
+//           <span class="ml-3 text-sm font-medium"> Profile Details</span>
+//         </a>
+//         <a
+//           href="/user/self-affirmation"
+//           class="flex items-center px-4 py-2"
+//         >
+//           <img src="https://res.cloudinary.com/eiroro/image/upload/v1678309243/mdi_account-security-outline_rv47lr.svg" />
+//           <span class="ml-2 text-sm font-medium"> Security Setting</span>
+//         </a>
+
+//         <p className=" px-4 mt-7 mb-5">MORE</p>
+
+//         <a
+//           href="/user/self-affirmation"
+//           class="flex items-center px-5 py-2"
+//         >
+//           <img src="https://res.cloudinary.com/eiroro/image/upload/v1678309244/Group_1_sykplj.svg" />
+//           <span class="ml-3 text-sm font-medium"> Listing</span>
+//         </a>
+//         <a
+//           href="/user/self-affirmation"
+//           class="flex items-center px-4 py-2"
+//         >
+//           <img src="https://res.cloudinary.com/eiroro/image/upload/v1678309243/foundation_page-multiple_hpbpb9.svg" />
+//           <span class="ml-2 text-sm font-medium"> Product Page </span>
+//         </a>
+//         <a
+//           href="/user/self-affirmation"
+//           class="flex items-center px-4 py-2"
+//         >
+//           <img src="https://res.cloudinary.com/eiroro/image/upload/v1678309243/foundation_page-multiple_hpbpb9.svg" />
+//           <span class="ml-2 text-sm font-medium"> Sold Items</span>
+//         </a>
+//         <a
+//           href="/user/self-affirmation"
+//           class="flex items-center px-4 py-2"
+//         >
+//           <img src="https://res.cloudinary.com/eiroro/image/upload/v1678309243/foundation_page-multiple_hpbpb9.svg" />
+//           <span class="ml-2 text-sm font-medium"> Transaction History</span>
+//         </a>
+//         <a
+//           href="/user/self-affirmation"
+//           class="flex items-center px-4 py-2"
+//         >
+//           <img src="https://res.cloudinary.com/eiroro/image/upload/v1678309243/Vector_1_w5eazq.svg" />
+//           <span class="ml-2 text-sm font-medium"> Logout</span>
+//         </a>
+//       </nav>
+//     </div>
+//   </aside>
+
+//   <div className=" flex justify-between md:ml-52 py-2 ">
+//     <div className="flex items-center bg-[#F2F9FF] rounded-md  w-1/2 ">
+//       <svg
+//         className="w-6 h-6 text-gray-400 mr-3"
+//         fill="none"
+//         stroke="currentColor"
+//         viewBox="0 0 24 24"
+//         xmlns="http://www.w3.org/2000/svg"
+//       >
+//         <path
+//           strokeLinecap="round"
+//           strokeLinejoin="round"
+//           strokeWidth={2}
+//           d="M21 21l-4.873-4.873"
+//         />
+//         <path
+//           strokeLinecap="round"
+//           strokeLinejoin="round"
+//           strokeWidth={2}
+//           d="M15.5 10.5a5 5 0 11-7.07 0 5 5 0 017.07 0z"
+//         />
+//       </svg>
+//       <input
+//         type="text"
+//         placeholder="Search.."
+//         className="border-0 focus:outline-none bg-transparent w-full"
+//         value={searchTerm}
+//         onChange={handleChange}
+//       />
+//     </div>
+//     <div className=" flex justify-around space-x-8">
+//       <Link
+//         to="/cart-details"
+//         className="capitalize font-sans font-medium text-base inline-flex gap-1  py-3 text-gray-900 tracking-wide "
+//         type="button"
+//       >
+//         <FaShoppingCart size={20} />
+//       </Link>
+//       <div className=" flex justify-between  p-2 space-x-2">
+//         <img src="https://res.cloudinary.com/eiroro/image/upload/v1678538820/Ellipse_1_a9e4x9.svg" />
+//         <p className=" font-medium my-auto text-[#0043C6]">Daniel D</p>
+//       </div>
+//       <div className=" my-auto pr-6">
+//         <img src="https://res.cloudinary.com/eiroro/image/upload/v1678538603/Group_1_ydpiac.svg" />
+//       </div>
+
+//     </div>
+//   </div>
+//   <div className=" bg-[#F2F9FF] text-[#0043C6] md:ml-44 text-lg font-bold flex justify-between">
+//     <h2 className=" py-3 pl-11 ">Dashboard</h2>
+//     <select className="bg-transparent border-none text-sm p-5  ">
+//       <option>Naira(NGN)</option>
+//       <option>Dollar(USD)</option>
+//       <option>Shilling (KES)</option>
+//       <option>Cedi (GHS)</option>
+//     </select>
+//   </div>
+//   <h2 className=" ml-64 font-bold text-2xl py-4 text-[#0043C6]">
+//     Saved Products
+//   </h2>
+//   <div className="mt-5 gap-10 flex flex-col p-9 sm:px-0 w-3/4 mx-auto sm:flex-row flex-wrap overflow-x-auto overflow-y-scroll md:ml-64 bg-[#F2F9FF]">
+//     {SavedProducts.map((product) => (
+//       <SavedItemsPreview key={product.id} product={product} />
+//     ))}
+//   </div>
+// </section>
