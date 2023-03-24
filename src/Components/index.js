@@ -20,9 +20,16 @@ import PaymentDetails from "./PaymentDetails";
 import SubmitPayment from "./SubmitPayment";
 import Transaction from "./Transaction";
 import SlideShow from "./SlideShow";
+
 import Spinner from "./Spinner";
 import Error from "./Error";
 import OrderSummary from "./OrderSummary";
+import DashboardHeader from "./MyAccount/DashboardHeader";
+import SideNav from "./MyAccount/SideNav";
+import Contact from "./Contact";
+import AboutUs from "./AboutUs";
+
+
 
 export {
   Hero,
@@ -46,8 +53,14 @@ export {
   PaymentDetails,
   SubmitPayment,
   Transaction,
-  SlideShow,
+
   Spinner,
   Error,
-  OrderSummary
+  OrderSummary,
+
+  SideNav,
+  Contact,
+  AboutUs,
+  DashboardHeader
+
 };

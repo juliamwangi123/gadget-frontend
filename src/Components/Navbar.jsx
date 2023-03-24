@@ -8,11 +8,13 @@ import { RiSearchLine } from "react-icons/ri";
 import { BsPersonFill } from "react-icons/bs";
 import { FaShoppingCart } from "react-icons/fa";
 import { Menu } from "@headlessui/react";
+
 import { toast } from "react-toastify";
 import Slide from "react-reveal/Slide";
 
 
 const Navbar = ({ cartCount }) => {
+
   const [OpenMobile, SetMobile] = useState(true);
 
 
@@ -67,12 +69,14 @@ const Navbar = ({ cartCount }) => {
           <div className="px-10 sm:pt-4 ">
             <div className="flex gap-12">
               <div className="capitalize">
-                <button
-                  className="capitalize font-sans font-medium text-base text-gray-900 "
-                  type="button"
-                >
-                  contact us
-                </button>
+                <Link to="/contact-us" className="cursor-pointer">
+                  <button
+                    className="capitalize font-sans font-medium text-base text-gray-900 "
+                    type="button"
+                  >
+                    contact us
+                  </button>
+                </Link>
               </div>
               <div className="">
                 <Menu as="div" className="relative">
@@ -88,13 +92,15 @@ const Navbar = ({ cartCount }) => {
                     className="flex flex-col absolute z-10 -translate-x-[30%] translate-y-3 p-6 bg-[#F9FCFF] border-2 border-white  bg-opacity-50 rounded-md shadow-2xl w-[250px] items-center"
                   >
                     <Menu.Item>
-                      <Link className="inline-flex items-center gap-6 text-[#0043C6]">
+                      <Link className="inline-flex items-center gap-6 text-[#0043C6]" to={`/my-account`}>
+                        
                         <BsPersonFill size={30} />
                         <span className="text-[18.0682px] capitalize font-bold text-[#0043C6] tracking-wide">
                           my account
                         </span>
                       </Link>
                     </Menu.Item>
+
 
                     {userLogin ? (
                       <Menu.Item as="div" className="mt-12 mb-4">
@@ -125,6 +131,7 @@ const Navbar = ({ cartCount }) => {
                         </Menu.Item>
                       </div>
                     )}
+
                   </Menu.Items>
                 </Menu>
               </div>

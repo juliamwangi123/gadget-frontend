@@ -1,4 +1,4 @@
-import "./App.css";
+
 import {
   Navbar,
   Home,
@@ -14,15 +14,30 @@ import {
   PaymentDetails,
   SubmitPayment,
   Transaction,
+
   Spinner,
   Error,
-  OrderSummary
+  OrderSummary,
+  Contact,
+  AboutUs
 } from "./Components";
 
-import { Route, Routes } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+  
+
+
+import AccountLayout from "./Components/MyAccount/AccountLayout";
+import ListedItems from "./Components/MyAccount/ListedItems";
+import ProfileDetail from "./Components/MyAccount/ProfileDetail";
+import SecuritySettings from "./Components/MyAccount/SecuritySettings";
+import TransactionHistory from "./Components/MyAccount/TransactionHistory";
+
+
+
+import { Route, Routes } from "react-router-dom";
+import SavedItems from "./Components/MyAccount/SavedItems";
 
 function App() {
   return (
@@ -40,9 +55,24 @@ function App() {
         <Route path="/cart-details/:id?" element={<CartDetails />} />
         <Route path="/checkout-details" element={<CheckoutDetails />} />
         <Route path="/payment-details" element={<PaymentDetails />} />
+
         <Route path="/payment-success/:id" element={<Transaction />} />
         <Route path="/submit-payment/:id?" element={<SubmitPayment />} />
         <Route path="/order-summary/:id?" element={<OrderSummary />} />
+
+     
+        <Route path="/contact-us" element={<Contact />} />
+        <Route path="/about-us" element={<AboutUs />} />
+
+        <Route path="/my-account" element={<AccountLayout />} >
+          <Route path="" element={<SavedItems />} />
+          <Route path="profile-details" element={<ProfileDetail />} />
+          <Route path="security-settings" element={<SecuritySettings />} />
+          <Route path="product-page" element={<ListedItems />} />
+          <Route path="transaction-history" element={<TransactionHistory />} />
+          <Route path="saved-items" element={<SavedItems />} />
+        </Route>
+
       </Routes>
     </div>
   );

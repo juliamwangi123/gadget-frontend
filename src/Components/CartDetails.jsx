@@ -22,8 +22,8 @@ const CartDetails = () => {
   const dispatch = useDispatch();
   const cartData = useSelector((state) => state.cart);
 
-  const { cartItems,loading } = cartData;
-  
+  const { cartItems, loading } = cartData;
+
   const totalPrice = cartItems.reduce(
     (acc, item) => acc + Number.parseFloat(item.price),
     0
@@ -51,41 +51,40 @@ const CartDetails = () => {
         </h1>
         <div className="flex gap-4 justify-between flex-col sm:flex-row">
           <div className="max-w-[838px] w-full">
-            {
-              loading ? (<Spinner />)
-                :
-                
-                  cartItems.length === 0 ? (
-                    <div className="bg-red-100 w-3/5 py-4 sm:ml-12 md:ml-16 text-center shadow-md rounded-md my-2 mb-4 sm:mb-8 md:mb-10">
-                      <h1 className="text-red-500 font-mono tracking-wider text-base sm:text-lg md:text-xl">
-                        You have no items in Cart
-                      </h1>
-                    </div>
-                  ) : (
-                    <main className="flex flex-col gap-4 sm:gap-6">
-                  
+            {loading ? (
+              <Spinner />
+            ) : cartItems.length === 0 ? (
+              <div className="bg-red-100 w-3/5 py-4 sm:ml-12 md:ml-16 text-center shadow-md rounded-md my-2 mb-4 sm:mb-8 md:mb-10">
+                <h1 className="text-red-500 font-mono tracking-wider text-base sm:text-lg md:text-xl">
+                  You have no items in Cart
+                </h1>
+              </div>
+            ) : (
+              <main className="flex flex-col gap-4 sm:gap-6">
+                {cartItems &&
+                  cartItems.map((product) => (
+                    <section
+                      key={product.id}
+                      className="max-w-[838px] w-full bg-[#F2F9FF] rounded-md shadow-sm border border-stone-100"
+                    >
+                      <div className="flex  gap-10 flex-col sm:flex-row md:gap-24 sm:px-12 my-2 max-h-[90px]">
+                        <img
+                          src={product.image[0].image}
+                          alt=""
+                          className="max-w-[200px] w-full object-contain"
+                        />
+                        <div className="">
+                          <h1 className="max-w-[352px] text-[13px] leading-[23px] font-sans tracking-wide font-semibold line-clamp-2">
+                            {product.title}
+                          </h1>
+                          <p className="sm:mt-2 text-[12px] font-light max-w-[347px]">
+                            Brand:
+                            <span className="text-[12px]">
+                              Samsung | Similar products from Samsung
+                            </span>
+                          </p>
 
-                      {cartItems &&
-                        cartItems.map((product) => (
-                          <section key={product.id} className="max-w-[838px] w-full bg-[#F2F9FF] rounded-md shadow-sm border border-stone-100">
-                            <div className="flex  gap-10 flex-col sm:flex-row md:gap-24 sm:px-12 my-2 max-h-[90px]">
-                              <img
-                                src={product.image[0].image}
-                                alt=""
-                                className="max-w-[200px] w-full object-contain"
-                              />
-                              <div className="">
-                                <h1 className="max-w-[352px] text-[13px] leading-[23px] font-sans tracking-wide font-semibold line-clamp-2">
-                                  {product.title}
-                                </h1>
-                                <p className="sm:mt-2 text-[12px] font-light max-w-[347px]">
-                                  Brand:
-                                  <span className="text-[12px]">
-                                    Samsung | Similar products from Samsung
-                                  </span>
-                                </p>
-
-                                {/* <div className="">
+                          {/* <div className="">
                             <div className="flex justify-between">
                               <div className="flex items-center gap-4 md:pb-8">
                                 <MdLocationOn
@@ -99,40 +98,38 @@ const CartDetails = () => {
                               <p className="">Used</p>
                             </div>
                           </div> */}
-                              </div>
-                              <div>
-                                <p className="font-bold pb-3">
-                                  <CurrencyFormat value={product.price} />
-                                </p>
-                              </div>
-                            </div>
-                            <div className="flex justify-between px-8 sm:px-12 md:px-16 mt-4 pb-4">
-                              <div className="flex gap-1 items-center text-[#FF3A43] cursor-pointer">
-                                <MdDeleteOutline size={20} />
-                                <button
-                                  onClick={() => removeItemHandler(product.id)}
-                                  className="uppercase text-[15px]"
-                                  type="submit"
-                                >
-                                  remove item
-                                </button>
-                              </div>
-                              <div className="flex items-center text-[#FC3233] gap-2.5">
-                                <button type="submit">
-                                  <AiFillMinusSquare size={20} />
-                                </button>
-                                <p className="text-[18px] text-black">1</p>
-                                <button type="submit">
-                                  <AiFillPlusSquare size={20} />
-                                </button>
-                              </div>
-                            </div>
-                          </section>
-                        ))}
-                    </main>
-                  )
-                }
-            
+                        </div>
+                        <div>
+                          <p className="font-bold pb-3">
+                            <CurrencyFormat value={product.price} />
+                          </p>
+                        </div>
+                      </div>
+                      <div className="flex justify-between px-8 sm:px-12 md:px-16 mt-4 pb-4">
+                        <div className="flex gap-1 items-center text-[#FF3A43] cursor-pointer">
+                          <MdDeleteOutline size={20} />
+                          <button
+                            onClick={() => removeItemHandler(product.id)}
+                            className="uppercase text-[15px]"
+                            type="submit"
+                          >
+                            remove item
+                          </button>
+                        </div>
+                        <div className="flex items-center text-[#FC3233] gap-2.5">
+                          <button type="submit">
+                            <AiFillMinusSquare size={20} />
+                          </button>
+                          <p className="text-[18px] text-black">1</p>
+                          <button type="submit">
+                            <AiFillPlusSquare size={20} />
+                          </button>
+                        </div>
+                      </div>
+                    </section>
+                  ))}
+              </main>
+            )}
           </div>
           {cartItems.length > 0 && (
             <div className="max-w-[362px] bg-[#F2F9FF] w-full rounded-md shadow-sm border border-stone-100 p-8 max-h-[340px]">
@@ -147,7 +144,7 @@ const CartDetails = () => {
               </div>
               <div className="mt-4 sm:mt-10">
                 <Link
-                  to={'/checkout-details'}
+                  to={"/checkout-details"}
                   disabled={cartItems.length === 0}
                   className="bg-[#0043C6] py-2 uppercase text-white text-[20px] px-24 font-bold rounded-md disabled:bg-slate-300 disabled:cursor-not-allowed"
                   type="submit"
