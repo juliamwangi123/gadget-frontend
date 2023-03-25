@@ -19,11 +19,9 @@ const Preview = () => {
   let keyword = location.search
   const findProducts = keyword.split("=");
 
-  // if (keyword) {
-  //   keyword=keyword.split("?keyword=")[1];
-  // }
+ 
 
- console.log(findProducts);
+
 
   useEffect(() => {
     dispatch(Listproduct(keyword))
@@ -237,7 +235,7 @@ const Preview = () => {
                 </div>
               )}
 
-              {error || products?.length === 0 ? (
+              {error ? (
                 ""
               ) : (
                 <div className="flex justify-center  pt-8">
