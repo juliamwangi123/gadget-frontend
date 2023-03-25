@@ -237,7 +237,7 @@ const Preview = () => {
                 </div>
               )}
 
-              {error || products.length === 0 ? (
+              {error || products?.length === 0 ? (
                 ""
               ) : (
                 <div className="flex justify-center  pt-8">
