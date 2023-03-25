@@ -3,11 +3,13 @@ import logo from "../assets/logo.png";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutUser } from "../actions/userActions";
 import { AiOutlineMenu, AiOutlineClose, AiOutlineDown } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import { Link,useNavigate,useLocation } from "react-router-dom";
 import { RiSearchLine } from "react-icons/ri";
 import { BsPersonFill } from "react-icons/bs";
 import { FaShoppingCart } from "react-icons/fa";
 import { Menu } from "@headlessui/react";
+import { Navigate } from "react-router-dom";
+          <Navigate to="/dashboard" replace={true} />
 
 import { toast } from "react-toastify";
 import Slide from "react-reveal/Slide";
@@ -17,9 +19,11 @@ const Navbar = ({ cartCount }) => {
 
   const [OpenMobile, SetMobile] = useState(true);
 
+  const [searchTerm , setSearchTerm] = useState("");
 
   const dispatch = useDispatch()
-
+  let navigate = useNavigate()
+ 
 
   const userData = useSelector(state => state.userLogin)
 
@@ -38,9 +42,21 @@ const Navbar = ({ cartCount }) => {
     SetMobile((prev) => !prev);
   };
 
+
+
+  const searcHandler = (e) => {
+    e.preventDefault();
+    if (searchTerm) {
+      
+// &page=1
+      navigate(`/?search=${searchTerm}`)
+    } else {
+      navigate(location.pathname)
+    }
+   }
+
   return (
     <div className="w-full">
-      
       <div className="max-w-[1480px] mx-auto sm:pt-6">
         <div className="md:flex gap-10 w-full hidden">
           <div className="flex items-center gap-8 w-3/5">
@@ -48,11 +64,13 @@ const Navbar = ({ cartCount }) => {
               <img className="w-[5.5rem] h-[4.2rem]" src={logo} alt="" />
             </Link>
             <div className="w-full">
-              <div className="relative flex items-center text-gray-500">
+              <form onSubmit={searcHandler} className="relative flex items-center text-gray-500">
                 <RiSearchLine className="w-5 h-5 absolute ml-3 pointer-events-none" />
                 <input
                   type="search"
                   className="w-full bg-inherit pr-3 pl-10 py-2 font-serif focus:h-12  placeholder:text-gray-500 rounded-lg border-2 border-zinc-400 focus:border-none"
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
                   placeholder="Search Products,Brands and Categories "
                 />
                 <div className="px-5">
@@ -63,7 +81,7 @@ const Navbar = ({ cartCount }) => {
                     search
                   </button>
                 </div>
-              </div>
+              </form>
             </div>
           </div>
           <div className="px-10 sm:pt-4 ">
@@ -91,26 +109,28 @@ const Navbar = ({ cartCount }) => {
                     as="div"
                     className="flex flex-col absolute z-10 -translate-x-[30%] translate-y-3 p-6 bg-[#F9FCFF] border-2 border-white  bg-opacity-50 rounded-md shadow-2xl w-[250px] items-center"
                   >
-                    <Menu.Item>
-                      <Link className="inline-flex items-center gap-6 text-[#0043C6]" to={`/my-account`}>
-                        
-                        <BsPersonFill size={30} />
-                        <span className="text-[18.0682px] capitalize font-bold text-[#0043C6] tracking-wide">
-                          my account
-                        </span>
-                      </Link>
-                    </Menu.Item>
-
-
                     {userLogin ? (
-                      <Menu.Item as="div" className="mt-12 mb-4">
-                        <Link
-                          onClick={logout}
-                          className="py-3 hover:bg-emerald-50 border border-[#0043C6] bg-white px-16 text-[15px] capitalize text-[#0043C6] font-medium tracking-wider rounded-md"
-                        >
-                          Logout
-                        </Link>
-                      </Menu.Item>
+                      <section>
+                        <Menu.Item>
+                          <Link
+                            className="inline-flex items-center gap-6 text-[#0043C6]"
+                            to={`/my-account`}
+                          >
+                            <BsPersonFill size={30} />
+                            <span className="text-[18.0682px] capitalize font-bold text-[#0043C6] tracking-wide">
+                              my account
+                            </span>
+                          </Link>
+                        </Menu.Item>
+                        <Menu.Item as="div" className="mt-12 mb-4">
+                          <Link
+                            onClick={logout}
+                            className="py-3 hover:bg-emerald-50 border border-[#0043C6] bg-white px-16 text-[15px] capitalize text-[#0043C6] font-medium tracking-wider rounded-md"
+                          >
+                            Logout
+                          </Link>
+                        </Menu.Item>
+                      </section>
                     ) : (
                       <div>
                         <Menu.Item as="div" className="mt-10">
@@ -131,7 +151,6 @@ const Navbar = ({ cartCount }) => {
                         </Menu.Item>
                       </div>
                     )}
-
                   </Menu.Items>
                 </Menu>
               </div>

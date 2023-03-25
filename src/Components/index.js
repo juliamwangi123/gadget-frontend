@@ -28,7 +28,7 @@ import DashboardHeader from "./MyAccount/DashboardHeader";
 import SideNav from "./MyAccount/SideNav";
 import Contact from "./Contact";
 import AboutUs from "./AboutUs";
-
+import PaginateButtons from "./PaginateButtons";
 
 
 export {
@@ -61,6 +61,7 @@ export {
   SideNav,
   Contact,
   AboutUs,
-  DashboardHeader
+  DashboardHeader,
+  PaginateButtons
 
 };

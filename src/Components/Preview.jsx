@@ -2,23 +2,37 @@ import { useEffect } from "react";
 import { RiSearchLine } from "react-icons/ri";
 import { useDispatch, useSelector } from "react-redux";
 import { Listproduct } from "../actions/productAction";
+import { useLocation,useNavigate } from "react-router-dom";
 import PreviewCard from "./PreviewCard";
 import Spinner from "./Spinner";
 import Error from "./Error";
 import Slide from "react-reveal/Slide";
-
+import PaginateButtons from "./PaginateButtons";
 
 
 const Preview = () => {
   const dispatch = useDispatch()
   const productData = useSelector(state => state.productList);
-  const { products, error, loading } = productData;
+  const { products, error, loading,pages,page } = productData;
+  const location = useLocation();
+  const navigate = useNavigate();
+  let keyword = location.search
+  const findProducts = keyword.split("=");
+
+  // if (keyword) {
+  //   keyword=keyword.split("?keyword=")[1];
+  // }
+
+ console.log(findProducts);
+
   useEffect(() => {
-    dispatch(Listproduct())
+    dispatch(Listproduct(keyword))
     
-  },[dispatch])
+  },[dispatch,keyword])
 
-
+  const handleRefresh = () => {
+    navigate("/")
+   }
   return (
     <section>
       <Slide bottom>
@@ -185,6 +199,29 @@ const Preview = () => {
                   </select>
                 </div>
               </div>
+              {products.length === 0 && (
+                <div className="flex flex-col justify-center items-center text-center mt-4 gap-4 sm:gap-6">
+                  <div className="bg-white rounded-full">
+                    <img
+                      src="https://res.cloudinary.com/seeders/image/upload/v1679752991/Blaone/binoculars.389fc56a_qszbiq.svg"
+                      alt=""
+                    />
+                  </div>
+                  <h1>
+                    There are no results for “{findProducts[1]}”. <br /> - Check
+                    your spelling for typing errors <br /> - Try searching with
+                    short and simple keywords <br /> - Try searching more
+                    general terms - you can then filter the search results
+                  </h1>
+                  <button
+                    onClick={handleRefresh}
+                    className="capitalize bg-[#f59e0b] hover:bg-[#d97706] py-2 rounded-md text-yellow-50 px-8 sm:px-10"
+                    type="submit"
+                  >
+                    refresh
+                  </button>
+                </div>
+              )}
               {loading ? (
                 <Spinner />
               ) : error ? (
@@ -200,7 +237,7 @@ const Preview = () => {
                 </div>
               )}
 
-              {error ? (
+              {error || products.length === 0 ? (
                 ""
               ) : (
                 <div className="flex justify-center  pt-8">

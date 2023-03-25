@@ -1,19 +1,122 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchUserDetails, getUserProfile, updateUser, updateProfile } from "../../actions/userActions";
+import { useNavigate } from "react-router-dom";
+import Spinner from "../Spinner";
+import Error from "../Error"
+import { toast } from "react-toastify";
+
 
 const ProfileDetail = () => {
+
+  const [FirstName, setFirstname] = useState("")
+  const [LastName, setLastname] = useState("");
+  const [Email, setEmail] = useState("");
+  const [Address, setAddress] = useState("");
+  const [City, setCity] = useState("");
+  const [Country, setCountry] = useState("");
+  const [Phone, setPhone] = useState("")
+  const [Image, setImage] = useState("");
+  const [Gender, setGender] = useState("");
+  const [password, setPassword] = useState("");
+  
+
+
+
+
+
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+
+  const userData = useSelector(state => state.userLogin)
+  const userProfile = useSelector((state) => state.userDetails);
+  const userProfileInfo = useSelector((state) => state.profileInfo);
+  const profileDataupdate = useSelector((state) => state.profileUpdate);
+  const userDataupdate = useSelector((state) => state.userUpdateData);
+
+  const { profileUpdate,error:ErrorProfileUpdate,  loading: LoadingProfileUpdate, success: SuccessProfileUpdate } = profileDataupdate || {};
+  const {
+    userUpdateData,
+    loading: LoadingUserUpdate,
+    error:ErrorUserUpdate,
+    success: SuccessUserUpdate,
+  } = userDataupdate || {};
+  
+  const { userLogin } = userData || {};
+  const { userDetails, loading, error } = userProfile || {};
+  const { loading: fetching, error: ErrorText, success: Success,profileInfo } = userProfileInfo || {};
+  
+  const { username, email, firstname, lastname } = userDetails || {};
+  const { gender,address, country,image,city,phone} = profileInfo || {};
+  
+
+  useEffect(() => {
+    dispatch(getUserProfile());
+
+    if (!userLogin) {
+      navigate("/account/login")
+    } else {
+      if (!email || !userDetails) {
+        dispatch(fetchUserDetails())
+      } else {
+        setFirstname(firstname ? firstname : "")
+        setLastname(lastname ? lastname : "")
+        setEmail(email ? email : "")
+        setAddress(address ? address : "")
+        setPhone(phone ? phone : "")
+        setCity(city ? city : "")
+        setCountry(country ? country : "")
+        setGender(gender ? gender : "");
+
+
+      }
+      
+    }
+    
+  },[dispatch,email,userLogin,userDetails])
+  
+  
+  const updateUserHandler = (e) => {
+    e.preventDefault();
+    dispatch(updateUser({ firstname: FirstName, lastname: LastName, email: Email,password,username:Email }));
+    dispatch(updateProfile({ address: Address, city: City, country: Country, image: Image, gender: Gender, phone: Phone }));
+    if (SuccessProfileUpdate || SuccessUserUpdate) {
+      toast.success("Profile Update Succesfull", {
+        position: toast.POSITION.TOP_CENTER,
+        className: "toast-message",
+      });
+    }
+  }
+
+  
+
   return (
-    <section>
-      <div className=" md:w-2/4 w-3/4 mx-auto bg-[#F2F9FF] rounded">
-        <form className=" p-6">
+    <section className="w-full max-w-7xl mx-auto">
+      <div className="flex flex-col my-2 justify-center items-center mx-auto">
+        <div className="flex justify-center items-center mx-auto">
+          {LoadingProfileUpdate || (LoadingUserUpdate && <Spinner />)}
+        </div>
+        <div className="flex flex-col gap-2">
+          {ErrorUserUpdate && <Error error={ErrorUserUpdate} />}
+          {ErrorProfileUpdate  && <Error error={ErrorProfileUpdate} />}
+        </div>
+      </div>
+
+      <div className=" md:w-2/4  mx-auto bg-[#F2F9FF] rounded-md max-w-[639px] w-full pb-6 sm:pb-10">
+        <form className="w-full max-w-[550px] mx-auto ">
           <input
-            className=" rounded-[10px] bg-transparent border border-[#0000001A] text-sm p-4 w-full mb-4 "
+            className=" rounded-[10px] bg-transparent border border-[#0000001A] text-sm p-4 w-full mb-4  mt-4 sm:mt-8 md:mt-16"
             type="text"
+            value={FirstName}
+            onChange={(e) => setFirstname(e.target.value)}
             name="firstname"
             placeholder="Daniel Dada"
           />
           <input
             className=" rounded-[10px] bg-transparent border border-[#0000001A] text-sm p-4 w-full mb-4 "
             type="text"
+            value={LastName}
+            onChange={(e) => setLastname(e.target.value)}
             name="lastname"
             placeholder=" Dada"
           />
@@ -21,12 +124,46 @@ const ProfileDetail = () => {
             className=" rounded-[10px] bg-transparent border border-[#0000001A] text-sm p-4 w-full mb-4 "
             type="email"
             name="email"
+            value={Email}
+            onChange={(e) => setEmail(e.target.value)}
             placeholder="danieldada76@gmail.com"
           />
-          <select className=" rounded-[10px] bg-transparent border border-[#0000001A] text-sm p-4 w-full mb-4 ">
-            <option>Male</option>
-            <option>Female</option>
+          <select
+            onChange={(e) => setGender(e.target.value)}
+            className=" rounded-[10px] bg-transparent border border-[#0000001A] text-sm p-4 w-full mb-4 "
+          >
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
           </select>
+          <input
+            className=" rounded-[10px] bg-transparent border border-[#0000001A] text-sm p-4 w-full mb-4 "
+            type="text"
+            name="address"
+            onChange={(e) => setAddress(e.target.value)}
+            value={Address}
+            placeholder="address"
+          />
+          <input
+            className=" rounded-[10px] bg-transparent border border-[#0000001A] text-sm p-4 w-full mb-4 "
+            type="text"
+            name="city"
+            onChange={(e) => setCity(e.target.value)}
+            value={City}
+            placeholder="city"
+          />
+          <input
+            className=" rounded-[10px] bg-transparent border border-[#0000001A] text-sm p-4 w-full mb-4 "
+            type="text"
+            name="country"
+            onChange={(e) => setCountry(e.target.value)}
+            value={Country}
+            placeholder="country"
+          />
+          <input
+            className="my-2 pb-2 sm:pb-4 rounded-lg "
+            onChange={(e) => setImage(e.target.files[0])}
+            type="file"
+          />
           <select
             name="countryCode"
             id=""
@@ -677,22 +814,25 @@ const ProfileDetail = () => {
               </option>
             </optgroup>
           </select>
-          <input type="tel" className=" rounded-[10px] bg-transparent border border-[#0000001A] text-sm p-4 w-full md:w-3/5 mb-4 " id="phone" name="phone" placeholder="07031255956" />
-
-
-          
           <input
-            className=" rounded-[10px] bg-transparent border border-[#0000001A] text-sm p-4 w-full mb-4"
-            type="date"
-            id="birthday"
-            name="dateofbirth"
+            type="tel"
+            className=" rounded-[10px] bg-transparent border border-[#0000001A] text-sm p-4 w-full md:w-3/5 mb-4 "
+            id="phone"
+            name="phone"
+            onChange={(e) => setPhone(e.target.value)}
+            value={Phone}
+            placeholder="07031255956"
           />
-          
-          <input
-            className=" bg-[#0043C6] rounded-[10px] w-full p-[10px] my-5 text-white font-bold"
-            type="submit"
-            value="Save"
-          />
+
+          <div className="flex justify-end mt-4">
+            <button
+              onClick={updateUserHandler}
+              className=" bg-[#0043C6] rounded-[10px] py-3 w-full max-h-[50px] max-w-[250px] text-white font-bold cursor-pointer"
+              type="submit"
+            >
+              Save
+            </button>
+          </div>
         </form>
       </div>
     </section>

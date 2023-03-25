@@ -1,18 +1,44 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";
+import { getUserProfile } from "../../actions/userActions";
 import DashboardTitle from "./DashboardTitle";
 
 const DashboardHeader = () => {
+  const dispatch = useDispatch();
+  
+
+
   const [searchTerm, setSearchTerm] = useState("");
   const location = useLocation();
+
   console.log(location.pathname)
   const title = (location.pathname == "/my-account" && "Dashboard" ? location.pathname == "/my-account/profile-details" && "Dashboard" : "Profile Details") 
+  const userData = useSelector(state => state.profileInfo)
 
+  const { sucess, loading, profileInfo } = userData || {};
+  const cartData = useSelector((state) => state.cart);
+  const loggeduser = useSelector((state) => state.userLogin);
+  const { loggedUser } = loggeduser || {};
+  const userProfile = useSelector((state) => state.userDetails);
+  const { userDetails } = userProfile || {};
+  const {  firstname,email} = userDetails || {};
 
+  const { image, user } = profileInfo || {};
+  
+  const { cartItems } = cartData;
+  
+ const cartCount = cartItems.length
   const handleChange = (event) => {
     setSearchTerm(event.target.value);
   };
+  useEffect(() => {
+    if (!firstname) {
+    dispatch(getUserProfile());
+      
+    }
+  }, [dispatch,firstname]);
   return (
     <div className=" mb-6">
       {" "}
@@ -53,17 +79,31 @@ const DashboardHeader = () => {
             type="button"
           >
             <FaShoppingCart size={20} />
+            {cartCount > 0 ? (
+              <span className="absolute translate-x-2 -translate-y-1 w-4 h-4 rounded-full text-white inline-flex items-center justify-center text-[11px] bg-orange-600">
+                {cartCount}{" "}
+              </span>
+            ) : (
+              ""
+            )}
           </Link>
           <div className=" flex justify-between  p-2 space-x-2">
-            <img src="https://res.cloudinary.com/eiroro/image/upload/v1678538820/Ellipse_1_a9e4x9.svg" />
-            <p className=" font-medium my-auto text-[#0043C6]">Daniel D</p>
+            <img
+              src={
+                image
+                  ? image
+                  : "https://res.cloudinary.com/seeders/image/upload/v1679656836/Blaone/user_318-725053_syffyp.png"
+              }
+              className="max-w-[30px] max-h-[30px] rounded-full"
+            />
+            <p className=" font-medium my-auto text-[#0043C6]">{firstname}</p>
           </div>
           <Link to="security-settings" className=" my-auto pr-6">
             <img src="https://res.cloudinary.com/eiroro/image/upload/v1678538603/Group_1_ydpiac.svg" />
           </Link>
         </div>
       </div>
-      <DashboardTitle title={title}/>
+      <DashboardTitle title={title} />
     </div>
   );
 };

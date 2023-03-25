@@ -42,7 +42,17 @@ import SavedItems from "./Components/MyAccount/SavedItems";
 function App() {
   return (
     <div className="">
-      <ToastContainer />
+      <ToastContainer
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route path="/account/login" element={<Signin />} />
@@ -60,11 +70,10 @@ function App() {
         <Route path="/submit-payment/:id?" element={<SubmitPayment />} />
         <Route path="/order-summary/:id?" element={<OrderSummary />} />
 
-     
         <Route path="/contact-us" element={<Contact />} />
         <Route path="/about-us" element={<AboutUs />} />
 
-        <Route path="/my-account" element={<AccountLayout />} >
+        <Route path="/my-account" element={<AccountLayout />}>
           <Route path="" element={<SavedItems />} />
           <Route path="profile-details" element={<ProfileDetail />} />
           <Route path="security-settings" element={<SecuritySettings />} />
@@ -72,7 +81,6 @@ function App() {
           <Route path="transaction-history" element={<TransactionHistory />} />
           <Route path="saved-items" element={<SavedItems />} />
         </Route>
-
       </Routes>
     </div>
   );
