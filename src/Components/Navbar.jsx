@@ -9,7 +9,6 @@ import { BsPersonFill } from "react-icons/bs";
 import { FaShoppingCart } from "react-icons/fa";
 import { Menu } from "@headlessui/react";
 import { Navigate } from "react-router-dom";
-          <Navigate to="/dashboard" replace={true} />
 
 import { toast } from "react-toastify";
 import Slide from "react-reveal/Slide";
