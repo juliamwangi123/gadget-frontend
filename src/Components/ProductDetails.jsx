@@ -23,7 +23,6 @@ import Fade from "react-reveal/Fade";
 
 import Slide from "react-reveal/Slide";
 
-import ReactImageMagnify from "react-image-magnify";
 
 
 const ProductDetails = () => {
