@@ -17,6 +17,9 @@ const AccountLayout = () => {
       <div>
         <Outlet />
       </div>
+
+
+      {/* <div></div> */}
     </div>
   )
 }
