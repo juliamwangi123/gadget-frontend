@@ -11,7 +11,7 @@ const AccountLayout = () => {
     dispatch(getUserProfile())
   },[dispatch])
   return (
-    <div>
+    <div className='mx-auto w-full max-w-7xl'>
       <SideNav />
       <DashboardHeader />
       <div>

@@ -25,8 +25,12 @@ import {
   USER_UPDATE_FAIL,
   USER_PROFILE_UPDATE_RESET,
   USER_UPDATE_RESET,
-
+  
 } from "../constants/userConstants";
+
+import { USER_ORDER_ITEMS_RESET } from "../constants/orderConstants";
+import { PRODUCT_SOLD_RESET } from "../constants/productConstants";
+import { PRODUCT_USER_POSTED_RESET } from "../constants/productConstants";
 
 
 export const loginUser = (email, password) => async (dispatch, getState) => {
@@ -76,6 +80,12 @@ export const logoutUser = () => async (dispatch) => {
   dispatch({ type: USER_PROFILE_RESET });
   dispatch({ type: USER_UPDATE_RESET });
   dispatch({type: USER_PROFILE_UPDATE_RESET})
+  dispatch({ type: USER_ORDER_ITEMS_RESET });
+  dispatch({ type: PRODUCT_SOLD_RESET });
+
+  dispatch({ type: PRODUCT_USER_POSTED_RESET });
+
+
     
 }
 

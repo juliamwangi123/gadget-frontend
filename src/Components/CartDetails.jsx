@@ -6,7 +6,7 @@ import CurrencyFormat from "../constants/CurrencyFormatter";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import { Link, useParams } from "react-router-dom";
-
+import {FaShoppingCart} from  "react-icons/fa"
 import { AiFillMinusSquare, AiFillPlusSquare } from "react-icons/ai";
 import {
   MdOutlineStarPurple500,
@@ -46,19 +46,39 @@ const CartDetails = () => {
       </div>
       {/* Cart details section */}
       <div className="mt-4 max-w-7xl mx-auto">
-        <h1 className="px-8 sm:px-12 md:px-16 text-[21.505px] font-medium my-2 sm:my-4 md:mt-8">
+        <section
+          className={`${cartItems.length > 0 && "hidden"} flex justify-center w-full items-center shadow-sm rounded-md pb-4 sm:pb-8 bg-slate-100`}
+        >
+          <div className="flex flex-col justify-center items-center text-center mt-4 gap-4 sm:gap-6 ">
+            <div className="bg-white rounded-full flex justify-center items-center w-full h-screen max-h-[100px] max-w-[100px]">
+              <FaShoppingCart size={60} className="text-blue-600" />
+            </div>
+            <h1 className="text-lg font-mono font-semibold">
+              Your cart is empty!{" "}
+            </h1>
+            <h1 className="font-mono">
+              Browse our categories and discover our best deals!
+            </h1>
+            <Link
+              to="/products-page"
+              className="capitalize bg-blue-600 hover:bg-blue-500 py-2 rounded-md text-yellow-50 px-8 sm:px-10"
+              type="submit"
+            >
+              start shopping
+            </Link>
+          </div>
+        </section>
+        <h1
+          className={`${
+            cartItems.length === 0 ? "hidden" : ""
+          } px-8 sm:px-12 md:px-16 text-[21.505px] font-medium my-2 sm:my-4 md:mt-8`}
+        >
           Cart( {cartItems.length} {cartItems.length === 1 ? "item" : "items"})
         </h1>
         <div className="flex gap-4 justify-between flex-col sm:flex-row">
           <div className="max-w-[838px] w-full">
             {loading ? (
               <Spinner />
-            ) : cartItems.length === 0 ? (
-              <div className="bg-red-100 w-3/5 py-4 sm:ml-12 md:ml-16 text-center shadow-md rounded-md my-2 mb-4 sm:mb-8 md:mb-10">
-                <h1 className="text-red-500 font-mono tracking-wider text-base sm:text-lg md:text-xl">
-                  You have no items in Cart
-                </h1>
-              </div>
             ) : (
               <main className="flex flex-col gap-4 sm:gap-6">
                 {cartItems &&
@@ -132,7 +152,7 @@ const CartDetails = () => {
             )}
           </div>
           {cartItems.length > 0 && (
-            <div className="max-w-[362px] bg-[#F2F9FF] w-full rounded-md shadow-sm border border-stone-100 p-8 max-h-[340px]">
+            <div className="max-w-[362px]  bg-[#F2F9FF] w-full rounded-md shadow-sm border border-stone-100 p-8 max-h-[340px]">
               <h1 className="text-[21.505px]">CART SUMMARY</h1>
               <div className="flex justify-between items-center sm:mt-4">
                 <p className="text-[20px] font-medium tracking-wide">

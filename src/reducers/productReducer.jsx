@@ -9,7 +9,15 @@ import {
   PRODUCT_CREATE_SUCCESS,
   PRODUCT_CREATE_FAIL,
   PRODUCT_CREATE_RESET,
-  PRODUCT_IMAGE
+  PRODUCT_IMAGE,
+  PRODUCT_SOLD_REQUEST,
+  PRODUCT_SOLD_SUCCESS,
+  PRODUCT_SOLD_FAIL,
+  PRODUCT_SOLD_RESET,
+  PRODUCT_USER_POSTED_REQUEST,
+  PRODUCT_USER_POSTED_SUCCESS,
+  PRODUCT_USER_POSTED_FAIL,
+  PRODUCT_USER_POSTED_RESET
 } from "../constants/productConstants";
 
 export const productListReducer = (state = { products: [] }, action) => {
@@ -90,3 +98,54 @@ export const addImage = (state= { assets:[]}, action) => {
   }
   
 }
+
+
+
+export const userSoldItemsReducer = (state = {}, action) => {
+  switch (action.type) {
+    case PRODUCT_SOLD_REQUEST:
+      return { loading: true, soldItems: {} };
+
+    case PRODUCT_SOLD_SUCCESS:
+      return {
+        loading: false,
+        soldItems: action.payload,
+      };
+    case PRODUCT_SOLD_FAIL:
+      return {
+        loading: false,
+        error: action.payload,
+      };
+
+    case PRODUCT_SOLD_RESET:
+      return {};
+
+    default:
+      return state;
+  }
+};
+
+
+export const userProductPostedReducer = (state = {}, action) => {
+  switch (action.type) {
+    case PRODUCT_USER_POSTED_REQUEST:
+      return { loading: true, postedItems: {} };
+
+    case PRODUCT_USER_POSTED_SUCCESS:
+      return {
+        loading: false,
+        postedItems: action.payload,
+      };
+    case PRODUCT_USER_POSTED_FAIL:
+      return {
+        loading: false,
+        error: action.payload,
+      };
+
+    case PRODUCT_USER_POSTED_RESET:
+      return {};
+
+    default:
+      return state;
+  }
+};

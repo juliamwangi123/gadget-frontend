@@ -17,7 +17,7 @@ const DashboardTitle = () => {
     case "/my-account/product-page":
       title = "Product Page";
       break;
-    case "/my-account/sold-items":
+    case "/my-account/products-sold":
       title = "Sold Items";
       break;
     case "/my-account/transaction-history":

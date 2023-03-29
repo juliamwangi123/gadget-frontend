@@ -110,7 +110,7 @@ const ProfileDetail = () => {
             value={FirstName}
             onChange={(e) => setFirstname(e.target.value)}
             name="firstname"
-            placeholder="Daniel Dada"
+            placeholder="Firstname"
           />
           <input
             className=" rounded-[10px] bg-transparent border border-[#0000001A] text-sm p-4 w-full mb-4 "
@@ -118,7 +118,7 @@ const ProfileDetail = () => {
             value={LastName}
             onChange={(e) => setLastname(e.target.value)}
             name="lastname"
-            placeholder=" Dada"
+            placeholder="lastname"
           />
           <input
             className=" rounded-[10px] bg-transparent border border-[#0000001A] text-sm p-4 w-full mb-4 "

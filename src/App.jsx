@@ -34,6 +34,7 @@ import ProfileDetail from "./Components/MyAccount/ProfileDetail";
 import SecuritySettings from "./Components/MyAccount/SecuritySettings";
 import TransactionHistory from "./Components/MyAccount/TransactionHistory";
 
+import SoldItems from "./Components/MyAccount/SoldItems";
 
 
 import { Route, Routes } from "react-router-dom";
@@ -78,6 +79,7 @@ function App() {
           <Route path="profile-details" element={<ProfileDetail />} />
           <Route path="security-settings" element={<SecuritySettings />} />
           <Route path="product-page" element={<ListedItems />} />
+          <Route path="products-sold" element={<SoldItems />} />
           <Route path="transaction-history" element={<TransactionHistory />} />
           <Route path="saved-items" element={<SavedItems />} />
         </Route>

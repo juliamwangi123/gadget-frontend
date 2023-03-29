@@ -7,7 +7,6 @@ import PreviewCard from "./PreviewCard";
 import Spinner from "./Spinner";
 import Error from "./Error";
 import Slide from "react-reveal/Slide";
-import PaginateButtons from "./PaginateButtons";
 
 
 const Preview = () => {
@@ -197,7 +196,7 @@ const Preview = () => {
                   </select>
                 </div>
               </div>
-              {products.length === 0 && (
+              {products && products?.length === 0 && (
                 <div className="flex flex-col justify-center items-center text-center mt-4 gap-4 sm:gap-6">
                   <div className="bg-white rounded-full">
                     <img

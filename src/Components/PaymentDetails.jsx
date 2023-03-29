@@ -33,11 +33,14 @@ const totalPrice = cartItems.reduce(
   0
 );
   
-  function generateOrderNumber() {
-    const timestamp = new Date().getTime();
-    const random = Math.floor(Math.random() * 100000);
-    return `#${timestamp}${random}`;
-  }
+function generateOrderNumber() {
+  const timestamp = new Date().getTime().toString();
+  const random = Math.floor(Math.random() * 100000000)
+    .toString()
+    .substring(0, 4);
+  return timestamp.substring(timestamp.length - 4) + random;
+}
+
   const navigate = useNavigate()
   useEffect(() => {
     if (success) {

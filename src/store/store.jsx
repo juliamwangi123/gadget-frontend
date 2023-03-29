@@ -1,9 +1,9 @@
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
-import { productListReducer, productDetailsReducer,productCreateReducer,addImage } from "../reducers/productReducer";
+import { productListReducer, productDetailsReducer,productCreateReducer,addImage,userSoldItemsReducer,userProductPostedReducer } from "../reducers/productReducer";
 import { cartReducer } from "../reducers/cartReducer";
-import { orderReducer,orderDetailsReducer,orderPaymentReducer,paypalFeedback } from "../reducers/orderReducer";
+import { orderReducer,orderDetailsReducer,orderPaymentReducer,paypalFeedback,userOrderItemsReducer } from "../reducers/orderReducer";
 import { userReducer, userRegisterReducer,userProfileReducer,userDetailsReducer, userProfileUpdateReducer,userDetailsUpdateReducer } from "../reducers/userReducer";
 
 const reducer = combineReducers({
@@ -21,7 +21,10 @@ const reducer = combineReducers({
   profileInfo: userProfileReducer,
   userDetails: userDetailsReducer,
   profileUpdate: userProfileUpdateReducer,
-  userUpdateData: userDetailsUpdateReducer
+  userUpdateData: userDetailsUpdateReducer,
+  userOrderItems: userOrderItemsReducer,
+  soldItems: userSoldItemsReducer,
+  postedItems: userProductPostedReducer,
 });
 
 const cartLocaleStorage = localStorage.getItem("cartItems") ?

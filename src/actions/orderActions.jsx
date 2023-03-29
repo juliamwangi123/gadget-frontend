@@ -10,7 +10,11 @@ import {
   ORDER_PAY_SUCCESS,
   ORDER_PAY_FAIL,
   ORDER_PAY_RESET,
-  ORDER_FEEDBACK
+  ORDER_FEEDBACK,
+  USER_ORDER_ITEMS_REQUEST,
+  USER_ORDER_ITEMS_SUCCESS,
+  USER_ORDER_ITEMS_FAIL,
+  USER_ORDER_ITEMS_RESET,
 } from "../constants/orderConstants";
 
 import { CART_CLEAR_ITEMS } from "../constants/cartConstants";
@@ -136,3 +140,37 @@ export const getPaymentFeedback = (payment) => async (dispatch) => {
     payload: payment
   })
 }
+
+
+
+export const userOrderItemsRequest = () => async (dispatch) => {
+  try {
+    dispatch({ type: USER_ORDER_ITEMS_REQUEST });
+
+    const token = localStorage.getItem("access");
+    const config = {
+      headers: {
+        "Content-type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    const { data } = await axios.get(
+      `http://localhost:8000/api/orders/myorder/items/`,
+      config
+    );
+
+
+    dispatch({
+      type: USER_ORDER_ITEMS_SUCCESS,
+      payload: data,
+    });
+  } catch (error) {
+    dispatch({
+      type: USER_ORDER_ITEMS_FAIL,
+      payload:
+        error.response && error.response.data.detail
+          ? error.response.data.detail
+          : error.message,
+    });
+  }
+};

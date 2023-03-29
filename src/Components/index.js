@@ -29,7 +29,8 @@ import SideNav from "./MyAccount/SideNav";
 import Contact from "./Contact";
 import AboutUs from "./AboutUs";
 import PaginateButtons from "./PaginateButtons";
-
+import SoldItems from "./MyAccount/SoldItems";
+import SoldItemsCard from "./MyAccount/SoldItemsCard";
 
 export {
   Hero,
@@ -62,6 +63,8 @@ export {
   Contact,
   AboutUs,
   DashboardHeader,
-  PaginateButtons
+  PaginateButtons,
+  SoldItems,
+  SoldItemsCard
 
 };
