@@ -39,7 +39,7 @@ const ProfileDetail = () => {
     userUpdateData,
     loading: LoadingUserUpdate,
     error:ErrorUserUpdate,
-    success: SuccessUserUpdate,
+    success:SuccessUserUpdate,
   } = userDataupdate || {};
   
   const { userLogin } = userData || {};
@@ -49,6 +49,12 @@ const ProfileDetail = () => {
   const { username, email, firstname, lastname } = userDetails || {};
   const { gender,address, country,image,city,phone} = profileInfo || {};
   
+
+  useEffect(() => {
+     if (SuccessProfileUpdate || SuccessUserUpdate) {
+       dispatch(fetchUserDetails())
+     }
+  },[SuccessProfileUpdate,SuccessUserUpdate,dispatch])
 
   useEffect(() => {
     dispatch(getUserProfile());
@@ -80,12 +86,10 @@ const ProfileDetail = () => {
     e.preventDefault();
     dispatch(updateUser({ firstname: FirstName, lastname: LastName, email: Email,password,username:Email }));
     dispatch(updateProfile({ address: Address, city: City, country: Country, image: Image, gender: Gender, phone: Phone }));
-    if (SuccessProfileUpdate || SuccessUserUpdate) {
-      toast.success("Profile Update Succesfull", {
-        position: toast.POSITION.TOP_CENTER,
-        className: "toast-message",
-      });
-    }
+   toast.success("Profile Update Succesfull", {
+     position: toast.POSITION.TOP_CENTER,
+     className: "toast-message",
+   });
   }
 
   
