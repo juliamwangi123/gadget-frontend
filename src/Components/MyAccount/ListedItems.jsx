@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { userPostedItemsRequest } from "../../actions/productAction";
+
 import { listedItems } from "../data";
 import ListedItemsPreview from "./ListedItemsPreview";
 import Error from "../Error";

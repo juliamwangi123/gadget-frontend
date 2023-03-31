@@ -1,7 +1,6 @@
 import React,{useEffect} from "react";
 import { useDispatch,useSelector } from "react-redux";
-import { userPostedItemsRequest } from "../../actions/productAction";
-import { deleteProduct } from "../../actions/productAction";
+import { deleteUserProduct,userPostedItemsRequest } from "../../actions/productAction";
 import { MdLocationOn } from "react-icons/md";
 import CurrencyFormat from "../../constants/CurrencyFormatter";
 import { toast } from "react-toastify";
@@ -21,7 +20,7 @@ const ListedItemsPreview = ({ item }) => {
   },[dispatch,success])
   
   const deleteItem = (productId) => {
-    dispatch(deleteProduct(productId))
+    dispatch(deleteUserProduct(productId))
    
    
     
