@@ -1,6 +1,7 @@
 import React,{useEffect} from "react";
 import { useDispatch,useSelector } from "react-redux";
-import { deleteUserProduct,userPostedItemsRequest } from "../../actions/productAction";
+import { userPostedItemsRequest } from "../../actions/productAction";
+import { deleteUserProduct } from "../../actions/deleteActions";
 import { MdLocationOn } from "react-icons/md";
 import CurrencyFormat from "../../constants/CurrencyFormatter";
 import { toast } from "react-toastify";
