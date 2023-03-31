@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { RiSearchLine } from "react-icons/ri";
+import { TOGGLE_HIDE,TOGGLE_SHOW } from "../constants/userConstants";
 import { useDispatch, useSelector } from "react-redux";
 import { Listproduct } from "../actions/productAction";
 import { useLocation,useNavigate } from "react-router-dom";
@@ -24,6 +25,13 @@ const Preview = () => {
 
   useEffect(() => {
     dispatch(Listproduct(keyword))
+    if (keyword) {
+    dispatch({ type: TOGGLE_SHOW });
+      
+    } else {
+    dispatch({ type: TOGGLE_HIDE });
+      
+    }
     
   },[dispatch,keyword])
 

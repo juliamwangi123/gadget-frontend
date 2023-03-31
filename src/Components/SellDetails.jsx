@@ -65,9 +65,7 @@ const SellDetails = () => {
 
   return (
     <div className="w-full">
-      <div className="">
-        <Navbar />
-      </div>
+     
       <div className="max-w-7xl mx-auto">
         <div className="flex px-4 flex-col md:justify-between sm:flex-row">
           <div className="">

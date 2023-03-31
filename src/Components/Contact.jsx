@@ -6,7 +6,7 @@ import Footer from "./Footer";
 const Contact = () => {
   return (
     <div>
-      <Navbar />
+     
       <div className=" px-6">
         <p className=" font-medium text-xl">
         <Link to="/" className="cursor-pointer">

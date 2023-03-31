@@ -17,7 +17,10 @@ import {
   PRODUCT_USER_POSTED_REQUEST,
   PRODUCT_USER_POSTED_SUCCESS,
   PRODUCT_USER_POSTED_FAIL,
-  PRODUCT_USER_POSTED_RESET
+  PRODUCT_USER_POSTED_RESET,
+  DELETE_PRODUCT_REQUEST,
+  DELETE_PRODUCT_SUCCESS,
+  DELETE_PRODUCT_FAIL,
 } from "../constants/productConstants";
 
 export const productListReducer = (state = { products: [] }, action) => {
@@ -84,6 +87,27 @@ export const productCreateReducer = (state = {productCreate: {}}, action) => {
       return state;
   }
 }
+
+
+export const deleteProductReducer = (state = {deleteStatus:{}}, action) => {
+  switch (action.type) {
+    case DELETE_PRODUCT_REQUEST:
+      return { loading: true };
+
+    case DELETE_PRODUCT_SUCCESS:
+      return {
+        loading: false,
+        success: true,
+        deleteStatus: action.payload
+      };
+
+    case DELETE_PRODUCT_FAIL:
+      return { loading: false, error: action.payload };
+
+    default:
+      return state;
+  }
+};
 
 
 export const addImage = (state= { assets:[]}, action) => {

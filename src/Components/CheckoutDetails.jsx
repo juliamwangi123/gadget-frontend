@@ -54,9 +54,7 @@ const CheckoutDetails = () => {
 
   return (
     <div className="w-full">
-      <div className="max-w-[1480px] mx-auto">
-        <Navbar />
-      </div>
+     
       {/* Checkout details section */}
       <div className="mt-4 max-w-7xl mx-auto">
         <div className="flex justify-center items-center text-[#666666] gap-6">

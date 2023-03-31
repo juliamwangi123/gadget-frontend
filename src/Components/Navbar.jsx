@@ -1,6 +1,7 @@
 import React, { useState,useEffect } from "react";
 import logo from "../assets/logo.png";
 import { useDispatch, useSelector } from "react-redux";
+import { TOGGLE_HIDE,TOGGLE_SHOW } from "../constants/userConstants";
 import { logoutUser } from "../actions/userActions";
 import { AiOutlineMenu, AiOutlineClose, AiOutlineDown } from "react-icons/ai";
 import { Link,useNavigate,useLocation } from "react-router-dom";
@@ -63,11 +64,16 @@ const Navbar = ({ cartCount }) => {
               <img className="w-[5.5rem] h-[4.2rem]" src={logo} alt="" />
             </Link>
             <div className="w-full">
-              <form onSubmit={searcHandler} className="relative flex items-center text-gray-500">
+              <form
+                onSubmit={searcHandler}
+                className="relative flex items-center text-gray-500"
+              >
                 <RiSearchLine className="w-5 h-5 absolute ml-3 pointer-events-none" />
                 <input
                   type="search"
                   className="w-full bg-inherit pr-3 pl-10 py-2 font-serif focus:h-12  placeholder:text-gray-500 rounded-lg border-2 border-zinc-400 focus:border-none"
+                  onFocus={() => dispatch({ type: TOGGLE_SHOW })}
+                  onBlur={() => dispatch({ type: TOGGLE_HIDE })}
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                   placeholder="Search Products,Brands and Categories "
@@ -109,7 +115,7 @@ const Navbar = ({ cartCount }) => {
                     className="flex flex-col absolute z-10 -translate-x-[30%] translate-y-3 p-6 bg-[#F9FCFF] border-2 border-white  bg-opacity-50 rounded-md shadow-2xl w-[250px] items-center"
                   >
                     {userLogin ? (
-                      <section>
+                      <section className={`${userLogin ? "" : "hidden"}`}>
                         <Menu.Item>
                           <Link
                             className="inline-flex items-center gap-6 text-[#0043C6]"

@@ -1,7 +1,7 @@
 import React,{useEffect} from "react";
 import { useDispatch,useSelector } from "react-redux";
 import { userPostedItemsRequest } from "../../actions/productAction";
-import { deleteUserProduct } from "../../actions/deleteActions";
+import { deleteUserProductRequest } from "../../actions/deleteActions";
 import { MdLocationOn } from "react-icons/md";
 import CurrencyFormat from "../../constants/CurrencyFormatter";
 import { toast } from "react-toastify";
@@ -21,11 +21,8 @@ const ListedItemsPreview = ({ item }) => {
   },[dispatch,success])
   
   const deleteItem = (productId) => {
-    dispatch(deleteUserProduct(productId))
-   
-   
-    
-
+    dispatch(deleteUserProductRequest(productId))
+  
    }
   return (
     <div className=" bg-[#F2F9FF] rounded-[10px] md:ml-56 py-4 px-2 max-w-[682px] w-full flex justify-between items-center mt-10">

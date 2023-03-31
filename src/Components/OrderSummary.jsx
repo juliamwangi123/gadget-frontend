@@ -14,27 +14,25 @@ import { PayPalButton } from "react-paypal-button-v2";
 
 
 const OrderSummary = () => {
-  const [sdk, setSdkReady] = useState(false)
+  const [sdk, setSdkReady] = useState(false);
 
   const { id } = useParams();
   const dispatch = useDispatch();
   const orderData = useSelector((state) => state.orderDetails);
   const orderpay = useSelector((state) => state.orderPay);
 
-  const { loading: loadingPay, success: successPay} = orderpay || {};
+  const { loading: loadingPay, success: successPay } = orderpay || {};
 
   const { loading, error, orderItems } = orderData;
   const options = { day: "2-digit", month: "2-digit", year: "numeric" };
 
   const { city, address, country } = orderItems?.shippingAddress || {};
 
-  const { totalPrice,isPaid,paidAt } = orderItems || {};
+  const { totalPrice, isPaid, paidAt } = orderItems || {};
 
- 
-
-  const navigate = useNavigate()
-
-  //AWfYf3BOzxWq90sCNaedRCUuMmkM3WBAjRDUdGFsKmcFC1ZS99XSM0PFYHShfcQH3aVk5MXJB-C-9fMo
+  const navigate = useNavigate();
+  //BlaoneAfrica - AVG2MMfU2JnqUxQv84KnGIxB-bIYdV8of7stGo_8XTtCvTBl7_ZXhAyxGJyyIRzdAEzA27HVlKvedDkC
+  //Blaone - AWfYf3BOzxWq90sCNaedRCUuMmkM3WBAjRDUdGFsKmcFC1ZS99XSM0PFYHShfcQH3aVk5MXJB-C-9fMo
   const paymentScript = () => {
     const script = document.createElement("script");
     script.type = "text/javascript";
@@ -42,55 +40,46 @@ const OrderSummary = () => {
       "https://www.paypal.com/sdk/js?client-id=AWfYf3BOzxWq90sCNaedRCUuMmkM3WBAjRDUdGFsKmcFC1ZS99XSM0PFYHShfcQH3aVk5MXJB-C-9fMo";
     script.async = true;
     script.onload = () => {
-      setSdkReady(true)
-    }
+      setSdkReady(true);
+    };
     document.body.appendChild(script);
-  }
- 
+  };
 
   useEffect(() => {
     if (!orderItems || successPay) {
-      dispatch({type: ORDER_PAY_RESET})
+      dispatch({ type: ORDER_PAY_RESET });
       dispatch(orderRequest(id));
     } else if (!isPaid) {
       if (!window.paypal) {
         paymentScript();
       } else {
-        setSdkReady(true)
-
+        setSdkReady(true);
       }
     }
-  }, [dispatch, id, orderItems,successPay,isPaid]);
- 
-
-  
-
+  }, [dispatch, id, orderItems, successPay, isPaid]);
 
   const successPaymentHandler = (status) => {
-    
     localStorage.removeItem("paidOrder");
-  
+
     if (status) {
       const time = status.create_time;
-      const transId = status.id; 
-      dispatch(getPaymentFeedback({
-        time, transId
-      }));
-      
+      const transId = status.id;
+      dispatch(
+        getPaymentFeedback({
+          time,
+          transId,
+        })
+      );
     }
-    dispatch(orderPay(id))
+    dispatch(orderPay(id));
     dispatch(orderRequest(id));
-     dispatch({ type: ORDER_PAY_RESET });
+    dispatch({ type: ORDER_PAY_RESET });
 
     navigate(`/payment-success/${id}`);
-
-  }
+  };
 
   return (
     <div className="w-full">
-      <div className="max-w-7xl mx-auto">
-        <Navbar />
-      </div>
       <div className="max-w-7xl mx-auto">
         <div className="flex items-center justify-center">
           {loading ? (
@@ -111,7 +100,7 @@ const OrderSummary = () => {
                   <span className="text-xl">
                     {orderItems?.isPaid ? (
                       <button className="bg-teal-500 capitalize py-1 px-6 rounded-md text-base font-serif text-teal-100">
-                        paid {""}: {paidAt.substring(0,10)}
+                        paid {""}: {paidAt.substring(0, 10)}
                       </button>
                     ) : (
                       <button className="bg-[#e3d9a5] text-[#5b3e28] capitalize py-1 px-6 rounded-md text-base font-serif">
@@ -130,11 +119,7 @@ const OrderSummary = () => {
                         className="shadow-md border rounded-md border-slate-200 flex gap-8 flex-wrap"
                       >
                         <div className="max-w-[150px] mx-auto md:mx-0 h-full max-h-[200px]">
-                          <img
-                            src={order.image}
-                            alt=""
-                            className="h-full"
-                          />
+                          <img src={order.image} alt="" className="h-full" />
                         </div>
                         <div className=" flex flex-col gap-8 my-4 pb-8 mx-4">
                           <h1 className="max-w-xl line-clamp-1 text-xl font-semibold">
@@ -229,7 +214,6 @@ const OrderSummary = () => {
                               label: "paypal",
                             }}
                             amount={totalPrice}
-               
                             onSuccess={successPaymentHandler}
                           />
                         )}

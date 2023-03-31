@@ -19,6 +19,9 @@ import {
   PRODUCT_USER_POSTED_SUCCESS,
   PRODUCT_USER_POSTED_FAIL,
   PRODUCT_USER_POSTED_RESET,
+  DELETE_PRODUCT_REQUEST,
+  DELETE_PRODUCT_SUCCESS,
+  DELETE_PRODUCT_FAIL,
 } from "../constants/productConstants";
 
 
@@ -197,3 +200,6 @@ export const userPostedItemsRequest = () => async (dispatch) => {
     });
   }
 };
+
+
+

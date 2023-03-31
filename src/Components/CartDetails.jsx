@@ -41,13 +41,11 @@ const CartDetails = () => {
 
   return (
     <div className="w-full">
-      <div className="max-w-7xl mx-auto">
-        <Navbar cartCount={cartItems.length} />
-      </div>
+     
       {/* Cart details section */}
       <div className="mt-4 max-w-7xl mx-auto">
         <section
-          className={`${cartItems.length > 0 && "hidden"} flex justify-center w-full items-center shadow-sm rounded-md pb-4 sm:pb-8 bg-slate-100`}
+          className={`${cartItems?.length !== 0 && "hidden"} flex justify-center w-full items-center shadow-sm rounded-md pb-4 sm:pb-8 bg-slate-100`}
         >
           <div className="flex flex-col justify-center items-center text-center mt-4 gap-4 sm:gap-6 ">
             <div className="bg-white rounded-full flex justify-center items-center w-full h-screen max-h-[100px] max-w-[100px]">
