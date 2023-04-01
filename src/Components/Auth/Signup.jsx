@@ -58,7 +58,7 @@ const Signup = () => {
     e.preventDefault();
    
     dispatch(registerUser(name, email, password));
-    if (success) {
+    if (!error) {
       navigate("/account/login");
        toast.success(`Welcome ${name}, log in`, {
          position: toast.POSITION.TOP_CENTER,

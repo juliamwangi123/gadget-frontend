@@ -29,7 +29,9 @@ export const Listproduct = (keyword="") => async (dispatch) => {
   
   try {
     dispatch({ type: PRODUCT_LIST_REQUEST })
-    const res = await axios.get(`http://localhost:8000/api/products${keyword}`);
+    const res = await axios.get(
+      `https://web-production-1e9c.up.railway.app/api/products${keyword}`
+    );
     dispatch({
       type: PRODUCT_LIST_SUCCESS,
       payload: res.data
@@ -52,7 +54,9 @@ export const Listproduct = (keyword="") => async (dispatch) => {
 export const productDetail = (id) => async (dispatch) => {
   try {
     dispatch({ type: PRODUCT_DETAILS_REQUEST });
-    const {data} = await axios.get(`http://localhost:8000/api/products/${id}`);
+    const { data } = await axios.get(
+      `https://web-production-1e9c.up.railway.app/api/products/${id}`
+    );
     dispatch({
       type: PRODUCT_DETAILS_SUCCESS,
       payload: data,
@@ -97,7 +101,7 @@ export const submitNewProduct = (product) => async (dispatch) => {
     };
     
     const { data } = await axios.post(
-      `http://localhost:8000/api/products/newItem/`,
+      `https://web-production-1e9c.up.railway.app/api/products/newItem/`,
       product,
       config
     );
@@ -149,7 +153,7 @@ export const userSoldItemsRequest = () => async (dispatch) => {
       },
     };
     const { data } = await axios.get(
-      `http://localhost:8000/api/products/sold/items/`,
+      `https://web-production-1e9c.up.railway.app/api/products/sold/items/`,
       config
     );
 
@@ -182,7 +186,7 @@ export const userPostedItemsRequest = () => async (dispatch) => {
       },
     };
     const { data } = await axios.get(
-      `http://localhost:8000/api/products/myitems/`,
+      `https://web-production-1e9c.up.railway.app/api/products/myitems/`,
       config
     );
 

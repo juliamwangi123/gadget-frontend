@@ -17,7 +17,7 @@ export const deleteUserProductRequest = (id) => async (dispatch) => {
       },
     };
     const { data } = await axios.delete(
-      `http://localhost:8000/api/products/delete/${id}/`,
+      `https://web-production-1e9c.up.railway.app/api/products/delete/${id}/`,
       config
     );
     dispatch({
