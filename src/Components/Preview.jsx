@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { RiSearchLine } from "react-icons/ri";
+import { TOGGLE_HIDE,TOGGLE_SHOW } from "../constants/userConstants";
 import { useDispatch, useSelector } from "react-redux";
 import { Listproduct } from "../actions/productAction";
 import { useLocation,useNavigate } from "react-router-dom";
@@ -7,7 +8,6 @@ import PreviewCard from "./PreviewCard";
 import Spinner from "./Spinner";
 import Error from "./Error";
 import Slide from "react-reveal/Slide";
-import PaginateButtons from "./PaginateButtons";
 
 
 const Preview = () => {
@@ -25,6 +25,13 @@ const Preview = () => {
 
   useEffect(() => {
     dispatch(Listproduct(keyword))
+    if (keyword) {
+    dispatch({ type: TOGGLE_SHOW });
+      
+    } else {
+    dispatch({ type: TOGGLE_HIDE });
+      
+    }
     
   },[dispatch,keyword])
 
@@ -197,8 +204,8 @@ const Preview = () => {
                   </select>
                 </div>
               </div>
-              {products.length === 0 && (
-                <div className="flex flex-col justify-center items-center text-center mt-4 gap-4 sm:gap-6">
+              {products && products?.length === 0 && (
+                <div className={`flex flex-col justify-center items-center text-center mt-4 gap-4 sm:gap-6`}>
                   <div className="bg-white rounded-full">
                     <img
                       src="https://res.cloudinary.com/seeders/image/upload/v1679752991/Blaone/binoculars.389fc56a_qszbiq.svg"

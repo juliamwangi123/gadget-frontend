@@ -1,4 +1,5 @@
-
+import { useSelector } from "react-redux";
+import { useLocation } from "react-router-dom";
 import {
   Navbar,
   Home,
@@ -34,12 +35,20 @@ import ProfileDetail from "./Components/MyAccount/ProfileDetail";
 import SecuritySettings from "./Components/MyAccount/SecuritySettings";
 import TransactionHistory from "./Components/MyAccount/TransactionHistory";
 
+import SoldItems from "./Components/MyAccount/SoldItems";
 
 
 import { Route, Routes } from "react-router-dom";
 import SavedItems from "./Components/MyAccount/SavedItems";
 
 function App() {
+  const cartData = useSelector((state) => state.cart);
+  
+  const location = useLocation()
+  const currentLocation = location.pathname
+  console.log(currentLocation);
+
+  const { cartItems } = cartData;
   return (
     <div className="">
       <ToastContainer
@@ -53,6 +62,21 @@ function App() {
         pauseOnHover
         theme="colored"
       />
+      <div
+        className={`${
+          (currentLocation == "/account/login" && "hidden") ||
+          (currentLocation == "/account/register" && "hidden") ||
+          (currentLocation == "/my-account" && "hidden") ||
+          (currentLocation == "/my-account/profile-details" && "hidden") ||
+          (currentLocation == "/my-account/security-settings" && "hidden") ||
+          (currentLocation == "/my-account/product-page" && "hidden") ||
+          (currentLocation == "/my-account/products-sold" && "hidden") ||
+          (currentLocation == "/my-account/transaction-history" && "hidden")
+        }`}
+      >
+        <Navbar cartCount={cartItems.length} />
+      </div>
+
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route path="/account/login" element={<Signin />} />
@@ -78,6 +102,7 @@ function App() {
           <Route path="profile-details" element={<ProfileDetail />} />
           <Route path="security-settings" element={<SecuritySettings />} />
           <Route path="product-page" element={<ListedItems />} />
+          <Route path="products-sold" element={<SoldItems />} />
           <Route path="transaction-history" element={<TransactionHistory />} />
           <Route path="saved-items" element={<SavedItems />} />
         </Route>

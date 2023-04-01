@@ -1,4 +1,5 @@
 import React from 'react'
+import { useSelector } from 'react-redux';
 import {
   Hero,
   Footer,
@@ -8,15 +9,16 @@ import {
   Navbar,
   Preview
 } from "./";
-const bgcolors = {
-  primary: "#F2F6FC",
-  secondary: "#FFFFFFF"
-};
+
 const Home = () => {
+  const toggleData = useSelector(state => state.toggle)
+  const { toggle} = toggleData || {};
   return (
     <div>
-      <Tailblock />
-      <Hero />
+      <div className={`${toggle && "hidden"}`}>
+        <Tailblock />
+        <Hero />
+      </div>
       <Preview />
       <Testimonials />
       <Ads />

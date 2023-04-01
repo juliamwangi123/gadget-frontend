@@ -29,10 +29,7 @@ const Transaction = () => {
   
   return (
     <section className="w-full">
-      {/* nav section */}
-      <div className="max-w-7xl mx-auto">
-        <Navbar />
-      </div>
+      
       <section className="max-w-7xl mx-auto flex justify-center w-full">
         <main className=" w-full mx-auto flex justify-center flex-col">
           <div className="flex justify-center items-center text-[#666666] gap-6">

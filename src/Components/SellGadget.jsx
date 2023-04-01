@@ -67,15 +67,15 @@ const SellGadget = () => {
   const handleNewProductSubmit = (e) => {
     e.preventDefault();
 
-    if (Image.array.length === 0) {
-      toast.error("Please Add product images", {
-        position: toast.POSITION.TOP_CENTER,
-        className: "error-message",
-      });
-    } else {
-      navigate("/product-details");
+    // if (Image.array.length === 0) {
+    //   toast.error("Please Add product images", {
+    //     position: toast.POSITION.TOP_CENTER,
+    //     className: "error-message",
+    //   });
+    // } else {
+    //   navigate("/product-details");
       
-     }
+    //  }
 
     dispatch(
       addProduct({
@@ -93,6 +93,7 @@ const SellGadget = () => {
       })
     );
 
+      navigate("/product-details");
    
     
   };
@@ -131,9 +132,7 @@ const SellGadget = () => {
 
   return (
     <div className="w-full">
-      <div className="">
-        <Navbar />
-      </div>
+      
       <form
         encType="multipart/form-data"
         onSubmit={handleNewProductSubmit}

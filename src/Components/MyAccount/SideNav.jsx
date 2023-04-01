@@ -64,7 +64,7 @@ const SideNav = () => {
             <img src="https://res.cloudinary.com/eiroro/image/upload/v1678309243/foundation_page-multiple_hpbpb9.svg" />
             <span className="ml-2 text-sm font-medium"> Product Page </span>
           </Link>
-          <Link to="product-page" className="flex items-center px-4 py-2">
+          <Link to="products-sold" className="flex items-center px-4 py-2">
             <img src="https://res.cloudinary.com/eiroro/image/upload/v1678309243/foundation_page-multiple_hpbpb9.svg" />
             <span className="ml-2 text-sm font-medium"> Sold Items</span>
           </Link>

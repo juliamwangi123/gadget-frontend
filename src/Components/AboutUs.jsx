@@ -15,7 +15,6 @@ const AboutUs = () => {
     activeTab === "Company Overview" ? "Company Overview" : "Our Mission";
   return (
     <div>
-      <Navbar />
       <div className=" px-6 pb-60">
         <p className=" font-medium text-xl">
           <Link to="/" className="cursor-pointer">

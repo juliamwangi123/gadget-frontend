@@ -6,15 +6,16 @@ import {
 } from "react-icons/md";
 
 
-const TransactionHover = () => {
+const TransactionHover = ({ item }) => {
+  const { order, orderItemNumber, createdAt, name, price, image, isPaid } =
+    item;
+  
   return (
-    <div className=" md:ml-56 p-6">
+    <div className=" md:ml-56 p-6 bg-white">
       <div className=" flex w-full max-w-[500px] rounded-lg border bg-white">
-        <img
-          className=""
-          src="https://res.cloudinary.com/eiroro/image/upload/v1678463313/1_4_1_rbwtxj.svg"
-          width={300}
-        />
+        <div className="bg-white">
+          <img className="" src={image} />
+        </div>
         <div className=" space-y-2 py-3">
           <p className=" font-bold ">
             Samsung Galaxy A53,6.5” Super AMOLED Screen, 6GB/128GB...

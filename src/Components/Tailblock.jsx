@@ -14,9 +14,7 @@ import Fade from "react-reveal/Fade";
 
 const Tailblock = () => {
   
-  const cartData = useSelector(state => state.cart)
-
-  const { cartItems } = cartData
+  
   const userdata = useSelector((state) => state.userLogin);
   const { userLogin } = userdata || {};
   
@@ -40,7 +38,6 @@ const Tailblock = () => {
   
   return (
     <section className="bg-[#F2F6FC]">
-      <Navbar cartCount={cartItems.length} />
       <div className="max-w-7xl mx-auto flex md:flex-row flex-col items-center relative">
         <Fade left>
           <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">

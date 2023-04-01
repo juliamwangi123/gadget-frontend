@@ -2,7 +2,7 @@ import React, { useState, useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 import { toast } from "react-toastify";
-
+import { USER_DETAILS_RESET, USER_REGISTER_RESET } from "../../constants/userConstants";
 import { registerUser } from "../../actions/userActions";
 import { NavLink } from "react-router-dom";
 import { MdVisibilityOff, MdVisibility } from "react-icons/md";
@@ -53,19 +53,24 @@ const Signup = () => {
      setValidPwd(PWD_REGEX.test(password));
      setValidMatch(password === matchPwd);
    }, [password, matchPwd]);
+  
+  useEffect(() => {
+    if (success) {
+      navigate("/account/login");
+      toast.success(`Welcome ${name}, log in`, {
+        position: toast.POSITION.TOP_CENTER,
+        className: "toast-message",
+      });
+
+      dispatch({type: USER_REGISTER_RESET})
+    } 
+  },[success])
    
   const userRegisterHandler = (e) => {
     e.preventDefault();
    
     dispatch(registerUser(name, email, password));
-    if (success) {
-      navigate("/account/login");
-       toast.success(`Welcome ${name}, log in`, {
-         position: toast.POSITION.TOP_CENTER,
-         className: "toast-message",
-       });
-     
-    } 
+    
     
 
   }

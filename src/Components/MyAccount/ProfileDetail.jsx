@@ -39,7 +39,7 @@ const ProfileDetail = () => {
     userUpdateData,
     loading: LoadingUserUpdate,
     error:ErrorUserUpdate,
-    success: SuccessUserUpdate,
+    success:SuccessUserUpdate,
   } = userDataupdate || {};
   
   const { userLogin } = userData || {};
@@ -49,6 +49,12 @@ const ProfileDetail = () => {
   const { username, email, firstname, lastname } = userDetails || {};
   const { gender,address, country,image,city,phone} = profileInfo || {};
   
+
+  useEffect(() => {
+     if (SuccessProfileUpdate || SuccessUserUpdate) {
+       dispatch(fetchUserDetails())
+     }
+  },[SuccessProfileUpdate,SuccessUserUpdate,dispatch])
 
   useEffect(() => {
     dispatch(getUserProfile());
@@ -80,12 +86,10 @@ const ProfileDetail = () => {
     e.preventDefault();
     dispatch(updateUser({ firstname: FirstName, lastname: LastName, email: Email,password,username:Email }));
     dispatch(updateProfile({ address: Address, city: City, country: Country, image: Image, gender: Gender, phone: Phone }));
-    if (SuccessProfileUpdate || SuccessUserUpdate) {
-      toast.success("Profile Update Succesfull", {
-        position: toast.POSITION.TOP_CENTER,
-        className: "toast-message",
-      });
-    }
+   toast.success("Profile Update Succesfull", {
+     position: toast.POSITION.TOP_CENTER,
+     className: "toast-message",
+   });
   }
 
   
@@ -110,7 +114,7 @@ const ProfileDetail = () => {
             value={FirstName}
             onChange={(e) => setFirstname(e.target.value)}
             name="firstname"
-            placeholder="Daniel Dada"
+            placeholder="Firstname"
           />
           <input
             className=" rounded-[10px] bg-transparent border border-[#0000001A] text-sm p-4 w-full mb-4 "
@@ -118,7 +122,7 @@ const ProfileDetail = () => {
             value={LastName}
             onChange={(e) => setLastname(e.target.value)}
             name="lastname"
-            placeholder=" Dada"
+            placeholder="lastname"
           />
           <input
             className=" rounded-[10px] bg-transparent border border-[#0000001A] text-sm p-4 w-full mb-4 "

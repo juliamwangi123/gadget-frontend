@@ -33,11 +33,14 @@ const totalPrice = cartItems.reduce(
   0
 );
   
-  function generateOrderNumber() {
-    const timestamp = new Date().getTime();
-    const random = Math.floor(Math.random() * 100000);
-    return `#${timestamp}${random}`;
-  }
+function generateOrderNumber() {
+  const timestamp = new Date().getTime().toString();
+  const random = Math.floor(Math.random() * 100000000)
+    .toString()
+    .substring(0, 4);
+  return timestamp.substring(timestamp.length - 4) + random;
+}
+
   const navigate = useNavigate()
   useEffect(() => {
     if (success) {
@@ -84,9 +87,7 @@ const totalPrice = cartItems.reduce(
   return (
     <section className="w-full">
       {/* nav section */}
-      <div className="max-w-7xl mx-auto">
-        <Navbar />
-      </div>
+      
       <section className="max-w-7xl mx-auto flex justify-center w-full">
         <main className=" w-full mx-auto">
           <div className="flex justify-center items-center text-[#666666] gap-6">

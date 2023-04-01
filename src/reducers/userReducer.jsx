@@ -2,15 +2,11 @@ import {
   USER_LOGIN_REQUEST,
   USER_LOGIN_SUCCESS,
   USER_LOGIN_FAIL,
-
-
-
   USER_LOGOUT,
-  
-
   USER_REGISTER_REQUEST,
   USER_REGISTER_SUCCESS,
   USER_REGISTER_FAIL,
+  USER_REGISTER_RESET,
   USER_PROFILE_REQUEST,
   USER_PROFILE_SUCCESS,
   USER_PROFILE_FAIL,
@@ -19,19 +15,16 @@ import {
   USER_DETAILS_FAIL,
   USER_DETAILS_RESET,
   USER_PROFILE_RESET,
-
   USER_PROFILE_UPDATE_REQUEST,
   USER_PROFILE_UPDATE_SUCCESS,
   USER_PROFILE_UPDATE_FAIL,
   USER_PROFILE_UPDATE_RESET,
-
-
   USER_UPDATE_REQUEST,
   USER_UPDATE_SUCCESS,
   USER_UPDATE_FAIL,
-  USER_UPDATE_RESET
-
-  
+  USER_UPDATE_RESET,
+  TOGGLE_HIDE,
+  TOGGLE_SHOW,
 } from "../constants/userConstants";
 
 export const userReducer = (state = { userLogin: {},loggedUser: {} }, action) => {
@@ -83,7 +76,11 @@ export const userRegisterReducer  = (
 
     case USER_REGISTER_FAIL:
       return { loading: false, success: false, error: action.payload };
+    
+    case USER_REGISTER_RESET:
 
+      return {}
+    
     default:
       return state;
   }
@@ -201,4 +198,19 @@ export const userProfileUpdateReducer = (state = { profileUpdate: {} }, action) 
   }
 };
 
+export const toggleShowHide = (state = { toggle: false },action) => { 
+  switch (action.type) {
+    case TOGGLE_SHOW:
+      return {
+        toggle: true,
+      };
+    case TOGGLE_HIDE:
+      return {
+        toggle: false,
+      };
 
+    default:
+      return state;
+  }
+
+}

@@ -25,8 +25,12 @@ import {
   USER_UPDATE_FAIL,
   USER_PROFILE_UPDATE_RESET,
   USER_UPDATE_RESET,
-
+  
 } from "../constants/userConstants";
+
+import { USER_ORDER_ITEMS_RESET } from "../constants/orderConstants";
+import { PRODUCT_SOLD_RESET } from "../constants/productConstants";
+import { PRODUCT_USER_POSTED_RESET } from "../constants/productConstants";
 
 
 export const loginUser = (email, password) => async (dispatch, getState) => {
@@ -44,7 +48,7 @@ export const loginUser = (email, password) => async (dispatch, getState) => {
             password: password
         }
         const { data } = await axios.post(
-          `http://localhost:8000/api/users/login/`,
+          `https://web-production-1e9c.up.railway.app/api/users/login/`,
           userData,
           config
         );
@@ -71,11 +75,18 @@ export const loginUser = (email, password) => async (dispatch, getState) => {
 export const logoutUser = () => async (dispatch) => {
   localStorage.removeItem('access');
   localStorage.removeItem("loggedUser");
+  localStorage.removeItem("cartItems");
   dispatch({ type: USER_LOGOUT });
   dispatch({ type: USER_DETAILS_RESET });
   dispatch({ type: USER_PROFILE_RESET });
   dispatch({ type: USER_UPDATE_RESET });
   dispatch({type: USER_PROFILE_UPDATE_RESET})
+  dispatch({ type: USER_ORDER_ITEMS_RESET });
+  dispatch({ type: PRODUCT_SOLD_RESET });
+
+  dispatch({ type: PRODUCT_USER_POSTED_RESET });
+
+
     
 }
 
@@ -97,7 +108,7 @@ export const registerUser = (name,email,password) => async (dispatch) => {
     };
 
     const { data } = await axios.post(
-      `http://localhost:8000/api/users/register/`,
+      `https://web-production-1e9c.up.railway.app/api/users/register/`,
       userData,
       config
     );
@@ -134,7 +145,7 @@ export const fetchUserDetails = () => async (dispatch) => {
     };
 
     const { data } = await axios.get(
-      `http://localhost:8000/api/users/profile/`,
+      `https://web-production-1e9c.up.railway.app/api/users/profile/`,
       config
     );
 
@@ -170,7 +181,7 @@ export const updateUser = (update) => async (dispatch) => {
     };
 
     const { data } = await axios.put(
-      `http://localhost:8000/api/users/profile/update/`,
+      `https://web-production-1e9c.up.railway.app/api/users/profile/update/`,
      update,
       config
     );
@@ -204,7 +215,7 @@ export const updateProfile = (profile) => async (dispatch) => {
     };
 
     const { data } = await axios.put(
-      `http://localhost:8000/api/users/info/update/`,
+      `https://web-production-1e9c.up.railway.app/api/users/info/update/`,
       profile,
       config
     );
@@ -241,7 +252,7 @@ export const getUserProfile = () => async (dispatch) => {
 
   
     const { data } = await axios.get(
-      `http://localhost:8000/api/users/info/`,
+      `https://web-production-1e9c.up.railway.app/api/users/info/`,
       config
     );
 

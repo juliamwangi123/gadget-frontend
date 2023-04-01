@@ -19,20 +19,20 @@ const SlideShow = () => {
       <Carousel {...settings}>
         <Wrap>
           <img
-            src="https://res.cloudinary.com/dq4fj9ops/image/upload/v1677925956/tv_m0ac8n.png"
+            src="https://res.cloudinary.com/seeders/image/upload/v1677925956/tv_m0ac8n.png"
             alt=""
           />
         </Wrap>
         <Wrap>
           <img
-            src="https://res.cloudinary.com/dq4fj9ops/image/upload/v1677925956/headset_hhg3wy.png"
+            src="https://res.cloudinary.com/seeders/image/upload/v1677925956/headset_hhg3wy.png"
             alt=""
           />
         </Wrap>
-        
+
         <Wrap>
           <img
-            src="https://res.cloudinary.com/dq4fj9ops/image/upload/v1677925956/laptop_b2bnnv.png"
+            src="https://res.cloudinary.com/seeders/image/upload/v1677925956/laptop_b2bnnv.png"
             alt=""
           />
         </Wrap>
