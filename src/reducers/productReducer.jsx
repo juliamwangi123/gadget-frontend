@@ -21,6 +21,7 @@ import {
   DELETE_PRODUCT_REQUEST,
   DELETE_PRODUCT_SUCCESS,
   DELETE_PRODUCT_FAIL,
+  DELETE_PRODUCT_RESET
 } from "../constants/productConstants";
 
 export const productListReducer = (state = { products: [] }, action) => {
@@ -98,12 +99,15 @@ export const deleteProductReducer = (state = {deleteStatus:{}}, action) => {
       return {
         loading: false,
         success: true,
-        deleteStatus: action.payload
+        deleteStatus: action.payload,
       };
 
     case DELETE_PRODUCT_FAIL:
       return { loading: false, error: action.payload };
-
+    
+    case DELETE_PRODUCT_RESET:
+      return {};
+    
     default:
       return state;
   }

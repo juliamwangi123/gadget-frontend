@@ -1,5 +1,6 @@
 import React,{useEffect} from "react";
-import { useDispatch,useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { DELETE_PRODUCT_RESET } from "../../constants/productConstants";
 import { userPostedItemsRequest } from "../../actions/productAction";
 import { deleteUserProductRequest } from "../../actions/deleteActions";
 import { MdLocationOn } from "react-icons/md";
@@ -15,6 +16,7 @@ const ListedItemsPreview = ({ item }) => {
   useEffect(() => {
     if (success) {
       dispatch(userPostedItemsRequest());
+      dispatch({type: DELETE_PRODUCT_RESET})
       
      }
     
