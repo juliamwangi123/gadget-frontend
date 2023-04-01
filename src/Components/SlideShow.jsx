@@ -25,7 +25,7 @@ const SlideShow = () => {
         </Wrap>
         <Wrap>
           <img
-            src="https://res.cloudinary.com/dq4fj9ops/image/upload/v1677925956/headset_hhg3wy.png"
+            src="https://res.cloudinary.com/seeders/image/upload/v1677925956/headset_hhg3wy.png"
             alt=""
           />
         </Wrap>
