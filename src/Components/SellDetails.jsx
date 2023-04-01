@@ -1,5 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
+import { PRODUCT_IMAGE_RESET } from '../constants/productConstants';
 import { Listproduct } from '../actions/productAction';
 import CurrencyFormat from "../constants/CurrencyFormatter";
 import {
@@ -55,10 +56,13 @@ const SellDetails = () => {
         itemVisibility: productItemVisibilty,
         price: productPrice,
       })
+
     );
-    if (success && !loading) {
+
+    if (success) {
       dispatch(removeNewProductFromState())
       dispatch(Listproduct())
+      dispatch({type: PRODUCT_IMAGE_RESET})
       navigate("/products-page");
     }
    }

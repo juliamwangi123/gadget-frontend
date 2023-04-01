@@ -10,6 +10,7 @@ import {
   PRODUCT_CREATE_FAIL,
   PRODUCT_CREATE_RESET,
   PRODUCT_IMAGE,
+  PRODUCT_IMAGE_RESET,
   PRODUCT_SOLD_REQUEST,
   PRODUCT_SOLD_SUCCESS,
   PRODUCT_SOLD_FAIL,
@@ -120,6 +121,10 @@ export const addImage = (state= { assets:[]}, action) => {
         ...state,
         assets: [...state.assets, action.payload],
       };
+
+    case PRODUCT_IMAGE_RESET:
+      return {};
+    
     default:
       return state;
   }
