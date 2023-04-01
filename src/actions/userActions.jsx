@@ -75,6 +75,7 @@ export const loginUser = (email, password) => async (dispatch, getState) => {
 export const logoutUser = () => async (dispatch) => {
   localStorage.removeItem('access');
   localStorage.removeItem("loggedUser");
+  localStorage.removeItem("cartItems");
   dispatch({ type: USER_LOGOUT });
   dispatch({ type: USER_DETAILS_RESET });
   dispatch({ type: USER_PROFILE_RESET });
