@@ -5,7 +5,7 @@ import { CART_ADD_ITEM,CART_REMOVE_ITEM, SHIPPING_DETAILS,PAYMENT_METHOD } from 
 
 export const addToCart = (id) => async(dispatch,getState)=> {
     const { data } = await axios.get(
-      `https://web-production-1e9c.up.railway.app/api/products/${id}`
+      `https://web-production-a55a3.up.railway.app/api/products/${id}`
     );
     
     dispatch({

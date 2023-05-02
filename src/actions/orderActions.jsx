@@ -33,7 +33,7 @@ export const placeOrder = (order) => async (dispatch, getState) => {
       },
     };
     const { data } = await axios.post(
-      `https://web-production-1e9c.up.railway.app/api/orders/add/order/`,
+      `https://web-production-a55a3.up.railway.app/api/orders/add/order/`,
       order,
       config
     );
@@ -74,7 +74,7 @@ export const orderRequest = (id) => async (dispatch, getState) => {
       },
     };
     const { data } = await axios.get(
-      `https://web-production-1e9c.up.railway.app/api/orders/${id}/`,
+      `https://web-production-a55a3.up.railway.app/api/orders/${id}/`,
       config
     );
     
@@ -112,7 +112,7 @@ export const orderPay = (id) => async (dispatch, getState) => {
       },
     };
     const { data } = await axios.put(
-      `https://web-production-1e9c.up.railway.app/api/orders/${id}/pay/`,
+      `https://web-production-a55a3.up.railway.app/api/orders/${id}/pay/`,
      token,
       config
     );
@@ -155,7 +155,7 @@ export const userOrderItemsRequest = () => async (dispatch) => {
       },
     };
     const { data } = await axios.get(
-      `https://web-production-1e9c.up.railway.app/api/orders/myorder/items/`,
+      `https://web-production-a55a3.up.railway.app/api/orders/myorder/items/`,
       config
     );
 

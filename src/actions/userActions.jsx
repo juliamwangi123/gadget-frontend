@@ -48,7 +48,7 @@ export const loginUser = (email, password) => async (dispatch, getState) => {
             password: password
         }
         const { data } = await axios.post(
-          `https://web-production-1e9c.up.railway.app/api/users/login/`,
+          `https://web-production-a55a3.up.railway.app/api/users/login/`,
           userData,
           config
         );
@@ -108,7 +108,7 @@ export const registerUser = (name,email,password) => async (dispatch) => {
     };
 
     const { data } = await axios.post(
-      `https://web-production-1e9c.up.railway.app/api/users/register/`,
+      `https://web-production-a55a3.up.railway.app/api/users/register/`,
       userData,
       config
     );
@@ -145,7 +145,7 @@ export const fetchUserDetails = () => async (dispatch) => {
     };
 
     const { data } = await axios.get(
-      `https://web-production-1e9c.up.railway.app/api/users/profile/`,
+      `https://web-production-a55a3.up.railway.app/api/users/profile/`,
       config
     );
 
@@ -181,7 +181,7 @@ export const updateUser = (update) => async (dispatch) => {
     };
 
     const { data } = await axios.put(
-      `https://web-production-1e9c.up.railway.app/api/users/profile/update/`,
+      `https://web-production-a55a3.up.railway.app/api/users/profile/update/`,
      update,
       config
     );
@@ -215,7 +215,7 @@ export const updateProfile = (profile) => async (dispatch) => {
     };
 
     const { data } = await axios.put(
-      `https://web-production-1e9c.up.railway.app/api/users/info/update/`,
+      `https://web-production-a55a3.up.railway.app/api/users/info/update/`,
       profile,
       config
     );
@@ -252,7 +252,7 @@ export const getUserProfile = () => async (dispatch) => {
 
   
     const { data } = await axios.get(
-      `https://web-production-1e9c.up.railway.app/api/users/info/`,
+      `https://web-production-a55a3.up.railway.app/api/users/info/`,
       config
     );
 
